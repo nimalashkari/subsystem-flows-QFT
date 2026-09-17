@@ -94,7 +94,7 @@
 \begin{document}
 
 % Title
-\title{Subsystem flows, Ergodic theory and QFT}
+\title{Subsystem flows in Many-body Ergodic theory and QFT}
 
 \author{Yidong Chen$^1$,}
 \affiliation{$^1$Department of Mathematics, University of Illinois at Urbana-Champaign, Illinois, IL 61801, USA}
@@ -1235,7 +1235,7 @@ Thus $\Phi_t^\rho$ is precisely this Poisson modular flow; its action on observa
 
 The construction uses the Poisson structure in an essential way. It is distinct from the multiplication group $U_t^\rho$ introduced above and from the trivial modular automorphism group of the abelian von Neumann algebra. It also supplies no automatic ergodic or entropy-production property. A nonconstant $\rho$ is itself a conserved observable, so the flow cannot be ergodic on the full probability space. Questions about ergodicity and mixing must be posed on invariant sectors with suitable invariant measures. The comparison of full and coarse state Hamiltonians, however, is meaningful without assuming ergodicity.
 
-\subsection{Subsystem flows in Hamiltonian systems}
+\subsection{Subsystem flows in many-body systems}
 \label{subsec:classical-subalgebra-Hamiltonian}
 
 A coarse description determines a reduced state and hence, when the coarse space is Poisson, its own state-generated dynamics. We can then ask whether the reduced dynamics agrees with what the full dynamics does to the observed variables. Comparing the two motions gives a classical model of the subalgebra flows studied in this paper. The comparison separates evolution already visible within the retained algebra from evolution involving the discarded variables.
@@ -1590,14 +1590,16 @@ It is the $z=i/2$ case. It is the canonical endomorphism. It is the Petz map in 
 
 \subsection{Future algebras, Modular Inclusions and Intersections}
 
-\subsection{Geometry from a net of coarse-grainings}
+\subsection{Geometry from a net of subsystems}
+
+\NL{Araki-Woods lattice system} as an example of QECC: correspondence between the states of the relative commutant and the conditional algebra.
 
 
 
 
 \section{Geometric subregion flows: wedges in QFTs and balls in CFTs}
 
-When there is geometry, there is a net of inclusions (coarse-grainings). We call such inclusions {\it geometric inclusions}. In the special case of inclusion of wedges in vacuum QFT, and the inclusion of balls in vacuum CFT, the flow associated with a geometric inclusion acts geometrically. However, in more general states of QFTs, or for more general geometric inclusions the flow is non-local and non-geometric. Hence, we refer to it as {\it characteristic flows}.
+When there is geometry, there is a net of inclusions (coarse-grainings). We call such inclusions {\it geometric inclusions}. In the special case of inclusion of wedges in vacuum QFT, and the inclusion of balls in vacuum CFT, the flow associated with a geometric inclusion acts geometrically. However, in more general states of QFTs, or for more general geometric inclusions, the flow is non-local and non-geometric. Hence, we refer to it as {\it characteristic flows}.
 
 \subsection{Characteristic operators for inclusion of wedges and balls}
 
@@ -4357,6 +4359,21 @@ In addition, as $\sigma \rightarrow 0$, the upper bound of $c_{f_{\sigma, \mu}}$
     \end{split}
 \end{align}
 where $C_1,C_2,C_3, C_4 > 0$ are positive constants that depend on $\mu$. The right hand side as a well-defined limit as $\sigma\rightarrow 0^+$ and the limit is $0$ (uniformly in $s$).
+
+
+\subsection{Example in 1+1d CFT}
+We consider the setup in a 1+1d CFT with $R = e^{2\pi s}$ and compute an asymptotic upper bound of $||\int_\mathbb{R} dt f(t)(\Delta_{B_R}^{-it} - \Delta_{W_0}^{-it})A\ket{\Omega}||^2$ with $f(t)$ the normalized Gaussian distribution. For simplicity, We choose $A = O(g) = \int dtdx \;g(t,x) O(t,x)$ with a well-behave smearing function $g(t,x)$ sported in $B_1$. From the expression in section \ref{}, we have 
+\begin{gather}
+    \Delta_{B_R}^{-it} O(g) \Delta_{B_R}^{it} = O(\tilde{g}),\\
+    \tilde{g}(X) = \left|\text{det}\frac{d\alpha_{B_R}^{-t}(X)}{dX}\right|\gamma^{2h}(\alpha_{B_R}^{-t}(X)) g(\alpha_{B_R}^{-t}(X)),
+\end{gather}
+where we collectively denote $(t,x)$ as $X$ and $\alpha_{B_R}^{t}$ is the geometric action of $\text{Ad} \Delta_{B_R}^{-it}$.
+\begin{gather}
+    t_c = 0, \qquad x_c = r = R\\
+    d^2 = -t^2 +(x-R)^2 = -t^2 + (x-1)^2 +(R-1)^2 - 2(x-1)(R-1)
+\end{gather}
+
+
 \section{Anosov Cocycle Derivative and Borchers Characteristic Function of Standard Subspaces}\label{app:classicalborchers}
 
 
