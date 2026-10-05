@@ -118,7 +118,7 @@
 
 \maketitle
 
-% Main text
+\NL{To do: 1) Merge appendix E with the end of section 2; 3) Change the title and content of Appendix C to the mathematical background for Section 5.}
 
 \section{Introduction}
 
@@ -155,15 +155,21 @@ Standard+ ergodic (cyclic-separating)
 \section{Subalgebra flows in quantum ergodic theory}\label{section:basics}
 \label{subsec:quantum-coarse}
 
-The observables of a physical system form a von Neumann algebra. If there are no classical observables (that commute with all observables) this algebra is a factor (has trivial center). For a finite quantum system, such factors are $d\times d$ complex matrices. Modular theory associates to every state a dynamical flow called modular flow $\alpha_{\omega;t}(a)=\Delta_{\omega,A}^{it}a\Delta_{\omega,A}^{-it}$ that in the case of matrix algebras is simply $\alpha_{\omega,t}(a)=\omega^{it} a\omega^{-it}$, where $\omega$ is a density matrix. 
+The observables of a physical system form a von Neumann algebra. If there are no classical observables (those that commute with all observables) this algebra is a factor; it has a trivial center. For a finite quantum system, such factors are $d\times d$ complex matrices. Infinite-dimensional factors are classified as type $I_\infty$, type $II_1$, type $II_\infty$, and type $III$ factors. 
+
+Modular theory associates to every state a dynamical flow called modular flow $\sigma_{\omega;t}(a)=\Delta_{\omega,A}^{it}a\Delta_{\omega,A}^{-it}$ that in the case of matrix algebras is simply $\alpha_{\omega,t}(a)=\omega^{it} a\omega^{-it}$, where $\omega$ is a density matrix. 
+
+Ergodic dynamics can only occur in type $II$ and $III$ algebras \cite{}. In this work, we are primarily concerned with ergodic properties of modular dynamics. In particular, we consider a von Neumann factor with the exotic property that the modular flow of every state is ergodic. Such an algebra is type $III_1$ \cite{}.
 
 A composite system is then the tensor product of two such matrix algebras $\mA_B\otimes \mA_R=\mA_A$. Then, a subsystem is a von Neumann subfactor $\mA_B\subset \mA_A$. In this section, motivated by quantum ergodic theory for modular dynamics, we define the {\it subsystem flow}
 \begin{align}
-    \alpha_{\omega_A;t}\circ \alpha_{\omega_B;-t}(a)=\Delta_{\omega;A}^{it}\Delta_{\omega;B}^{-it}a\Delta_{\omega;B}^{it}\Delta_{\omega;A}^{-it}\ .
+    \sigma_{\omega_A;t}\circ \sigma_{\omega_B;-t}(a)=\Delta_{\omega;A}^{it}\Delta_{\omega;B}^{-it}a\Delta_{\omega;B}^{it}\Delta_{\omega;A}^{-it}\ .
 \end{align}
 We comment on its interpretation in modular ergodic theory, and it is natural to require chaotic dynamics to be ergodic as in (\ref{}) and the generating property in (\ref{}). This naturally lands us in the world of inclusion of type III$_1$ algebras with common cyclic and separating states, as realized in subregion algebras of QFT. 
 
-For completeness of presentation, and to further the intuition about the role of subsystem flows in classical ergodic theory, we have included a review of the relevant concepts in Appendix \ref{}.
+
+
+For completeness of presentation, and to further the intuition about the role of subsystem flows in classical ergodic theory, we have included a review of the relevant concepts in Appendix \ref{app:classical}.
 
 % The structures of Section~2 have direct quantum counterparts obtained by replacing the
 % commutative algebra $L^{\infty}(X,\Sigma,\mu)$ with a non-commutative von Neumann
@@ -174,7 +180,7 @@ For completeness of presentation, and to further the intuition about the role of
 
 % -------------------------------------------------------------------
 
-\subsection{Review of quantum dynamical system}
+\subsection{Review of quantum dynamical systems}
 
 In this subsection, we review and fix our notation. Readers familiar with standard definitions can skip this subsection.
 
@@ -191,8 +197,8 @@ A von Neumann algebra $\mathcal{A}$ is a \emph{factor} if its center
 $\mathcal{Z}(\mathcal{A}) = \mathcal{A}\cap\mathcal{A}'$ consists only of scalar multiples
 of the identity, where $\mathcal{A}' = \{b\in B(\mathcal{H}) : [b,a]=0\text{ for all }a\in\mathcal{A}\}$
 is the commutant.  Physically, a factor algebra describes a system with no classical
-superselection sectors \footnote{As we review in Appendix \ref{}, in classical physics, the commutator is replaced by the Poisson bracket and the commutant $\mathcal{A}'$ is the quantum analog of the Poisson
-centralizer introduced in Subsection \ref{}, it consists of all observables invisible to $\mathcal{A}$.}.
+superselection sectors \footnote{As we review in Appendix \ref{app:classical}, in classical physics, the commutator is replaced by the Poisson bracket and the commutant $\mathcal{A}'$ is the quantum analog of the Poisson
+centralizer introduced in Appendix \ref{app:classical}. It consists of all observables invisible to $\mathcal{A}$. The classical analog of a factor is a non-degenerate Poisson bracket that restricts to a symplectic leaf.}.
 
 % -------------------------------------------------------------------
 \paragraph{Quantum states:}
@@ -214,7 +220,7 @@ every normal state is absolutely continuous with respect to a faithful tracial s
 direct analogy with $\nu\ll\mu$ in the classical setting.  Not every von Neumann algebra
 admits a faithful tracial state; those that do are called \emph{finite} von Neumann algebras.
 In the infinite-dimensional algebras relevant to quantum field theory, one works instead with
-faithful normal states or, more generally, faithful normal semifinite weights.
+faithful normal states.
 
 % -------------------------------------------------------------------
 \paragraph{GNS Hilbert space and modular operators.}
@@ -248,25 +254,14 @@ $\mathcal{A}$:
 \end{equation}
 This is the \emph{modular flow} (or \emph{modular automorphism group}) of $\varphi$. 
 
-The modular operator $\Delta_\varphi$ and $J_\varphi$ have no direct counterparts in classical dynamics. They are genuinely quantum objects encoding the non-commutativity of $\mathcal{A}$. However, in Appendix \ref{}, we argue that modular flow can be interpreted as a quantum generalization of {\it Poisson flow}. This will allow us to define 
-
-\NL{HERE}
-
-a
-
-
-
-
-It is the quantum analog of the classical state-Hamiltonian flow $\alpha_t^\rho$ generated
-by $K_\rho=-\log\rho$ introduced in~\eqref{eq:classical-modular-flow}.
-The state $\varphi$ is invariant under its own modular flow:
+The modular operator $\Delta_\varphi$ and $J_\varphi$ have no direct counterparts in classical dynamics. They are genuinely quantum objects encoding the non-commutativity of $\mathcal{A}$. However, in Appendix \ref{app:classical}, we argue that modular flow can be interpreted as a quantum generalization of {\it Poisson flow}. The intuition is that the GNS Hilbert space associates observables with states, and the modular flow associates a flow with a state generated by the modular Hamiltonian $K_\rho=-\log\rho$. In classical physics, the Radon-Nikodym derivative plays the role of $\rho$, and the Poisson bracket with $-\log\rho$ generates a flow $\alpha_t^\rho$ associated to every state; see Appendix \ref{app:classical}. The state $\varphi$ is invariant under its own modular flow:
 $\varphi\circ\sigma_t^\varphi = \varphi$ for all $t\in\mathbb{R}$, in direct analogy
 with the classical fact that $\omega_\rho$ is preserved by $\alpha_t^\rho$.
 
-The modular operator $\Delta_\varphi$ and $J_\varphi$ have no direct counterparts in classical dynamics. In Appendix \ref{}, we argue that 
+% The modular operator $\Delta_\varphi$ and $J_\varphi$ have no direct counterparts in classical dynamics. In Appendix \ref{}, we argue that 
 
-a
-genuinely quantum object encoding the non-commutativity of $\mathcal{A}$.
+% a
+% genuinely quantum object encoding the non-commutativity of $\mathcal{A}$.
 
 
 The modular flow satisfies the \emph{KMS condition} at inverse temperature $\beta=-1$:
@@ -287,10 +282,12 @@ bracket.  Indeed, differentiating~\eqref{eq:KMS-function} and setting $t=0$ reco
 where $\delta_\varphi(b)=[\log\Delta_\varphi,b]$ is the derivation generating $\sigma^\varphi$.
 In the abelian case, $[a,b]=0$ and this becomes $0=\varphi(a\{b,\log\rho\})$, matching~\eqref{eq:KMSclassical}.
 
-Crucially, Takesaki's theorem characterises the modular flow as the \emph{unique} $\sigma$-weakly
-continuous one-parameter automorphism group of $\mathcal{A}$ for which $\varphi$ is KMS at
-$\beta=-1$.  This uniqueness has no classical analog: in the abelian case any Hamiltonian flow
-that preserves $\varphi$ is KMS, so the Poisson structure is needed to single out one.
+In this work, we consider dynamics that include the modular flow of arbitrary states. This is the quantum analog of specializing to arbitrary Hamiltonian dynamics.
+
+% Crucially, Takesaki's theorem characterises the modular flow as the \emph{unique} $\sigma$-weakly
+% continuous one-parameter automorphism group of $\mathcal{A}$ for which $\varphi$ is KMS at
+% $\beta=-1$.  This uniqueness has no classical analog: in the abelian case any Hamiltonian flow
+% that preserves $\varphi$ is KMS, so the Poisson structure is needed to single out one.
 
 
 \paragraph{Ergodicity in modular dynamics:}
@@ -299,21 +296,20 @@ When the algebra $\mA$ has a non-trivial center $Z\subset \mA$, then this center
 \begin{align}
     \forall z\in Z,\forall t,\omega:\qquad \Delta_{\omega}^{it}z \Delta_\omega^{-it}=z
 \end{align}
-This means that these observables are conserved charges, and an obstruction to ergodicity in modular dynamics. That is why, in the study of quantum ergodic theory, it is natural to restrict to algebras with trivial center; i.e., factors.
+This means that these observables are conserved charges, and an obstruction to ergodicity in modular dynamics of arbitrary states. That is why, in quantum ergodic theory, it is natural to restrict to algebras with trivial center, i.e., factors.
 
 Given a fixed modular, the condition of ergodicity translates to a trivial centralizer:
 \begin{align}
     \mA^\omega\equiv \{a\in \mA:\Delta_{\omega;A}^{it}a\Delta_{\omega;A}^{-it}=a\qquad \forall t\}=\mathbb{C} 1
 \end{align}
-This will only occur in type III$_1$ algebras.
-
+This will only occur in type III$_1$ algebras, as required by {\it strong mixing} in modular dynamics \cite{}. However, not every state of type a III$_1$ algebra has this property. As an example, consider the states of Araki-Powers: a countably infinite set of 3-level quantum systmes in the state $\otimes_{n\in\mathbb{N}}\rho_n$. If the density martix of each site $\rho=p_1\ket{1}\bra{1}+p_2\ket{2}\bra{2}+(1-p_1-p_2)\ket{3}\bra{3}$ with $p_1/p_2$ irrational, the algebra the resulting algebra is type III$_1$; however, the eigenstates $\ket{i}\bra{i}_n$ are in the centralizer of the algebra.
 
 
 \paragraph{}
 
 % -------------------------------------------------------------------
 
-\subsection{Subspace and Subsystem Quantum Coarse-Grainings}
+\subsection{Subsystem quantum coarse-grainings}
 \label{subsec:quantum-coarse}
 
 
@@ -327,18 +323,37 @@ $\mathcal{B}$-bimodular map satisfying
   \label{eq:CE-bimodular}
 \end{equation}
 This is the quantum analog of the classical conditional expectation
-$\mE_{\mathcal{B}}(f) = \mathbb{E}_\mu[f|\Sigma_0]$ introduced in~\eqref{eq:CE-classical}.
-On the GNS Hilbert space, $E_{\mathcal{B}}$ extends to an orthogonal projection
-$e_{\mathcal{B}}:\mathcal{H}_\varphi\to\overline{\mathcal{B}|\Omega\rangle}$, the Jones
-projection associated to the inclusion $\mathcal{B}\subset\mathcal{A}$.
+$\mE_{\mathcal{B}}(f) = \mathbb{E}_\mu[f|\Sigma_0]$ we review  in Appendix \ref{app:classical}.
+On the GNS Hilbert space, $\mE_{\mathcal{B}}$ extends to an orthogonal projection
+$e_{\mathcal{B}}:\mathcal{H}_\varphi\to\overline{\mathcal{B}|\Omega\rangle}$, the {\it Jones
+projection} associated to the inclusion $\mathcal{B}\subset\mathcal{A}$. It is the operator representative of the superoperator $\mE_\mB$ in the GNS Hilbert space. 
 
-\paragraph{Reducible dynamics:} Given a general dynamical evolution, $\alpha:G\to \mA$, we say an inclusion $\mB\to \mA$ is reducible if 
+\paragraph{Entropy of a coarse-graining.}
+Given a faithful normal state $\varphi$ on $\mathcal{A}$, a von Neumann subalgebra
+$\mathcal{B}\subseteq\mathcal{A}$, and a $\varphi$-preserving conditional expectation
+$E:\mathcal{A}\to\mathcal{B}$, the coarse-grained state is
+$\varphi_0 = \varphi\circ \mE$, and the \emph{quantum relative entropy} of $\varphi$ with
+respect to $\varphi_0$ is
+\begin{equation}
+  S(\varphi\|\varphi_0) = \langle\Omega|\log\Delta_{\varphi|\varphi_0;\mathcal{A}} |\Omega\rangle=i\frac{d}{dt}\braket{\Omega|\Delta_{\varphi|\varphi_0}^{it}\Omega}\Big|_{t=0},
+  \label{eq:relative-entropy}
+\end{equation}
+where $\Delta_{\varphi|\varphi_0;\mathcal{A}}$ is the relative modular operator of $\varphi$ and $\varphi_0$ on $\mathcal{A}$:
 \begin{align}
-    \forall g\in G,b\in\mB:\qquad \alpha_g(b)\in \mB\ . 
+  &S_{\varphi|\varphi_0;A}a\ket{\Omega}=a^*\ket{\Omega_0},\qquad \Delta_{\varphi|\varphi_0;A}=S^\dagger_{\phi|\phi_0;A}S_{\phi|\phi_0;A}\nn\\
+  &\langle a\Omega|\Delta_{\varphi|\varphi_0}|b\Omega\rangle = \varphi_0(b^*a),
+  \qquad a,b\in\mathcal{A},
+  \label{eq:relative-modular}
 \end{align}
-Then, the dynamics can be {\it reduced} to $\mB$. In dynamical systems, this is sometimes called {\it autonomous dynamics}, as well.
-
-\paragraph{Irreducible dynamics:} Given a general dynamical system, we say it is irreducible if there is no non-trivial proper subalgebras $\mB\subset \mA$ with reducible dynamics.
+which generalises the classical ratio (Radon-Nikodym derivative) $\rho/\rho_0$. Quantum relative entropy is the quantum analog of the KL-divergence~\eqref{eq:KL-classical}:
+\begin{equation}
+  S(\rho\|\rho_0) = \int_X \rho\log\!\left(\frac{\rho}{\rho_0}\right)d\mu = H(\rho_0)-H(\rho).
+  \label{eq:classical-KL}
+\end{equation}
+The non-negativity $S(\varphi\|\varphi_0)\geq 0$, with equality iff $\varphi=\varphi_0$ on
+$\mathcal{A}$ (i.e.\ iff $\varphi$ is already supported on $\mathcal{B}$), is the
+quantum analog of the monotonicity of entropy under coarse-graining: discarding information
+can only increase entropy.
 
 
 % This means that we have an effective description of the dynamics on $\mB$. We say the inclusion is dynamically invariant 
@@ -346,7 +361,7 @@ Then, the dynamics can be {\it reduced} to $\mB$. In dynamical systems, this is 
 %     \mE_B\circ \alpha
 % \end{align}
 
-
+\paragraph{Different types of coarse-grainings:}
 
 Just as in the classical theory, there are two natural classes of subalgebras that we call subspaces and subsystems. To build intuition, we first motivate them intuitively using finite quantum systems (matrix algebras):
 \begin{enumerate}
@@ -362,9 +377,9 @@ A state $\omega$ (density matrix) on $\mA$ is preserved by this conditional expe
     
 The subspace inclusions above are particularly relevant for single-particle systems, or Hilbert spaces that do not decompose into a tensor product of smaller ones. For an increasing family of projections $P_i\leq P_{i+1}$, we have
 $\mathcal{A}_{P_i}\subseteq\mathcal{A}_{P_i}$, giving a net of coarse observable subspaces that parallels the classical net $\mathcal{A}_{O_i}\subseteq\mathcal{A}_{O_{i+1}}$ for regions
-$O_i\subseteq O_{i+1}$ on the phase space of a single particle (see Appendix \ref{}). Since the focus of our work is many-body quantum systems and QFT, in this work, we do not consider such inclusions.
+$O_i\subseteq O_{i+1}$ on the phase space of a single particle (see Appendix \ref{app:classical}). Since the focus of our work is many-body quantum systems and QFT, in this work, we do not consider such inclusions.
 
-\item {\bf Subsystem inclusions:} The Hilbert space decomposes as a tensor product $\mH_A=\mH_B\otimes \mH_R$, the {\it coarse operators} are $\mA_B:\mH_B\to \mH_B$, and the operators $\mA_R:\mH_R\to \mH_R$ are in the {\it relative commutant} of the inclusion $\mA_B\otimes 1_R\subset \mA_A$. In this case, the inclusion has a trivial center, and we say we have a {\it subfactor}. Most of this work will focus on subfactors. As we review in Appendix \ref{}, this is a quantum generalization of the classical setup where the phase space splits as $X=Y\times Z$. 
+\item {\bf Subsystem inclusions:} The Hilbert space decomposes as a tensor product $\mH_A=\mH_B\otimes \mH_R$, the {\it coarse operators} are $\mA_B:\mH_B\to \mH_B$, and the operators $\mA_R:\mH_R\to \mH_R$ are in the {\it relative commutant} of the inclusion $\mA_B\otimes 1_R\subset \mA_A$. In this case, the inclusion has a trivial center, and we say we have a {\it subfactor}. Most of this work will focus on subfactors. As we review in Appendix \ref{app:classical}, this is a quantum generalization of the classical setup where the phase space splits as $X=Y\times Z$. 
 
 There is a one-to-one correspondence between conditional expectations $\mE_{\omega_R}:\mA_A\to \mA_B$, and states of the relative commutant $\omega_R$:
     \begin{align}\label{condexp}
@@ -379,6 +394,7 @@ This type of inclusion is natural in the multi-particle quantum systems we study
 $\mathcal{A}_{W_i}\subseteq\mathcal{A}_{W_{i+1}}$, giving a net of coarse observable subsystems. See Appendix (\ref{}) for a classical analog of subsystem nets in classical field theory. In this work, we focus in such inclusions.
 
 
+
 \item {\bf Mixed inclusions:} A more general setup occurs when $\mH_A=\oplus_a \mH_B^{(a)}\otimes \mH_R^{(a)}$. This is a mixture of subspaces and subsystems, and is, in fact, the most general inclusion for a finite quantum system:
 \begin{align}
 \pi_*(\mA_B)=\oplus_a \mA_B^{(a)}\otimes 1_R^{(a)}  
@@ -390,12 +406,12 @@ This inclusion has a non-trivial center $\oplus_a \mathbb{C}1_B^{(a)}\otimes \ma
 This is equivalent to the condition (\ref{condexp}). Another way of 
 saying that the state on $BR$ has $I(B:R|Z)=0$, i.e., it is quantum Markov. These are special separate states on $AR$, namely those for which the relative entropy of coarse-graining is zero: 
 \begin{align}
-    S(\omega_A\|\omega_A\circ E)=0\ .
+    S(\omega_A\|\omega_A\circ \mE)=0\ .
 \end{align}
 In the language of quantum error correction, these are states of $A$ that are exactly correctable under the erasure of $R$. Alternatively, one can think of these states as maximum entropy states among those that reduce to $\omega_B$. 
 \end{enumerate}
 
-In Appendix \ref{}, we explained that modular flow is a quantum analog of Hamiltonian flow. This motivates restricting allowed dynamics to the modular flow of arbitrary states. We are interested in the study of ergodicity in modular dynamics. If the algebra has a center, that will be left untouched by the modular flow of any state, and an obstruction to ergodicity. Therefore, we are going to focus on case 2 above: subsystems or subfactors.
+In Appendix \ref{app:classical}, we argue that modular flow is a quantum analog of Hamiltonian flow. This motivates restricting allowed dynamics to the modular flow of arbitrary states. We are interested in the study of ergodicity in modular dynamics. If the algebra has a center, that will be left untouched by the modular flow of any state, and an obstruction to ergodicity. Therefore, we are going to focus on case 2 above: subsystems or subfactors.
 
 
 
@@ -424,9 +440,17 @@ In Appendix \ref{}, we explained that modular flow is a quantum analog of Hamilt
 % that parallels the classical net $\mathcal{A}_{O_1}\subseteq\mathcal{A}_{O_2}$ for
 % $O_1\subseteq O_2$.
 
-\paragraph{Modular dynamics and Quantum Coarse-graining:} Since we are interested in studying modular dynamics, we are going to restrict to subfactor coarse-grainings. 
 
-In the GNS Hilbert space, every observable $a\in \mA$ is associated with a state that it creates as it acts on the vacuum $\pi_\omega:a\to \ket{a}_\omega=a\ket{\omega^{1/2}}$. Modular theory associates to this state a flow $\Delta_{a\omega^{1/2};A}^{it}$. In other words, we have
+\paragraph{Dynamics reducible to a subalgebra:} Given a general dynamical evolution, $\alpha:G\to \mA$, we say an inclusion $\mB\to \mA$ is reducible if 
+\begin{align}
+    \forall g\in G,b\in\mB:\qquad \alpha_g(b)\in \mB\ . 
+\end{align}
+Then, the dynamics can be {\it reduced} to $\mB$. In dynamical systems, this is sometimes called {\it autonomous dynamics}, as well.
+
+\paragraph{Irreducible dynamics:} Given a general dynamical system, we say it is irreducible if there is no non-trivial proper subalgebra $\mB\subset \mA$ with reducible dynamics.
+
+
+\paragraph{Modular dynamics and Quantum Coarse-graining:} Since we are interested in studying modular dynamics that are ergodic, we are going to restrict to subfactor coarse-grainings. In the GNS Hilbert space, every observable $a\in \mA$ is associated with a state that it creates as it acts on the vacuum $\pi_\omega:a\to \ket{a}_\omega=a\ket{\omega^{1/2}}$. Modular theory associates to this state a flow $\Delta_{a\omega^{1/2};A}^{it}$. In other words, we have
 \begin{align}
     \forall b_1,b_2\in \mB, \partial_t b_2=[K_{b_1\omega^{1/2};B},b_2]\in \mB
 \end{align}
@@ -443,819 +467,128 @@ According to Takesaki, this is equivalent to the following two statements:
 \item The modular flows of $\omega_A$ and $\omega_B$ are consistent:
 \begin{align}
 \forall t\in\mathbb{R}:\qquad    \Delta_{\omega;A}^{it}b\Delta_{\omega;A}^{-it}=\Delta_{\omega;B}^{it}b\Delta_{\omega;B}^{-it}
-\end{align}    
+\end{align}   
+
+\item For Jones projection $e_B$ we have
+\begin{align}
+    e_B\Delta_{\omega;A}^{it}e_B=\Delta_{\omega;B}^{-it}e_B
+\end{align}
 \end{enumerate}
-This means that the modular flow of $\mA$ is autonomous with respect to the subfactor $\mB\subset \mA$ if and only if the state $\omega$ has no correlations between $\mA$ and the relative commutant $R$. In this case, there is a one-to-one correspondence between states of $R$ and the conditional expectations from $\mE:\mA\to \mB$.
+This means that the modular flow of $\mA$ is autonomous with respect to the subfactor $\mB\subset \mA$ if and only if the state $\omega$ has no correlations between $\mA$ and the relative commutant $R$. In this case, there is a one-to-one correspondence between states of $R$ and the conditional expectations from $\mE:\mA\to \mB$. 
+
+The Jones projection is the GNS operator representation of the superoperator that is the conditional expectation; i.e., partial trace over the relative commutant. Then, we have
+\begin{align}
+    \tr_B\circ \sigma_{\omega;A}^{(t)}\circ \tr_B=\sigma_{\omega;B}^{(t)}\circ \tr_B
+\end{align}
+which can be arranged from an uncorrelated state $\omega$ where
+\begin{align}
+\sigma^{(t)}_{\omega;A}=\sigma^{(t)}_{\omega;R}\otimes \sigma^{(t)}_{\omega;B}
+\end{align}
+because 
+\begin{align}
+    \omega_A=\omega_R\otimes \omega_B\ .
+\end{align}
 
 The discussion above motivates the following definition:
 \begin{definition}[Subsystem flow]
    For an inclusion of von Neumann algebras $\mA\subset \mB$ in state $\omega$ we define the {\it subsystem flow}
 \begin{align}
-    \Delta_{\omega;A}^{it}\Delta_{\omega;B}^{-it}
+    D_{A\subset B;\omega}(t)\equiv e_B\Delta_{\omega;A}^{it}\Delta_{\omega;B}^{-it}e_B
 \end{align}
 \end{definition}
-The advantage of subsystem flow is that it captures the residual dynamics due to the failure of the reduced dynamics (coarse-grained dynamics) to capture the full (microscopic) dynamics. In fact, it can be viewed as the generating function for relative entropies:
-\begin{align}
-    &i\frac{d}{dt}\braket{\Psi|\Delta_{\omega;A}^{it}\Delta_{\omega;B}^{-it}|\Psi}\big|_{t=0}=\braket{\Psi|K_{\omega;A}-K_{\omega;B}|\Psi}\nn\\
-    &=S(\psi|\omega;A)-S(\psi\|\omega;B)+S(\psi|\omega;B')-S(\psi\|\omega;A') \geq 0
-\end{align}
-where we have used if $B\subset A$ then $A'\subset B'$, and the monotonicty of relative entropy.
+The subsystem flow is insensitive to any information in the orthogonal subspace to the Jones projection $(1-e_B)\mH$. It captures the residual dynamics due to the failure of the reduced dynamics (coarse-grained dynamics) to capture the full (microscopic) dynamics.
 
+When the Takesaki condition above holds, the coarse-grained dynamics captures the full microscopic dynamics, and the subsystem flow acts on the subalgebra $\mB$ unitarily; however, for a general operator, or in the absence of the Takesaki condition, it describes an open quantum system dynamics; i.e., it is a unital CP map. 
+
+The subsystem flow can be viewed as the generating function for relative entropies:
+\begin{align}
+    &i\frac{d}{dt}\braket{e_B\Psi|\Delta_{\omega;A}^{it}\Delta_{\omega;B}^{-it}|e_B\Psi}\big|_{t=0}=\braket{e_B\Psi|K_{\omega;A}-K_{\omega;B}|e_B\Psi}\nn\\
+    &=S(e_B\Psi|\Omega;A)-S(e_B\Psi\|\Omega;B)+S(e_B\Psi|\Omega;B')-S(e_B\Psi\|\Omega;A') \geq 0
+\end{align}
+where we have used if $B\subset A$ then $A'\subset B'$, and the monotonicity of relative entropy. The expression above vanishes for all vectors $e_B\ket{\Psi}$ if and only if the Takesaki condition is satisfied. 
+
+In the language of quantum error correction, the subspace $e_B\mH$ is called the code subspace, and 
+the conditional expectation down to $\mB$ can be interpreted as the noise map, which is erasure (partial trace) of the relative commutant. Takesaki's condition is the statement that this noise map is exactly correctable for all states in the code subspace if and only if, for all states in the code subspace, there are no correlations between $B$ and the relative commutant.
+
+The subsystem flow we defined has the following properties:
+\begin{theorem}
+The subsystem flow $\mathcal{D}_{A\subset B;\omega}(t) = e_B \Delta_{\omega;A}^{it} \Delta_{\omega;B}^{-it} e_B$ captures the residual open-system dynamics of the subsystem and satisfies the following properties:
+\begin{enumerate}
+    \item \textbf{Analytic Extension:} The flow extends from the real line $t$ to a bounded operator-valued function $\mathcal{D}_{A\subset B;\omega}(z) = e_B \Delta_{\omega;A}^{z} \Delta_{\omega;B}^{-z} e_B$ analytic on the strip $\mathcal{S}(0,- \tfrac{1}{2}) := \{z \in \mathbb{C} : 0 \ge \operatorname{Im}(z) \ge - \tfrac{1}{2}\}$.
+    \item \textbf{Strong Continuity:} $\mathcal{D}_{A\subset B;\omega}(t)$ is bounded and its boundary values on the strip are strongly continuous in $t$.
+    \item \textbf{Vacuum Invariance:} $\mathcal{D}_{A\subset B;\omega}(z)|\Omega\rangle = |\Omega\rangle$ for all $z$ in the strip.
+    \item \textbf{Subspace Preservation:} $e_B \mathcal{D}_{A\subset B;\omega}(z) e_B = \mathcal{D}_{A\subset B;\omega}(z)$.
+    \item \textbf{Generalized Cocycle Identity:} On the real line, the flow satisfies the open-system cocycle relation:
+    \begin{equation}
+        \mathcal{D}_{A\subset B;\omega}(t+s) = \mathcal{D}_{A\subset B;\omega}(t) \sigma^{(t)}_{\omega;B}\big(\mathcal{D}_{A\subset B;\omega}(s)\big) + \mathcal{M}(t,s)
+    \end{equation}
+    where $\mathcal{M}(t,s) = e_B u_t e_B^\perp \sigma^{(t)}_{\omega;B}(u_s) e_B$ is the memory/leakage term through $e_B^\perp = 1 - e_B$, generating a non-Markovian Nakajima-Zwanzig evolution.
+    \item \textbf{Dissipative Generator:} Its strong derivative at $t=0$ yields the relative entropy generator on the code subspace:
+    \begin{equation}
+        i \frac{d}{dt} \mathcal{D}_{A\subset B;\omega}(t) \bigg|_{t=0} = e_B (K_{\omega;A} - K_{\omega;B}) e_B
+    \end{equation}
+    \item \textbf{Takesaki Equivalence:} $\mathcal{D}_{A\subset B;\omega}(t) = e_B$ for all $t \in \mathbb{R}$ (and $\mathcal{M}(t,s) = 0$) if and only if there exists a state-preserving conditional expectation $\mathcal{E}: \mA \to \mB$. 
+\end{enumerate}
+\end{theorem}
+
+
+% \begin{theorem}
+%     The subsystem flow $D_{A\subset B;\omega}(t)$ is an operator-valued function that captures the residual open-system dynamics of the subsystem and satisfies the following properties: 
+% \begin{enumerate}
+% \item $D(t)$ is a strongly continuous family of contractions on the subsystem Hilbert space $e_B\mH$bounded
+%  and extends from the real line $t$ to the strip
+% $\mathcal{S}(0,-\tfrac{1}{2}) := \{z\in\mathbb{C}: 0\geq\operatorname{Im}(z)\geq-\tfrac{1}{2}\}$ 
+%   \item $\mathcal{D}_{A\subset B}(t)$ and
+%         $\mathcal{D}_{A\subset B}(t-\tfrac{i}{2})$ are strongly
+%         continuous in $t$;
+
+%   \item $\mathcal{D}_{A\subset B;\omega}(z)$ is bounded analytic on
+%         $\mathcal{S}(0,-\tfrac{1}{2})$;
+
+%   \item $\mathcal{D}_{A\subset B;\omega}(t)|\Omega\rangle = |\Omega\rangle$ for all
+%         $t\in\mathbb{R}$;
+
+%   \item \textit{Cocycle condition}: $\mathcal{D}_{A\subset B;\omega}(t+s)
+%         = \sigma^{(t)}_{\omega;A}(\mathcal{D}_{A\subset B;\omega}(s))
+%           \,\mathcal{D}_{A\subset B;\omega}(t)$,
+%         where $\sigma^{(t)}_{\omega;A}$ is the modular automorphism of $\mA$
+%         associated with $|\Omega\rangle$;
+
+%   \item $\mathcal{D}_{A\subset B;\omega}(t-\tfrac{i}{2})
+%         = e_B J_\mA\,\mathcal{D}_{A\subset B;\omega}(t)\,J_\mB e_B$.
+%         In particular, $\mathcal{D}_{A\subset B;\omega}(-\tfrac{i}{2})=e_B J_\mA J_\mB e_B$.
+%       %  This unitary is the canonical endomorphism and the Petz map for the inclusion;
+%        % it generates the Jones tower
+%         %\begin{equation}
+%          % \mathcal{M}\supset\mathcal{N}
+%         %   \supset\mathcal{D}^*\mathcal{M}\mathcal{D}
+%         %   \supset\mathcal{D}^*\mathcal{N}\mathcal{D}\supset\cdots,
+%         %   \qquad \mathcal{D}:=\mathcal{D}_{A\subset B;\omega}(-\tfrac{i}{2});
+%         %   \label{eq:Jones-tower}
+%         % \end{equation}
+
+% \item  For complex values of the arguments, one finds
+% \begin{align}
+% D(t+i/2)^* e_B J_\mA e_B D(t)=D(t)^*e_B J_\mA e_B D(t+i/2)    
+% \end{align}
+%  and is independent of t.
+
+% \item For all $t\in \mathbb{R}$ we have $\text{Ad}( D(t)D(i/2)^*)\mA\subset \mA$.
+
+% \end{enumerate}
+
+% \end{theorem}
 
 
 \begin{definition}[Generating inclusion]
 In a chaotic system, the expectation is that modular dynamics will be {\it generating} meaning that 
-\begin{align}
+\begin{align}\label{geneating}
     \vee_{t\in \mathbb{R}}\mB_t=\mA\ .
 \end{align}
 \end{definition}
-We know that an inclusion of algebras $\mB\subset \mA$ with $\omega$ a common cyclic and separating vector is generating. This motivates us to consider type III$_1$ subfactors with a common cyclic and separating vector as a class of modular dynamics that are ergodic and generating. Such examples naturally appear in QFT as subsystem inclusions. 
 
-In infinite dimensions, the inclusion of algebras can be more exotic:
-\begin{enumerate}
-    \item {\bf Singular inclusions:} We could have proper subsystems with no relative commutant. They are called {\it singular inclusions}. A physical example of singular inclusions is the inclusion of the algebra of wedges with a null translation in vacuum QFT of an interacting theory in $d>2$ spacetime dimensions.
-    
-    \item {\bf No uncorrelated states of $B$ and $R$:} We could also have setups where there is a non-trivial relative commutant $\mA_R$ and $\mA_R\vee \mA_B=\mA_A$; however, there is no tensor product factorization $\mA_A=\mA_B\otimes \mA_R$. This occurs in QFT every time the regions associated to $B$ and $R$ touch. The surprising statement is that for these inclusions there cannot exist any normal conditional expectations $\mE:\mA_A\to \mA_B$, even though there is a non-trivial relative commutant. This adds the following nuance to our previous statement:
-    {\it If there exists at least one normal conditional expectation $\mE:\mA_A\to \mA_B$ for subfactors $\mA_B\subset \mA_A$ then there is a one-to-one correspondence between such conditional expectations and the states of the relative commutant.} Then, here is how the logic works: if there exists a normal conditional expectation, it must preserve an uncorrelated state  $\omega_R\otimes \omega_B$, but this cannot exist because there is no tensor factorization \footnote{Even though there are no conditional expectations, we still say such inclusions have infinite index.}
-    Such inclusions appear naturally, where $B$ and $R$ do not touch. The interpretation of this is that all states on $A$ have correlations across $B$ and $R$. 
 
-    \item {\bf No uncorrelated states of $B$ and $A'$:} Given the inclusion $\mA_B\subset \mA_A$, we can always consider $\mA_B\subset \mA_B\vee \mA_{A'}$. Now, if there is no tensor factorization between $B$ and $R$, it is possible that the same holds for the second inclusion. This occurs when there is no tensor product between $B$ and $A'$ either. When this occurs, we say the inclusion $\mA_B\subset \mA_A$ does not {\it split}. This occurs when $B$ touches both $R$ and $A'$. Finally, there is the case where $B$ touches $R$, but not $A'$ (split case). 
-\end{enumerate}
-The examples we study in this work include cases in QFT where all cases above occur.
- 
-
-Note that irreducible dynamics implies that any non-trivial inclusion is generating \footnote{To see this, note that the dynamics is reducible with respect to $\vee_{t\in \mathbb{R}}\mB_t$.}. \NL{What is the ergodic theory interpretation of irreducibility?}
-
-
-
-
-
-
-
-\medskip
-\noindent\textit{Subsystem coarse-grainings.}
-Suppose instead that the algebra decomposes as a tensor product
-\begin{equation}
-  \mathcal{A} = \mathcal{A}_Y \otimes \mathcal{A}_Z,
-  \label{eq:tensor-decomp}
-\end{equation}
-the quantum counterpart of the product probability space
-$(X,\Sigma,\mu)=(Y\times Z,\Sigma_Y\otimes\Sigma_Z,\mu_Y\otimes\mu_Z)$ in~\eqref{eq:product-space}.
-The retained subsystem is $\mathcal{B}_Y = \mathcal{A}_Y\otimes\mathbf{1}_Z$,
-and the associated conditional expectation is the partial trace over $Z$:
-\begin{equation}
-  E_Y(a\otimes b) = a\cdot\Tr_Z(\rho_Z\, b),
-  \qquad a\in\mathcal{A}_Y,\;b\in\mathcal{A}_Z,
-  \label{eq:partial-trace}
-\end{equation}
-where $\rho_Z=\Tr_Y(\rho_\varphi)$ is the reduced density matrix of the state on $\mathcal{A}_Z$.
-When $\varphi$ is a product state $\varphi=\varphi_Y\otimes\varphi_Z$, this reduces to the
-classical formula~\eqref{eq:classical-partial-trace} with $E_Y f(y,z)=\int f(y,z')\,d\mu_Z(z')$.
-For a general entangled state, however, the conditional expectation
-$E_Y:\mathcal{A}\to\mathcal{B}_Y$ need not preserve $\varphi$, a genuinely quantum
-departure from the classical theory where $E_\mathcal{B}$ always preserves the reference
-measure $\mu$.
-
-More generally, a unital inclusion $\mathcal{B}\hookrightarrow\mathcal{A}$ describes a
-quantum subsystem without requiring a global tensor product decomposition.  The existence
-of a normal conditional expectation $E:\mathcal{A}\to\mathcal{B}$ then depends on the
-algebraic structure of the inclusion and on the state, and it is not automatic.
-
-% -------------------------------------------------------------------
-\paragraph{Entropy of a coarse-graining.}
-Given a faithful normal state $\varphi$ on $\mathcal{A}$, a von Neumann subalgebra
-$\mathcal{B}\subseteq\mathcal{A}$, and a $\varphi$-preserving conditional expectation
-$E:\mathcal{A}\to\mathcal{B}$, the coarse-grained state is
-$\varphi_0 = \varphi\circ E$, and the \emph{quantum relative entropy} of $\varphi$ with
-respect to $\varphi_0$ is
-\begin{equation}
-  S(\varphi\|\varphi_0) = \langle\Omega|\log\Delta_{\varphi|\mathcal{A}} - \log\Delta_{\varphi_0|\mathcal{A}}|\Omega\rangle,
-  \label{eq:relative-entropy}
-\end{equation}
-where $\Delta_{\varphi|\mathcal{A}}$ and $\Delta_{\varphi_0|\mathcal{A}}$ are the modular
-operators of $\varphi$ and $\varphi_0$ on $\mathcal{A}$, in the Araki definition~\cite{Araki1976}.
-This is the quantum analog of the KL-divergence~\eqref{eq:KL-classical}:
-\begin{equation}
-  S(\rho\|\rho_0) = \int_X \rho\log\!\left(\frac{\rho}{\rho_0}\right)d\mu = H(\rho_0)-H(\rho).
-  \label{eq:classical-KL}
-\end{equation}
-The nonnegativity $S(\varphi\|\varphi_0)\geq 0$, with equality iff $\varphi=\varphi_0$ on
-$\mathcal{A}$ (i.e.\ iff $\varphi$ is already supported on $\mathcal{B}$), is the
-quantum analog of the monotonicity of entropy under coarse-graining: discarding information
-can only increase entropy.
-
-The generating function for this entropy is the \emph{relative modular operator}
-$\Delta_{\varphi|\varphi_0}$, defined by the relation
-\begin{equation}
-  \langle a\Omega|\Delta_{\varphi|\varphi_0}|b\Omega\rangle = \varphi_0(b^*a),
-  \qquad a,b\in\mathcal{A},
-  \label{eq:relative-modular}
-\end{equation}
-which generalises the classical ratio $\rho/\rho_0$.  Explicitly,
-\begin{equation}
-  S(\varphi\|\varphi_0) = -\langle\Omega|\log\Delta_{\varphi|\varphi_0}|\Omega\rangle,
-  \label{eq:entropy-relative-modular}
-\end{equation}
-in exact analogy with the classical formula $S(\rho\|\rho_0)=-i\int\rho\,(\partial_t u_t|_{t=0})d\mu$
-where $u_t = (\rho/\rho_0)^{it}$ from~\eqref{eq:entropy-generating}.
-
-% -------------------------------------------------------------------
-\paragraph{Coarse-graining flow and entropy generation.}
-The coarse-graining introduces a second distinguished dynamics: the modular flow
-$\sigma_t^{\varphi_0}$ of the coarse-grained state $\varphi_0$ on $\mathcal{A}$.
-Comparing this flow with the original modular flow $\sigma_t^\varphi$ gives the quantum
-analog of the relative transformation $R_t = \Phi_t^\rho\circ\Phi_{-t}^0$ introduced
-in~\eqref{eq:relative-transformation}.  The \emph{subalgebra flow} (or
-\emph{coarse-graining flow}) is defined by
-\begin{equation}
-  U_t = \sigma_t^\varphi \circ (\sigma_t^{\varphi_0})^{-1},
-  \qquad t\in\mathbb{R},
-  \label{eq:subalgebra-flow}
-\end{equation}
-acting on $\mathcal{A}$.  It satisfies $U_t(\mathcal{B}) = \sigma_t^\varphi(\mathcal{B})$,
-exactly as the classical relative transformation satisfies $\mathcal{T}_t(\mathcal{B}_Y)=\alpha_t^\rho(\mathcal{B}_Y)$
-from~\eqref{eq:classical-Tt-BY}: the subalgebra flow tracks the same orbit of the
-subalgebra as the full modular dynamics, while cancelling the internal coarse evolution.
-
-Its generator is the \emph{relative modular Hamiltonian}
-\begin{equation}
-  K_{\mathrm{rel}} = \log\Delta_{\varphi|\mathcal{A}} - \log\Delta_{\varphi_0|\mathcal{A}},
-  \label{eq:relative-modular-hamiltonian}
-\end{equation}
-the direct quantum counterpart of $K_{\mathrm{rel}}=K_\rho - K_0 = -\log(\rho/\rho_0)$
-from~\eqref{eq:classical-Krel}.  In matrix terms, when $\varphi$ and $\varphi_0$ have
-density matrices $\rho$ and $\rho_0$ acting on the same finite-dimensional Hilbert space,
-$K_{\mathrm{rel}} = \log\rho - \log\rho_0$.
-
-The relative entropy is recovered as the expectation of this operator:
-\begin{equation}
-  S(\varphi\|\varphi_0) = \varphi(K_{\mathrm{rel}}),
-  \label{eq:entropy-as-expectation}
-\end{equation}
-in direct analogy with the classical identity $S(\rho\|\rho_0) = -\omega_\rho(K_{\mathrm{rel}}) = H(\rho_0)-H(\rho)$
-from~\eqref{eq:classical-rel-entropy}.
-
-Monotonicity of relative entropy under the tower of coarse-grainings then gives the quantum
-analog of~\eqref{eq:classical-entropy-chain}: for $\mathcal{B}\subseteq\mathcal{B}'\subseteq\mathcal{A}$
-with corresponding $\varphi$-preserving conditional expectations,
-\begin{equation}
-  S(\varphi\|\varphi\circ E_{\mathcal{B}}) \geq S(\varphi\|\varphi\circ E_{\mathcal{B}'})\geq 0.
-  \label{eq:monotone-entropy}
-\end{equation}
-A coarser description discards more information and associates a larger entropy.
-At the extreme, $\mathcal{B}=\mathbb{C}\mathbf{1}$ gives the maximal coarse-graining with
-$S(\varphi\|\varphi(\cdot)\mathbf{1}) = S(\rho)$, the von Neumann entropy of the state.
-
-The key departure from the classical theory concerns the existence of the $\varphi$-preserving
-conditional expectation $E:\mathcal{A}\to\mathcal{B}$.  In the classical case such an
-expectation always exists for every subalgebra and every faithful reference measure.
-Quantum mechanically, Takesaki's theorem~\cite{Takesaki1970} asserts that a $\varphi$-preserving
-normal conditional expectation onto $\mathcal{B}$ exists \emph{if and only if} $\mathcal{B}$
-is invariant under the modular flow $\sigma_t^\varphi$:
-\begin{equation}
-  \sigma_t^\varphi(\mathcal{B}) = \mathcal{B}\quad\text{for all }t\in\mathbb{R}
-  \quad\Longleftrightarrow\quad
-  \exists\; E:\mathcal{A}\to\mathcal{B}\text{ normal, }E\text{-preserving }\varphi.
-  \label{eq:Takesaki-theorem}
-\end{equation}
-This is the fundamental difference between the quantum and classical settings: classical
-coarse-grainings always admit entropy-neutral reference expectations, while quantum
-coarse-grainings do so only when the subalgebra is dynamically invariant.  When
-$\sigma_t^\varphi(\mathcal{B})\neq\mathcal{B}$, every normal conditional expectation onto
-$\mathcal{B}$ generates strictly positive entropy, and the subalgebra flow $U_t$ is
-genuinely non-trivial.
-
-
-
-\subsection{Quantum Ergodic Theory for Modular Flow}
-\label{subsec:quantum-ergodic}
-
-Section~2.2 identified the ergodic hierarchy---ergodicity, weak mixing, mixing,
-and the Kolmogorov property---as a sequence of conditions on how much information
-about a classical state remains accessible from a subalgebra after the dynamics has
-run. Each level was characterised in terms of the time-evolution of coarse-grained
-descriptions and the decay of correlations. Here we develop the quantum counterpart
-of this hierarchy by replacing the measure-preserving flow $\alpha_t$ with the modular
-flow $\sigma_t^\varphi$ of a faithful normal state, and by replacing the classical conditional
-expectation with its quantum analog. The central new feature, absent in the classical setting,
-is Takesaki's theorem: the existence of a \emph{state-preserving} conditional expectation
-is no longer guaranteed and becomes the primary discriminating condition in the hierarchy.
-
-The two standing assumptions throughout this section are those of algebraic quantum
-field theory:
-\begin{enumerate}[label=(\arabic*)]
-  \item all local algebras of observables are von Neumann algebras of type~$III$;
-  \item all algebras act on a common separable Hilbert space.
-\end{enumerate}
-These conditions are satisfied by the local algebras of any well-behaved relativistic
-quantum field theory and will play a decisive role in ruling out state-preserving
-conditional expectations for the inclusions that arise in QFT.
-
-% -------------------------------------------------------------------
-\paragraph{State-preserving conditional expectations as Quantum Error Correction codes.}
-Let $\mathcal{N}\subset\mathcal{M}$ be an inclusion of von Neumann factors acting on a
-Hilbert space $\mathcal{H}$, and let $\omega_\mathcal{M}$ be a faithful normal state on
-$\mathcal{M}$.  The \emph{relative commutant} $\mathcal{R}:= \relcomm{\mathcal{N}}{\mathcal{M}}$
-plays the role of the ``hidden variables'' that are discarded when one retains only
-$\mathcal{N}$.  The coarse-graining $\mathcal{M}\to\mathcal{N}$ is the quantum analog of
-the erasure of the complement $O^c$ in the subregion construction of Section~2.1.
-
-The connection with quantum error correction (QEC) is made precise as follows.  A normal
-conditional expectation $E:\mathcal{M}\to\mathcal{N}$ is a completely positive, unital,
-$\mathcal{N}$-bimodular map.  In the language of QEC, the channel is the \emph{erasure
-of the relative commutant} $\mathcal{R}$: one passes from $\mathcal{M}$ to $\mathcal{N}$
-by discarding the information stored in $\mathcal{R}$.  The \emph{code subspace} is
-defined by the range of the Jones projection $e_\mathcal{N}\mathcal{H}_\mathcal{M}$,
-where $e_\mathcal{N}$ is the orthogonal projection of the GNS Hilbert space
-$\mathcal{H}_\mathcal{M}$ onto $\overline{\mathcal{N}|\Omega\rangle}$.
-
-The QEC condition requires that the erasure of $\mathcal{R}$ \emph{introduces no entropy}:
-\begin{equation}
-  S(\omega_\mathcal{M}\|\omega_\mathcal{M}\circ E) = \Delta S = 0.
-  \label{eq:QEC-entropy}
-\end{equation}
-By the quantum data-processing inequality, this vanishing of relative entropy is equivalent
-to the exact recoverability of $\omega_\mathcal{M}$ from its image under $E$.  When~\eqref{eq:QEC-entropy}
-holds for every state in the code subspace, no information is irreversibly lost to
-$\mathcal{R}$---i.e., every state in the code subspace is unentangled between $\mathcal{N}$
-and $\mathcal{R}$.
-
-The algebraic condition for QEC is precisely the \emph{existence of a state-preserving
-conditional expectation}.  By Takesaki's theorem, a normal conditional expectation
-$E:\mathcal{M}\to\mathcal{N}$ preserving $\omega_\mathcal{M}$ exists if and only if
-$\mathcal{N}$ is invariant under the modular flow of $\mathcal{M}$:
-\begin{equation}
-  \sigma_t^{\omega_\mathcal{M}}(\mathcal{N}) = \mathcal{N}
-  \quad\text{for all }t\in\mathbb{R}.
-  \label{eq:Takesaki-QEC}
-\end{equation}
-Invariant subalgebras in this sense are the quantum analog of autonomous factor subsystems
-in the classical ergodic hierarchy (Section~2.2): the modular dynamics restricts to an
-automorphism of $\mathcal{N}$, and $\mathcal{N}$ has the interpretation of a
-\emph{superselection sector} of charges protected from erasure.
-
-When~\eqref{eq:Takesaki-QEC} holds, the modular operators of $\omega_\mathcal{M}$ and
-of its restriction $\omega_\mathcal{N}:=\omega_\mathcal{M}|_\mathcal{N}$ intertwine on
-the common domain: for every $n\in\mathcal{N}$,
-\begin{equation}
-  \Delta_{\omega_\mathcal{M}}^{it}\, n\, \Delta_{\omega_\mathcal{M}}^{-it}
-  = \Delta_{\omega_\mathcal{N}}^{it}\, n\, \Delta_{\omega_\mathcal{N}}^{-it},
-  \label{eq:modular-intertwining}
-\end{equation}
-so the modular Hamiltonians of the two algebras agree on $\mathcal{N}$.  The object
-$J_\mathcal{M} J_\mathcal{N}$ then implements a canonical endomorphism carrying
-$\mathcal{M}$ into $\mathcal{N}$, and it coincides with the Petz recovery map for
-the erasure channel.
-
-If the state $\omega_\mathcal{M}$ is tracial (maximally mixed), then~\eqref{eq:modular-intertwining}
-holds automatically for every subalgebra and every conditional expectation, yielding a
-unitarily correctable QEC code.  For a non-tracial state, the Petz map involves $\rho_\mathcal{M}$
-explicitly and acts as a \emph{mirror operator} that pushes excitations from $\mathcal{R}$
-back into $\mathcal{N}$; the code is more general than the unitary case.
-
-\medskip
-
-There is also a one-to-one correspondence between normal conditional expectations
-$E:\mathcal{M}\to\mathcal{N}$ and faithful normal states $\chi$ on the relative commutant
-$\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$:
-\begin{equation}
-  E(n\, r) = \chi(r)\, n, \qquad n\in\mathcal{N},\; r\in\mathcal{R}.
-  \label{eq:CE-state-correspondence}
-\end{equation}
-This is a direct quantum counterpart of the classical fact that conditional expectations
-onto a subalgebra are parametrised by states on the fiber (hidden variable) algebra.
-The \emph{Jones index} $[\mathcal{M}:\mathcal{N}]$ measures the size of $\mathcal{R}$:
-a finite index means $\mathcal{R}$ is a finite-dimensional matrix algebra, while infinite
-index (including the case of no normal conditional expectation at all) signals that $\mathcal{R}$
-is genuinely infinite-dimensional.
-
-If the center $\mathcal{Z}(\mathcal{M})=\mathcal{M}\cap\mathcal{M}'$ is non-trivial,
-its elements have the interpretation of conserved classical charges: the center is an
-abelian subalgebra that trivially satisfies~\eqref{eq:Takesaki-QEC} and admits a
-state-preserving expectation.  This is classical error correction.  Quantum error
-correction proper requires $\mathcal{N}$ to be a factor.
-
-% -------------------------------------------------------------------
-\paragraph{Conditional expectations, unentanglement states, and mixing.}
-The existence of a state-preserving conditional expectation has a direct physical meaning
-in terms of entanglement between $\mathcal{N}$ and $\mathcal{R}$.  If $E:\mathcal{M}\to\mathcal{N}$
-does not preserve $\omega_\mathcal{M}$, then discarding $\mathcal{R}$ erases information
-about $\omega_\mathcal{M}$ irreversibly: the relative entropy $S(\omega_\mathcal{M}\|\omega_\mathcal{M}\circ E)$
-is strictly positive, signalling entanglement between $\mathcal{N}$ and $\mathcal{R}$ in
-the state $\omega_\mathcal{M}$.
-
-Conversely, an \emph{unentangled} (product) state
-\begin{equation}
-  \omega_\mathcal{M} = \omega_\mathcal{N}\otimes\omega_\mathcal{R}
-  \label{eq:product-state}
-\end{equation}
-exists if and only if there is a state-preserving conditional expectation, and in that case
-the expectation is given explicitly by~\eqref{eq:CE-state-correspondence} with
-$\chi=\omega_\mathcal{R}$.  This is the direct quantum analog of the classical statement
-in Section~2.4 that the reduced dynamics agrees with the full dynamics (equation~(2.45))
-if and only if the full state is a product state~(2.48).
-
-In the geometric QFT setting, the relative commutant $\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$
-is associated with a spacetime region.  When this region is \emph{disjoint} from the
-region associated with $\mathcal{N}$ (with a spatial gap between them), locality provides
-a product state of the form~\eqref{eq:product-state}: the algebras of spatially separated
-regions are always unentangled in a product sense, and a state-preserving conditional
-expectation exists by additivity.  In this disjoint case there are no global charges
-(intertwiners between $\mathcal{N}$ and $\mathcal{R}$) and the standard additivity
-assumption is valid.
-
-When the two regions \emph{touch} but do not overlap---the generic configuration in the
-inclusions $\mathcal{N}=\mathcal{A}(I_1)\subset\mathcal{M}=\mathcal{A}(I)$ for adjacent
-intervals---the product state~\eqref{eq:product-state} is not available as a common cyclic
-and separating vector for the inclusion, and strong additivity (rather than mere additivity)
-is what corresponds to the existence of the conditional expectation.
-
-The quantum analog of \emph{mixing} in the modular sense is the statement that the
-coarse-graining flow
-\begin{equation}
-  U_t = \sigma_t^{\omega_\mathcal{M}}\circ(\sigma_t^{\omega_\mathcal{N}})^{-1}
-  \label{eq:coarse-graining-flow}
-\end{equation}
-does not preserve any non-trivial element of $\mathcal{N}$ for any $t\neq 0$.  This is
-the quantum counterpart of the mixing condition $C_{f,g}(t)\to 0$ in Section~2.2: just
-as mixing says that no coarse observable retains a memory of its initial value, modular
-mixing says that no observable in $\mathcal{N}$ is invariant under the relative flow.
-Equivalently, the quantum correlation function
-\begin{equation}
-  C_{a,b}^{\omega}(t) := \omega_\mathcal{M}\bigl(a^*\,\sigma_t^{\omega_\mathcal{M}}(b)\bigr)
-  - \omega_\mathcal{M}(a^*)\,\omega_\mathcal{M}(b),
-  \qquad a,b\in\mathcal{M},
-  \label{eq:quantum-correlation}
-\end{equation}
-is the quantum analog of the classical connected correlation~(2.22), and modular mixing
-is the statement that $C_{a,b}^\omega(t)\to 0$ as $t\to+\infty$ for all
-$a\in\mathcal{M}$, $b\in\mathcal{N}$.  In the absence of a state-preserving expectation,
-the relative flow~\eqref{eq:coarse-graining-flow} is genuinely non-trivial and generic
-trajectories of elements of $\mathcal{N}$ spread into all of $\mathcal{M}$,
-in direct parallel with the classical K-property~(2.28):
-\begin{equation}
-  \bigvee_{t\in\mathbb{R}}\sigma_t^{\omega_\mathcal{M}}(\mathcal{N}) = \mathcal{M}.
-  \label{eq:topological-transitivity}
-\end{equation}
-
-% -------------------------------------------------------------------
-\paragraph{Common cyclic and separating state and entanglement.}
-A vector $|\Omega\rangle\in\mathcal{H}$ is \emph{cyclic and separating} for a von Neumann
-algebra $\mathcal{A}$ if $\mathcal{A}|\Omega\rangle$ is dense in $\mathcal{H}$ (cyclicity)
-and $a|\Omega\rangle=0$ implies $a=0$ for $a\in\mathcal{A}$ (separating).  For an
-inclusion $\mathcal{B}\subset\mathcal{A}$, a vector that is simultaneously cyclic and
-separating for both algebras is called a \emph{common cyclic and separating vector}.
-
-The first question is whether such a vector exists at all.  For type~$III$ algebras,
-the answer is affirmative and robust, by the following two results.
-
-\begin{lemma}[Blackadar]\label{lem:typeIII-standard}
-Every type~$III$ von Neumann algebra acting on a separable Hilbert space is in
-standard form.
-\end{lemma}
-
-\noindent Since both $\mathcal{A}$ and $\mathcal{B}$ are in standard form, their individual
-sets of cyclic and separating vectors, $\mathcal{C}_\mathcal{A}$ and $\mathcal{C}_\mathcal{B}$,
-are non-empty.  The non-trivial question is whether their intersection
-$\mathcal{C}_\mathcal{A}\cap\mathcal{C}_\mathcal{B}$ is non-empty and, if so, how large it is.
-
-\begin{proposition}[Dixmier--Mar\'echal]\label{prop:dense-common}
-For two type~$III$ von Neumann algebras $\mathcal{A}$, $\mathcal{B}$ acting on a common
-separable Hilbert space $\mathcal{H}$, the set of common cyclic and separating vectors
-is a dense $G_\delta$ subset of $\mathcal{H}$.
-\end{proposition}
-
-\noindent The density of common cyclic and separating vectors has a strong implication for
-entanglement.  Fix any such vector $|\Omega\rangle\in\mathcal{C}_\mathcal{A}\cap\mathcal{C}_\mathcal{B}$
-and consider the inclusion $\mathcal{N}\subset\mathcal{M}$.  The Tomita operator satisfies
-\begin{equation}
-  S_\mathcal{M}\,\mathcal{O}_\mathcal{N}|\Omega\rangle
-  = J_\mathcal{M}\Delta_\mathcal{M}^{1/2}\mathcal{O}_\mathcal{N}|\Omega\rangle
-  = \mathcal{O}_\mathcal{N}^*|\Omega\rangle
-  = J_\mathcal{N}\Delta_\mathcal{N}^{1/2}\mathcal{O}_\mathcal{N}|\Omega\rangle
-  = S_\mathcal{N}\,\mathcal{O}_\mathcal{N}|\Omega\rangle
-  \label{eq:Tomita-extension}
-\end{equation}
-for every $\mathcal{O}_\mathcal{N}\in\mathcal{N}$.  Since $S_\mathcal{M}$ is an extension
-of $S_\mathcal{N}$, general operator theory gives the operator inequality on
-$\mathcal{H}$:
-\begin{equation}
-  \Delta_\mathcal{N} \geq \Delta_\mathcal{M}.
-  \label{eq:modular-inequality}
-\end{equation}
-Because $f(z)=z^\alpha$ is operator monotone for $0\leq\alpha\leq 1$, this extends to
-\begin{equation}
-  \Delta_\mathcal{N}^\alpha \geq \Delta_\mathcal{M}^\alpha, \qquad 0\leq\alpha\leq 1.
-  \label{eq:modular-inequality-alpha}
-\end{equation}
-In particular, $\mathcal{D}(\Delta_\mathcal{N}^\alpha)\subseteq\mathcal{D}(\Delta_\mathcal{M}^\alpha)$,
-so the operator $\Delta_\mathcal{M}^\alpha\Delta_\mathcal{N}^{-\alpha}$ is well-defined
-and closable for $0\leq\alpha\leq 1/2$, and its closure is bounded:
-\begin{equation}
-  \|\Delta_\mathcal{M}^\alpha\Delta_\mathcal{N}^{-\alpha}\|^2
-  = \|\Delta_\mathcal{N}^{-\alpha}\Delta_\mathcal{M}^{2\alpha}\Delta_\mathcal{N}^{-\alpha}\|
-  \leq 1.
-  \label{eq:characteristic-bounded}
-\end{equation}
-This boundedness, which uses $2\alpha\leq 1$, is the foundation for the characteristic
-function of the inclusion.
-
-The common cyclic and separating vector also determines the entanglement structure of
-the inclusion.  Suppose $|\Omega\rangle$ is such a vector for $\mathcal{N}\subset\mathcal{M}$.
-The Jones projection $e_\mathcal{N}$, which projects $\mathcal{H}$ onto
-$\overline{\mathcal{N}|\Omega\rangle}$, becomes the identity operator:
-$e_\mathcal{N}=\id$ on $\mathcal{H}$, because $|\Omega\rangle$ is cyclic for $\mathcal{N}$
-and hence $\mathcal{N}|\Omega\rangle$ is already dense.  The code subspace is therefore
-the entire Hilbert space $\mathcal{H}$.  In the QEC language, \emph{every} state in
-$\mathcal{H}$ has entanglement between $\mathcal{N}$ and $\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$;
-there is no unentangled state of the form~\eqref{eq:product-state}, and the Pimsner--Popa
-index is infinite: $[\mathcal{M}:\mathcal{N}]=\infty$.
-
-This is the precise quantum counterpart of the classical K-property.  In the classical
-setting, the Kolmogorov property~(2.28) says that the tail algebra
-$\bigcap_{t\geq 0}\alpha_t(\mathcal{B}_+)$ is trivial, meaning that no nonconstant
-observable is accessible arbitrarily far into the future.  Here, the analogue is that the
-Jones projection is the identity and the index is infinite: no sub-Hilbert-space can
-serve as a code subspace for the erasure of $\mathcal{R}$, because all states are
-universally entangled.
-
-% -------------------------------------------------------------------
-\paragraph{Unexpected inclusions and universal entanglement.}
-We now establish the key constraint that rules out state-preserving conditional expectations
-for inclusions of factors sharing a common cyclic and separating vector.
-
-\begin{proposition}\label{prop:common-css-no-invariance}
-Let $\mathcal{N}\subset\mathcal{M}$ be an inclusion of factors with a common cyclic and
-separating vector $|\Omega\rangle$.  If $\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})=\mathcal{N}$
-for all $t\in\mathbb{R}$, then $\mathcal{N}=\mathcal{M}$.
-\end{proposition}
-
-\begin{proof}
-By Takesaki's theorem, the modular invariance
-$\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})=\mathcal{N}$ implies the existence of a
-faithful normal conditional expectation $E:\mathcal{M}\to\mathcal{N}$ preserving
-$\omega_\mathcal{M}$.  The intertwining relation~\eqref{eq:modular-intertwining} then
-gives $\Delta_\mathcal{M}^{it}\,n\,\Delta_\mathcal{M}^{-it}=\Delta_\mathcal{N}^{it}\,n\,\Delta_\mathcal{N}^{-it}$
-for all $n\in\mathcal{N}$ and all $t\in\mathbb{R}$.  Combined with the fact that
-$|\Omega\rangle$ is cyclic for $\mathcal{N}$, the Tomita theory for the pair implies
-$\Delta_\mathcal{M}=\Delta_\mathcal{N}$ on $\mathcal{H}$, hence $S_\mathcal{M}=S_\mathcal{N}$
-and therefore $J_\mathcal{M}=J_\mathcal{N}$.  But $\mathcal{M}=J_\mathcal{M}\mathcal{M}'J_\mathcal{M}$
-and $\mathcal{N}=J_\mathcal{N}\mathcal{N}'J_\mathcal{N}$; since $|\Omega\rangle$ is also
-separating for $\mathcal{M}$ and $\mathcal{N}$, cyclicity for $\mathcal{N}$ and
-separating for $\mathcal{M}$ force $\mathcal{N}'=\mathcal{M}'$, giving $\mathcal{N}=\mathcal{M}$.
-\end{proof}
-
-\noindent Proposition~\ref{prop:common-css-no-invariance} states that for a \emph{proper}
-inclusion $\mathcal{N}\subsetneq\mathcal{M}$ of factors with a common cyclic and
-separating vector, there is \emph{no} faithful normal conditional expectation
-$E:\mathcal{M}\to\mathcal{N}$ that preserves the state $\omega_\mathcal{M}$.  In the
-QEC language: there are no exactly protected operators in the sense of quantum error
-correction.  This is the statement of \emph{universal entanglement} of the inclusion.
-
-The physical content of this result is reinforced by the topological transitivity
-property~\eqref{eq:topological-transitivity}: since a common cyclic and separating vector
-implies that the modular orbit $\bigvee_t\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})=\mathcal{M}$,
-there is no way to choose a state on $\mathcal{M}$ that keeps the information content
-of $\mathcal{N}$ private from the relative commutant $\mathcal{R}$.  In the language of
-infinite-dimensional quantum systems, the monogamy of entanglement breaks down: the
-algebras $\mathcal{N}$ and $\mathcal{R}$ can both be universally entangled with the full
-algebra $\mathcal{M}$, something impossible for finite-dimensional systems where maximal
-entanglement of one pair forces disentanglement from all others.
-
-The index of such an inclusion is infinite for a second independent reason: even if
-there \emph{exist} normal conditional expectations $E:\mathcal{M}\to\mathcal{N}$
-(not preserving $\omega_\mathcal{M}$), each of them introduces strictly positive entropy
-$S(\omega_\mathcal{M}\|\omega_\mathcal{M}\circ E)>0$, and the correspondence~\eqref{eq:CE-state-correspondence}
-implies that every state of $\mathcal{R}$ is entangled with $\mathcal{N}$ in
-$\omega_\mathcal{M}$.  In the language of~\cite{WittenPenington}, this is the
-$\infty$-algebra regime in which no subalgebra is exactly correctable.
-
-% -------------------------------------------------------------------
-\paragraph{Split inclusions and mixing.}
-
-The discussion above identifies the common-cyclic-and-separating condition as the
-quantum analog of the K-property: it rules out state-preserving conditional expectations
-and implies universal entanglement and topological transitivity.  The next step in the
-ergodic hierarchy is to identify the quantum analog of the mixing condition, which in the
-classical theory (Section~2.2) was the decay $C_{f,g}(t)\to 0$ as $t\to+\infty$.
-The relevant algebraic notion is that of a \emph{split inclusion}.
-
-\begin{definition}[Split inclusion]\label{def:split}
-An inclusion $\mathcal{N}\subset\mathcal{M}$ is \emph{split} if there exists a type~$I$
-factor $\mathcal{F}$ such that $\mathcal{N}\subset\mathcal{F}\subset\mathcal{M}$.
-\end{definition}
-
-\noindent Physically, a split inclusion is one for which the algebras of the two regions are
-\emph{maximally decoupled} in the sense of Doplicher and Longo~\cite{DopLongo1984}:
-an intermediate type~$I$ factor provides a ``buffer'' that absorbs the entanglement between
-$\mathcal{N}$ and its complement in $\mathcal{M}$.  This is the quantum counterpart of
-the classical product structure $(X,\Sigma,\mu)=(Y\times Z,\Sigma_Y\otimes\Sigma_Z,\mu_Y\otimes\mu_Z)$
-in Section~2.1: the split property asserts that the two algebras can be simultaneously
-represented on a tensor-product Hilbert space.  In QFT, split inclusions arise precisely
-for \emph{disjoint} regions (with a positive spatial gap between them), where the
-intermediate type~$I$ factor is associated with the gap and the correlation functions
-between the two regions decay exponentially with the gap width.  The corresponding
-$L^2$-nuclearity condition quantifies this decay.
-
-The split property is incompatible with a state-preserving conditional expectation when
-the algebras are type~$III$:
-
-\begin{theorem}[{Theorem~30 in~\cite{ChLaLe2026}}]\label{thm:split-no-CE}
-If $\mathcal{N}$ has a non-zero type~$III$ summand and $\mathcal{N}\subset\mathcal{M}$
-is split, then no normal conditional expectation $E:\mathcal{M}\to\mathcal{N}$ exists.
-\end{theorem}
-
-\begin{proof}[Proof sketch]
-Let $\mathcal{N}\subset\mathcal{F}\subset\mathcal{M}$ be the interpolating type~$I$
-factor, and suppose $E:\mathcal{M}\to\mathcal{N}$ is normal.  Its restriction
-$E|_\mathcal{F}:\mathcal{F}\to\mathcal{N}$ is a normal norm-one projection with range
-$\mathcal{N}$.  Tomiyama's theorem then implies that $\mathcal{N}$ must be type~$I$ as a
-normally expected subalgebra of the type~$I$ factor $\mathcal{F}$, contradicting the
-hypothesis that $\mathcal{N}$ has a non-zero type~$III$ summand.
-\end{proof}
-
-\noindent Hence the logical implication is:
-\begin{equation}
-  \text{split inclusion with type~}III\text{ range}
-  \;\Longrightarrow\;
-  \text{no normal conditional expectation.}
-  \label{eq:split-no-CE}
-\end{equation}
-
-The comparison with the classical ergodic hierarchy is instructive.  In the classical
-theory, the K-property is strictly stronger than mixing: every K-system is mixing, but not
-conversely.  The quantum analog is:
-
-\begin{center}
-\begin{tabular}{lll}
-  \textit{Classical} & & \textit{Quantum} \\[4pt]
-  Ergodicity & $\longleftrightarrow$ & No $\omega_\mathcal{M}$-preserving expectation \\
-  Mixing & $\longleftrightarrow$ & Split inclusion (maximal decoupling) \\
-  K-property & $\longleftrightarrow$ & Common cyclic-separating vector (universal entanglement)
-\end{tabular}
-\end{center}
-
-\medskip
-\noindent The classical K-property implied non-trivial one-sided inclusions
-$\alpha_t(\mathcal{B}_+)\subsetneq\mathcal{B}_+$ for $t>0$; the quantum analog is the
-\emph{half-sided modular inclusion} $\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})\subsetneq\mathcal{N}$
-for $t>0$, which will be discussed further in Section~3.3.
-
-\medskip
-
-We illustrate the hierarchy with two contrasting examples.
-
-\begin{example}[Araki--Powers inclusion]\label{ex:Araki-Powers}
-Let $\mathcal{N}\subset\mathcal{M}$ be a \emph{finite-index} inclusion of type~$III_1$
-factors, meaning that the relative commutant $\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$
-is a finite-dimensional matrix algebra $M_n(\mathbb{C})$.  By the Jones--Kosaki index
-theory, the inclusion has index $[\mathcal{M}:\mathcal{N}]=n^2<\infty$.  Since $\mathcal{R}$
-is finite-dimensional it is type~$I$, so the inclusion is normal (conormal) in the sense
-that $\mathcal{N}\vee\mathcal{R}=\mathcal{M}$.  By Lemma~\ref{lem:typeIII-standard} and the
-correspondence~\eqref{eq:CE-state-correspondence}, normal conditional expectations
-$E:\mathcal{M}\to\mathcal{N}$ exist and are parametrised by states on $M_n(\mathbb{C})$.
-The coarse-graining flow $U_t=\sigma_t^{\omega_\mathcal{M}}\circ(\sigma_t^{\omega_\mathcal{N}})^{-1}$
-acts non-trivially only on $\mathcal{R}=M_n(\mathbb{C})$ and preserves it; it therefore
-does \emph{not} satisfy topological transitivity~\eqref{eq:topological-transitivity} and
-is \emph{not mixing}.  This inclusion is the quantum analog of an ergodic but non-mixing
-classical system.
-\end{example}
-
-\begin{example}[Split inclusion of adjacent local algebras]\label{ex:split-adjacent}
-In a local conformal net $\{\mathcal{A}(I)\}$ on the circle, let $I_1,I_2$ be disjoint
-open intervals with closures sharing exactly one endpoint, and set $I=\mathrm{int}(I_1\cup I_2)$.
-Haag duality and strong additivity give $\mathcal{A}(I_1)'\cap\mathcal{A}(I)=\mathcal{A}(I_2)$
-and $\mathcal{A}(I_1)\vee\mathcal{A}(I_2)=\mathcal{A}(I)$, so the inclusion
-$\mathcal{N}:=\mathcal{A}(I_1)\subset\mathcal{M}:=\mathcal{A}(I)$ is conormal with
-$\mathcal{R}=\mathcal{A}(I_2)$.  By Theorem~\ref{thm:split-no-CE} and the fact that
-adjacent touching algebras of a non-trivial conformal net never form a split pair
-(Wiesbrock~\cite{Wiesbrock1993}), there is \emph{no} normal conditional expectation
-$E:\mathcal{A}(I)\to\mathcal{A}(I_1)$.  If $E$ existed, Proposition~\ref{prop:dense-common}
-would give $\mathcal{A}(I)\cong\mathcal{A}(I_1)\otimes\mathcal{A}(I_2)$, contradicting the
-splitting obstruction.  The inclusion is therefore in the ``unexpected'' class: the index
-is infinite, no QEC is possible, and every state on $\mathcal{A}(I)$ is universally
-entangled between $\mathcal{A}(I_1)$ and $\mathcal{A}(I_2)$.
-\end{example}
-
-\medskip
-\noindent
-Finally, we record the characteristic function of the inclusion, which encodes the
-coarse-graining flow in a single bounded analytic object.  Given the common cyclic and
-separating vector $|\Omega\rangle$ for $\mathcal{N}\subset\mathcal{M}$, the operator
-inequality~\eqref{eq:modular-inequality} and the bound~\eqref{eq:characteristic-bounded}
-make the following definition well-posed.
-
-\begin{definition}[Characteristic function~\cite{Borchers2000}]\label{def:char-fn}
-The \emph{characteristic function} of the inclusion $\mathcal{N}\subset\mathcal{M}$
-with respect to the common cyclic and separating vector $|\Omega\rangle$ is the
-operator-valued function
-\begin{equation}
-  \mathcal{D}_{\mathcal{M},\mathcal{N}}(t)
-  := \Delta_\mathcal{M}^{it}\,\Delta_\mathcal{N}^{-it},
-  \qquad t\in\mathbb{R}.
-  \label{eq:char-fn}
-\end{equation}
-\end{definition}
-
-\noindent By~\eqref{eq:characteristic-bounded}, $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)$
-is bounded.  It extends from the real line to the strip
-$\mathcal{S}(0,-\tfrac{1}{2}) := \{z\in\mathbb{C}: 0\geq\operatorname{Im}(z)\geq-\tfrac{1}{2}\}$
-as a bounded analytic function, strongly continuous on the boundary~\cite{Borchers2000}.
-On the real boundary $\operatorname{Im}(z)=0$, $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)$
-is unitary.
-
-The characteristic function satisfies the following properties:
-
-\begin{enumerate}[label=(\arabic*)]
-  \item $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)$ and
-        $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t-\tfrac{i}{2})$ are unitary and strongly
-        continuous in $t$;
-
-  \item $\mathcal{D}_{\mathcal{M},\mathcal{N}}(z)$ is bounded analytic on
-        $\mathcal{S}(0,-\tfrac{1}{2})$;
-
-  \item $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)|\Omega\rangle = |\Omega\rangle$ for all
-        $t\in\mathbb{R}$;
-
-  \item \textit{Cocycle condition}: $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t+s)
-        = \sigma_t^{|\Omega\rangle}(\mathcal{D}_{\mathcal{M},\mathcal{N}}(s))
-          \,\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)$,
-        where $\sigma_t^{|\Omega\rangle}$ is the modular automorphism of $\mathcal{M}$
-        associated with $|\Omega\rangle$;
-
-  \item $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t-\tfrac{i}{2})
-        = J_\mathcal{M}\,\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)\,J_\mathcal{N}$.
-        In particular, $\mathcal{D}_{\mathcal{M},\mathcal{N}}(-\tfrac{i}{2})=J_\mathcal{M}J_\mathcal{N}$.
-        This unitary is the canonical endomorphism and the Petz map for the inclusion;
-        it generates the Jones tower
-        \begin{equation}
-          \mathcal{M}\supset\mathcal{N}
-          \supset\mathcal{D}^*\mathcal{M}\mathcal{D}
-          \supset\mathcal{D}^*\mathcal{N}\mathcal{D}\supset\cdots,
-          \qquad \mathcal{D}:=\mathcal{D}_{\mathcal{M},\mathcal{N}}(-\tfrac{i}{2});
-          \label{eq:Jones-tower}
-        \end{equation}
-
-  \item For all $t\in\mathbb{R}$,
-        $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)\,\mathcal{D}^*\,\mathcal{M}\,\mathcal{D}
-         \,\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)^*\subset\mathcal{M}$.
-\end{enumerate}
-
-\begin{theorem}[{Borchers~\cite{Borchers2000}}]\label{thm:char-fn-unique}
-Given a von Neumann algebra $\mathcal{M}$ and a cyclic and separating vector $|\Omega\rangle$,
-each subalgebra $\mathcal{N}\subset\mathcal{M}$ for which $|\Omega\rangle$ is cyclic for
-$\mathcal{N}$ is uniquely associated with its characteristic function
-$\mathcal{D}_{\mathcal{M},\mathcal{N}}$.
-\end{theorem}
-
-\noindent The characteristic function thus completely encodes the structure of the inclusion,
-including the mixing and ergodic properties discussed above.  For the split inclusions of
-Example~\ref{ex:split-adjacent}, the absence of a state-preserving conditional expectation
-corresponds to $\mathcal{D}_{\mathcal{M},\mathcal{N}}(t)$ being non-trivial for all $t\in\mathbb{R}$,
-and the decay of the quantum correlations~\eqref{eq:quantum-correlation} as $t\to\pm\infty$
-is encoded in the boundary behaviour of $\mathcal{D}_{\mathcal{M},\mathcal{N}}(z)$ near
-$\operatorname{Im}(z)=-\tfrac{1}{2}$.  The explicit computation of these matrix elements
-for geometric inclusions in QFT and CFT is carried out in Section~4.
-
-
-----
-Comment on ``1) Standard subspace of Longo and L$^2$-nuclearity" as 1-particle Hilbert space (quantum ergodicity)
-
-We will focus on Modular dynamics
-
-\NL{Explain cocycle/relative flow/echo; then cocycle flow is a special case of relative flow}
-
-\NL{Include the example of Araki Powers: finite index inclusion, the relative commutant is a finite matrix algebra, there is a normal condition expectation, and it has to be conormal inclusion, and if it is normal inclusion, it must be a tensor product. In that case, the characteristic flow acts non-trivially only the relative commutant and preserves it. It is not mixing.}
-
-
-
-A coarse-graining flow is a relative flow with respect to a coarse-grained state.
-
-\paragraph{Invariant subalgebras and quantum error correction}
-
-Algebraic characterization: normal conditional expectation (if they exist) are in one-to-one correspondence with states of relative commutant.
-
-Algebraic characterization: state-preserving normal conditional expectation
-
-
-
-For a modular dynamics defined with respect to $M$, if the subalgebra $N$ is invariant $\alpha_t^M(N)=N$ for all $t$, then it has the interpretation of a ``superselection sector" (charges) and Takesaki's theorem implies that there must exist a state preserving conditional expectation, and for all $\Delta_{\omega_M}^{it} n\Delta_{\omega_M}^{-it}=\Delta_{\omega_N}^{it}n\Delta_{\omega_N}^{-it}$, for all $n\in N$. In this analogy, $M'$ plays the role of reference, and the Jones $e_N\mathcal{H}_M$ is the code subspace, and the error is the erasure of the relative commutant $N'\cap M$. Note that in general the state $\omega_M$ is not maximally mixed; therefore, the Petz map explicitly involves this state $\rho_M$, which is realized as a mirror operator that pushes the excitation to the reference. Note that if $\omega_M$ is maximally mixed, we have a unitarily correctable QEC. Otherwise, it is more general. Then, the object $J_M J_N$
-
-In infinite dimensional Hilbert space what falls apart is Monogamy of entanglement. If two states are maximally entangled, they cannot be entangled with anything else. So the question becomes if Bob can recover the information of Alice exactly is it necessaarily the case that Eve cannot do it either? 
-
-If the algebra $M$ has a non-trivial center then one expects that the operators in the center have the interpretation of conserved charges, the center of $M$ is a subalgebra that trivially satisfies the properties above. This would constitute classical error correction. In quantum error correction, we would like the subalgebra $N$ to be a factor. In the language of QEC, the channel is erasure of the relative commutant. We have QEC, if $M'$ purifies $N$, or the relative commutant $N'\cap M$ is disentangled from $N$. Here the code subspace is defined by the action of Jones projection $e_N\mH_M$. For QEC property to work, in all the states in this subspace, there should be no entanglement between the relative commutant $N'\cap M$ and $N$. This means that erasure of the relative commutant (coarse-graining) should not change relative entropies, or in other words should not introduce entropy. This is a quantum version of the statement that the entropy associated to this coarse-graining should be zero: $S(\rho\|\rho\circ E)=\Delta S=0$.
-
-First observation is that in the case of common cyclic and separating vector this Jones projection is identity. Therefore, the code subspace must be the whole Hilbert space. This means that every state in the Hilbert space has entanglement between every mode in the relative commutant and the subalgebra $N$. For this to happen, it should be that the relative commutant is also infinite.
-
-The interpretation of a normal conditional expectation that does not preserve the state is that it involves entanglement between the degrees of freedom in $N$ and the relative commutant $N'\cap M$. If the conditional expectation does not preserve the state, discarding the relative commutant erases the information content of the state irreversibly. \NL{What about the suitation where the region of QFT corresponding to the relative commutant is disjoint from $N$? in that case, it is clear that there is an unentangled state $\omega_{N'\cap M}\otimes \omega_N$ and a state preserving conditional expectation $\omega_{N'\cap M}(a)n$ for $n\in N$ and $a\in N'\cap M$ assuming that the inclusion is normal. In the disjoint case, that means that there are no global charges (intertwiners), additivity assumption is valid. In the touching case, that is why strong additivity corresponds to normality. In this case, the state $\omega_{N'\cap M}\otimes \omega_N$ is not a common cyclic and separting vector for this inclusion.} 
-
-Then, prove that if we have a common cyclic and separating vector if $\Delta_M^{it}N\Delta_M^{-it}=N$ for all $t$ then $M=N$. This means that inclusion with common cyclic and separating inclusions of factors implies that $N$ is not the algebra of charges (protected) operators. In other words, in the Hilbert space $\mathcal{H}_M$ all states have entanglement between $N$ and the relative commutant. Furthermore, we know that in this case, $\vee_t \alpha_t^M(N)=M$, which is a statement of topological transitivity. In other words, common cyclic and separating vector means that there is no way of choosing a state that keeps the information content of $N$ private and away from the relative commutant $N'\cap M$.
-
-
-
-\paragraph{Index of inclusion}
-
-In general, given an inclusion of factors, then if there exists at least one normal conditional expectation (the subalgebra is expected or the relative commutant is not trivial), then there is a one-to-one correspondence between the states of the relative commutant and normal conditional expectations. The index of an inclusion is an estimate of the size of this relative commutant. We will be interested in cases where this index is infinite, but there are no state-preserving conditional expectations. 
-
-Meaning that 
-the absence of state-preserving conditional expectation is that even though the relative size of $M$ to $N$ is infinite, and each of them corresponds to some erasure channel (normal conditional expectation), every one of them is entangled between the relative commutant and $N$. 
-
-The situation above is unitarily correctable QEC. In stochastic QEC, if we have any entangled mode, we can correct. 
-
-
-
-
-
-
-
-%\section*{Coarse-Graining, Conditional Expectation, and Modular Invariance}
-
-% A useful way to compare classical ergodic theory with operator-algebraic dynamics is to formulate both in terms of algebras of observables. 
-
-
-\subsection*{Twirled Petz map and characteristic function of inclusions}
-
-
-\NL{Explain physics interpretation}
-
-The main object we study in this paper is the so-called characteristic function\cite{revolutionizing}. To review the basic concept and to set some notations, we present a brief background on characteristic functions. Characteristic functions provide essential tools to study inclusions of local algebras of observables. Because structural information of a quantum field theory is encoded in the inclusion of local algebras of observables\cite{haag2012local}, one can uncover these structural information from the properties and perturbations of characteristic functions. The notion of characteristic functions hinges on the notion of common cyclic and separating vectors. Hence in the first half of this section, we review some basic results about common cyclic and separating vectors. In the second half of this section, we review the definition of characteristic function and emphasize the necessary conditions for a characteristic function to be well-defined.
-
-From the outset, we fix the basic assumptions that we will use throughout this paper. These assumptions are standard and are satisfied by most well-behaved algebraic quantum field theories.
-\begin{enumerate}
-    \item All local algebras of observables are assumed to be of type $III$;
-    \item In addition, all local algebras of observables are assumed to have separable preduals
-\end{enumerate}
-Notice that for our discussion, we do not need the axioms of algebraic quantum field theories.
-
-
-\paragraph{Ergodicity and common cyclic-separating vectors}\label{subsection:common}
-
-A modular flow is ergodic if it does not have any centralizers. The statement of common cyclic and separating implies something more like $A\subset B$ satisfies $A_t=\Delta_B^{it} A \Delta_B^{-it} \neq A$ for any $t$. The statement of QEC implies that it is not the same for all $t$. Could it be that $A_t=A$ only for $m t_*$ with $m\in \mathbb{Z}$?
-
-Take the inclusion of $A\subset B$ and call the relative commutant $R$. The statement that $A\subset B$ is ergodic is equivalent to common cyclic and separating vectors, and says that $\Delta_B^{it}A \Delta_B^{-it}\neq A$ for any $t\in \mathbb{R}$. We say the same for $R$. 
-
-\YC{I think we need to be careful about this statement. I realized that ergodic inclusion and strong ergodic inclusion are known concepts: $N'\mathcal{A}p M = \mathbb{C}$ and $N'\mathcal{A}p M^\omega = \mathbb{C}$. Neither condition has anything to do with the existence of common cyclic and separating vector. Neither has anything to do with whether the modular flow of the larger algebra would take the smaller algebra outside of itself. }
-
-QEC says for all $t$, the algebra should be the same...
-
-Since ergodicity requires infinite-dimensional setups, every standard inclusion must have an infinite index. 
-
-
-
-
-
-\NL{Physics interpretation: maximally ergodic inclusion, no operator in $N$ protected exactly in the QECC sense. There exists a state-preserving conditional expectation iff $\Delta_M^{it}N\Delta_M^{-it}=N$, but that does not occur in split inclusions of QFT. Jones projection is the GNS operator associated with the state-preserving conditional expectation; it is identity in the case of common cyclic and separating vector, the Pimsner-Popa index is infinite then. Since there are no finite-index conditional expectations in the inclusion of regions, we say that the index is infinite. There are no exactly protected operators in the QEC sense of things. In fact, the absence of a centralizer implies that there is absolutely no QECC for any inclusion; $\infty$-algebra in the language of Witten-Penington.}
-
-
-In this subsection, we consider two type $III$ von Neumann algebras $\mathcal{A},\mathcal{B}$ acting on a common separable Hilbert space $\mathcal{H}$. We would like to know:
-\begin{enumerate}
-    \item if there exists a common cyclic and separating vector;
-    \item if there exists a dense subset of common cyclic and separating vectors.
-\end{enumerate}
-It turns out the answers to both questions are affirmative.
-
-First recall the following fact\cite{blackadar}:
-\begin{lemma}\label{lemma:blackadar}
-    Every type $III$ von Neumann algebra acting on a separable Hilbert space is in standard form.
-\end{lemma}
-Under our assumptions, both $\mathcal{A}$ and $\mathcal{B}$ acting on $\mathcal{H}$ are in standard forms. Hence, there exist two non-empty sets of cyclic and separating vectors $\mathcal{C}_\mathcal{A}$ and $\mathcal{C}_\mathcal{B}$ where $\mathcal{C}_\mathcal{A}$ is the set of cyclic and separating vectors for $\mathcal{A}$ and analogously $\mathcal{C}_\mathcal{B}$ for $\mathcal{B}$. The nontrivial questions are whether $\mathcal{C}_\mathcal{A}\mathcal{A}p\mathcal{C}_\mathcal{B} \neq\emptyset$ and whether $\mathcal{C}_\mathcal{A}\mathcal{A}p\mathcal{C}_\mathcal{B}$ is dense. This question is answered by Dixmier and Marechal (see \cite{dixmiermarechal} for a proof):
-\begin{proposition}\label{prop:density}
-    For two type $III$ von Neumann algebras $\mathcal{A}, \mathcal{B}$ acting on a common separable Hilbert space $\mathcal{H}$, then the set of common cyclic and separating vectors is a dense $G_\delta$ subset of $\mathcal{H}$.
-\end{proposition}
-
-
-
-\subsection*{Subregion coarse-graining flow}
-
-\NL{Add modular chaos bound}
-
-Under our assumptions, consider an inclusion of two type $III$ von Neumann algebras $\mathcal{B}\subset \mathcal{A}$ where both algebras act on a separable Hilbert space $\mathcal{H}$. We have already seen that the set of common cyclic and separating vectors is dense in $\mathcal{H}$. Fix one such common cyclic and separating vector $\ket{\Omega}\in\mathcal{C}_\mathcal{A}\mathcal{A}p\mathcal{C}_\mathcal{B}$. Assume $\ket{\Omega}$ is normalized. Then $\bra{\Omega}\cdot\ket{\Omega}$ is a normal faithful state on both $\mathcal{A}$ and $\mathcal{B}$. Denote the state on $\mathcal{A}$ as $\omega_\mathcal{A}$ and the state on $\mathcal{B}$ as $\omega_\mathcal{B}$. By modular theory, we can define the corresponding modular operators and modular conjugations. Denote $\Delta_\mathcal{A}$ as the modular operator of $\omega_\mathcal{A}$ on $\mathcal{A}$ and $J_\mathcal{A}$ as the modular conjugation on $\mathcal{A}$. Denote $\Delta_\mathcal{B}$ as the modular operator of $\omega_\mathcal{B}$ on $\mathcal{B}$ and $J_\mathcal{B}$ as the modular conjugation on $\mathcal{B}$.
-
-By definition of modular operator and modular conjugation, it is clear that $\Delta_\mathcal{A}$ is an extension of $\Delta_\mathcal{B}$:
-\begin{equation}
-    \mathcal{S}_\mathcal{A}\mathcal{O}_\mathcal{B}\ket{\Omega} = J_\mathcal{A}\Delta_\mathcal{A}^{1/2}\mathcal{O}_\mathcal{B}\ket{\Omega} = \mathcal{O}_\mathcal{B}^*\ket{\Omega} = J_\mathcal{B}\Delta_\mathcal{B}^{1/2}\mathcal{O}_\mathcal{B}\ket{\Omega} = \mathcal{S}_\mathcal{B}\mathcal{O}_\mathcal{B}\ket{\Omega}
-\end{equation}
-where $\mathcal{O}_\mathcal{B}$ can be any operator in $\mathcal{B}$. Hence, by general operator theory, we have operator inequality:
-\begin{equation}
-    \Delta_\mathcal{B}\geq \Delta_\mathcal{A}
-\end{equation}
-Since the function $f(z)  = z^\alpha$ for $0\leq \alpha\leq 1$ is an operator monotone function, then we have:
-\begin{equation}
-    \Delta_\mathcal{B}^\alpha \geq \Delta_\mathcal{A}^\alpha
-\end{equation}
-In particular, this means that for any $0\leq \alpha\leq 1$, the domain $\mathcal{D}(\Delta_\mathcal{B}^\alpha)$ is contained in the domain $\mathcal{D}(\Delta_\mathcal{A}^\alpha)$. Hence, the following operator is well-defined and closable for $0\leq \alpha\leq 1/2$:
-\begin{equation}
-    \Delta_\mathcal{A}^\alpha \Delta_\mathcal{B}^{-\alpha}
-\end{equation}
-Moreover, the closure of $\Delta_\mathcal{A}^\alpha\Delta_\mathcal{B}^{-\alpha}$ is bounded:
-\begin{equation}
-    ||\Delta_\mathcal{A}^\alpha\Delta_\mathcal{B}^{-\alpha}||^2 = ||\Delta_\mathcal{B}^{-\alpha}\Delta_\mathcal{A}^{2\alpha}\Delta_\mathcal{B}^{-\alpha}|| \leq 1
-\end{equation}
-where the last equation follows from the operator inequality:
-\begin{equation}
-    \Delta_\mathcal{B}^{-\alpha}\Delta_\mathcal{A}^{2\alpha}\Delta_\mathcal{B}^{-\alpha} \leq \Delta_\mathcal{B}^{-\alpha}\Delta_\mathcal{A}^{2\alpha}\Delta_\mathcal{B}^{-\alpha} = \mathbbm{1}
-\end{equation}
-Here we used the fact that $0\leq \alpha\leq 1/2$ and hence $2\alpha \leq 1$.
+\paragraph{Common cyclic and separating vector:} Clearly, the action of subsystem flow on general operators in $\mA$ is non-unitary. It becomes unitary when the vector $\ket{\Omega}$ is a common cyclic and separating vector. In that case, the code subspace is the entire Hilbert space, i.e., $e_B=1$, and the standard cocycle identity holds; i.e., $\mM(t,s)=0$. In the AQFT literature, such subsystem flows are called {\it characteristic functions}. In fact, the inclusion has a common cyclic and separating vector if and only if the subsystem flow $D(t)$ satisfies properties $1\to 5$ with $e_B=1$, and $\mM(t,s)=0$ (See theorem ... in \cite{} for a proof). 
 
 We are now ready to introduce the characteristic function of the inclusion $\mathcal{B}\subset\mathcal{A}$\cite{revolutionizing}:
 \begin{definition}
@@ -1288,17 +621,315 @@ Any operator-valued function associated with a pair of von Neumann algebras that
 \end{theorem}
 Again for details, we refer the readers to \cite{revolutionizing}.
 
-Write down the converse in holography... If we have diff-invariant inclusions, then there is a subalgebra at finite $G_N$.
+From the point of view of ergodic theory, one should note that an inclusion of algebras $\mB\subset \mA$ with $\omega$ a common cyclic and separating vector is generating. Such inclusions can occur in infinite-dimensional algebras of type $I$, $II$, or type $III$. However, as we mentioned earlier, since we want the modular flow of states to be ergodic, we focus on type III$_1$ subfactors with a common cyclic and separating vector. Such examples naturally appear in QFT as subsystem inclusions.
+
+In infinite dimensions, the inclusion of algebras can be more exotic:
+\begin{enumerate}
+    \item {\bf Singular inclusions:} An non-trivial inclusion $\mA\subset \mB$ is singular if the relative commutant is trivial. Such inclusions cannot occur in type $I$ algebras. A physical example of singular inclusions in QFT is the inclusion of the type $III_1$ algebra of wedges with a null translation in vacuum QFT of an interacting theory in $d>2$ spacetime dimensions.
+    
+    \item {\bf No uncorrelated states of $B$ and $R$:} We could also have setups where there is a non-trivial relative commutant $\mA_R$ and $\mA_R\vee \mA_B=\mA_A$; however, there is no tensor product factorization $\mA_A=\mA_B\otimes \mA_R$. This occurs in QFT every time the regions associated to $B$ and $R$ touch. The surprising statement is that for these inclusions there cannot exist any normal conditional expectations $\mE:\mA_A\to \mA_B$, even though there is a non-trivial relative commutant. This adds the following nuance to our previous statement:
+    {\it If there exists at least one normal conditional expectation $\mE:\mA_A\to \mA_B$ for subfactors $\mA_B\subset \mA_A$ then there is a one-to-one correspondence between such conditional expectations and the states of the relative commutant.} Then, here is how the logic works: if there exists a normal conditional expectation, it must preserve an uncorrelated state  $\omega_R\otimes \omega_B$, but this cannot exist because there is no tensor factorization \footnote{Even though there are no conditional expectations, we still say such inclusions have infinite index.}
+    Such inclusions appear naturally, where $B$ and $R$ do not touch. The interpretation of this is that all states on $A$ have correlations across $B$ and $R$. Type $I$ and $II_1$ factors always admit normal conditional expectations. 
+
+    \item {\bf No uncorrelated states of $B$ and $A'$:} Given the inclusion $\mA_B\subset \mA_A$, we can always consider $\mA_B\subset \mA_B\vee \mA_{A'}$. Now, if there is no tensor factorization between $B$ and $R$, it is possible that the same holds for the second inclusion. This occurs when there is no tensor product between $B$ and $A'$ either. When this occurs, we say the inclusion $\mA_B\subset \mA_A$ does not {\it split}. This occurs when $B$ touches both $R$ and $A'$. Finally, there is the case where $B$ touches $R$, but not $A'$ (split case). 
+\end{enumerate}
+
+
+The examples we study in this work include cases in QFT where all cases above occur.
+ 
+
+\NL{Note that irreducible dynamics implies that any non-trivial inclusion is generating \footnote{To see this, note that the dynamics is reducible with respect to $\vee_{t\in \mathbb{R}}\mB_t$.}.} \NL{What is the ergodic theory interpretation of irreducibility?}
+
+\NL{Add paragraphs one for each notion of index of an inclusion, normal and conormal inclusions}
+
+
+We illustrate the features above by two instructive examples:
+
+\paragraph{Araki-Powers inclusions (non-ergodic inclusion of type III$_1$ algebras):}
+
+Let $\mA\subset \mB$ be a \emph{finite-index} inclusion of type~$III_1$
+factors, meaning that the relative commutant $\mathcal{R}=\mA'\cap \mB$
+is a finite-dimensional matrix algebra $M_n(\mathbb{C})$.  By the Jones--Kosaki index
+theory, the inclusion has index $[\mathcal{A}:\mathcal{B}]=n_R^2<\infty$.  Since $\mathcal{R}$
+is finite-dimensional, it is type~$I$, so the inclusion is normal (conormal) in the sense
+that $\mathcal{B}\vee\mathcal{R}=\mathcal{A}$.  By Lemma~\ref{lem:typeIII-standard} and the
+correspondence~\eqref{eq:CE-state-correspondence}, normal conditional expectations
+$\mE:\mA\to \mB$ exist and are parametrised by states on $M_n(\mathbb{C})$.
+The coarse-graining flow $U_t=\sigma_t^{\omega_\mathcal{A}}\circ(\sigma_t^{\omega_\mathcal{B}})^{-1}$
+acts non-trivially only on $\mathcal{R}=M_n(\mathbb{C})$ and preserves it; it therefore
+does \emph{not} satisfy {\it generating property} in (\ref{geneating}) and
+is \emph{not mixing}.  This inclusion is non-ergodic, because even though the algebras are III$_1$ factors, and the action of $\Delta_{\omega;A}^{it}$ on $\mB$ does not fix any operators, there are operators in the relative commutant $R$ that are in the centralizer of $\omega_A$: namely the eigenvectors of the density matrix $\omega_R$.
+
+\paragraph{Local algebras of QFT (no normal conditional expectations):}
+In a local conformal net $\{\mathcal{A}(I)\}$ on the circle, let $I_1,I_2$ be disjoint
+open intervals with closures sharing exactly one endpoint, and set $I=\mathrm{int}(I_1\cup I_2)$.
+Haag duality and strong additivity give $\mathcal{A}(I_1)'\cap\mathcal{A}(I)=\mathcal{A}(I_2)$
+and $\mathcal{A}(I_1)\vee\mathcal{A}(I_2)=\mathcal{A}(I)$, so the inclusion
+$\mathcal{B}:=\mathcal{A}(I_1)\subset\mathcal{M}:=\mathcal{A}(I)$ is conormal with
+$\mathcal{R}=\mathcal{A}(I_2)$.  By Theorem~\ref{thm:split-no-CE} and the fact that
+adjacent touching algebras of a non-trivial conformal net never form a split pair
+(Wiesbrock~\cite{Wiesbrock1993}), there is \emph{no} normal conditional expectation
+$\mE:\mathcal{A}(I)\to\mathcal{A}(I_1)$.  If $\mE$ existed, Proposition~\ref{prop:dense-common}
+would give $\mathcal{A}(I)\cong\mathcal{A}(I_1)\otimes\mathcal{A}(I_2)$, contradicting the
+splitting obstruction.  The inclusion is therefore in the ``unexpected'' class: the index
+is infinite, no QEC is possible, and every state on $\mathcal{A}(I)$ is universally
+entangled between $\mathcal{A}(I_1)$ and $\mathcal{A}(I_2)$.
+
+
+\paragraph{General von Neumann algebras:}
+\label{sec:conormality-expectations} Here, we provide rigorous results that generalize the discussion of cases above to general von Neumann algebras.
+
+Let $\mA\subset\mB\subset B(\mathcal H)$ be an inclusion of
+$\sigma$-finite type $\mathrm{III}_1$ factors.  The inclusion is
+\emph{standard} with respect to $\Omega\in\mathcal H$ if $\Omega$ is cyclic
+and separating for $\mA$, $\mB$ and the relative commutant $\mB^c=\mB'\cap \mA$. It is \emph{split} if a type I factor $\mathcal F$ exists with
+$\mB\subset\mathcal F\subset\mA$, and \emph{conormal} if
+\begin{equation}
+ \mB\vee\mB^c=\mA.
+\end{equation}
+Throughout this section, a conditional expectation
+$\mE:\mathcal \mA\to\mathcal \mB$ is assumed to be \emph{faithful and normal},
+unless the contrary is explicitly stated.  Tomiyama's theorem \cite{Tomiyama1957,Tomiyama1959,Takesaki1972} gives
+\begin{equation}
+ \mE(b_1 a b_2)=b_1\mE(a) b_2,
+ \qquad b_1,b_2\in \mB,\quad a\in \mA.
+\end{equation}
+
+%\subsection{The split case}
 
 
 
-It is the $z=i/2$ case. It is the canonical endomorphism. It is the Petz map in the case of QECC.
+\begin{theorem}[Sufficient condition for no uncorrelated state]\label{thm:split-no-expectation}
+If $\mB$ is a type III factor and
+$\mA\subset \mB$ is split, then no normal conditional expectation
+$\mE:\mA\subset \mB$ exists.  
+\end{theorem}
 
-\subsection{Future algebras, Modular Inclusions and Intersections}
+\begin{proof}
+Let $\mB\subset\mathcal F\subset\mA$ be an interpolating type I
+factor and suppose that $\mE:\mA\to \mB$ is normal.  Its restriction
+\begin{equation}
+ \mE_{\mathcal F}:=\mE|_{\mathcal F}:\mathcal F\longrightarrow\mB
+\end{equation}
+is a normal norm-one projection with range $\mathcal B$.  Tomiyama's type
+theorem states that a normally expected von Neumann subalgebra of a type I von
+Neumann algebra is type I \cite{Tomiyama1959}\cite{Takesaki1972}. This contradicts
+with $\mB$ being a type III factor.
+\end{proof}
 
-\subsection{Geometry from a net of subsystems}
+Note that in the theorem above, faithfulness and preservation of the
+distinguished vector state are not needed, and 
+standardness plays no role in this implication.
 
-\NL{Araki-Woods lattice system} as an example of QECC: correspondence between the states of the relative commutant and the conditional algebra.
+\begin{lemma}\label{lem:expectation-slice}
+If $\mathcal B$ is a factor and $\mE:\mathcal A\to\mathcal B$ is a faithful
+normal conditional expectation, there is a faithful normal state $\chi_R$ on
+the relative commutant $\mB^c$ such that
+\begin{equation}
+ \mE(c)=\chi_R(c)\mathbbm 1,
+ \qquad \mE(b c)=\chi_R(c)b,
+ \qquad b\in\mathcal B,\quad c\in\mathcal R.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For $b\in\mathcal B$ and $c\in\mathcal R$,
+\begin{equation}
+ b \mE(c)=\mE(b c)=\mE(c b)=\mE(c)b.
+\end{equation}
+Thus $\mE(c)\in Z(\mathcal B)=\mathbb R\mathbbm 1$, so
+$\mE(c)=\chi_R(c)\mathbbm 1$ for a normal state $\chi$.  If $c\geq0$ and
+$\chi_R(c)=0$, faithfulness of $\mE$ implies $c=0$; hence $\chi_R$ is faithful.  The
+second identity is the bimodule property.
+\end{proof}
+
+For a faithful normal state $\varphi$ on $\mathcal B$, the state
+$\varphi_0:=\varphi\circ \mE$ is faithful and normal and satisfies
+\begin{equation}
+ \varphi_0(b c)=\varphi_0(b)\chi_R(c).
+\end{equation}
+
+\begin{proposition}[conormality and tensor product]\label{prop:conormal-factorization}
+Under the hypotheses of Lemma~\ref{lem:expectation-slice}, multiplication
+extends to a normal $*$-isomorphism
+\begin{equation}
+ m:\mathcal B\overline\otimes\mathcal R
+ \overset{\cong}{\longrightarrow}\mathcal B\vee\mathcal R,
+ \qquad m(b\otimes c)=b c.
+\end{equation}
+If the inclusion is conormal, then
+\begin{equation}\label{eq:conormal-factorization}
+\mathcal A\cong
+ \mathcal B\overline\otimes \mB^c .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Multiplication is a $*$-homomorphism on $\mathcal B\odot\mathcal R$ because
+the two algebras commute.  Moreover,
+\begin{equation}
+ \varphi_0\bigl(m(b\otimes c)\bigr)
+ =(\varphi\otimes\chi_R)(b\otimes c).
+\end{equation}
+The GNS representation of the faithful normal product state
+$\varphi\otimes\chi_R$ is the spatial tensor-product representation.  Hence
+multiplication extends normally to $\mathcal B\overline\otimes\mathcal R$.
+Faithfulness of the product state gives injectivity, while surjectivity follows
+from the definition of $\mathcal B\vee\mathcal R$.  Conormality then yields
+\eqref{eq:conormal-factorization}; compare
+\cite{Faulkner2020,FaulknerSperanza2024}.
+\end{proof}
+
+We define the Pimsner-Popa index of a conditional expectation to be the smallest positive number $\lambda\geq 1$ sucht that for all positive operators $x_+\in \mA$ we have 
+\begin{align}
+    \mE(x_+)\geq \lambda^{-1}x_+
+\end{align}
+Then, the index of an inclusion is defined to be 
+\begin{align}
+    [\mA:\mB]_0=\inf_\mE \text{Ind}(\mE)\ .
+\end{align}
+The index is a measure of the relative size of $\mA$ to $\mB$. When the relative commutant is infinite dimensional, or there are no normal conditional expectations, we say the index is infinite.
+
+% If the relative commutant has a finite trace (as in type $I_d$ and $II_1$
+
+% There is no contradiction at this abstract level.  Tensor products of type
+% $\mathrm{III}_1$ factors can again be type $\mathrm{III}_1$; for example,
+% $R_\infty\overline\otimes R_\infty\cong R_\infty$.  The contradiction below
+% is specifically geometric: it uses the realization of $\mathcal N$ and its
+% relative commutant as local algebras of adjacent AQFT regions.
+
+% \subsection{The AQFT obstruction for adjacent regions}
+
+% Let $\mathcal A$ be a nontrivial local conformal net, and let $I_1,I_2$ be
+% disjoint intervals whose closures meet at one endpoint.  If $I$ is the interior
+% of $\overline{I_1}\cup\overline{I_2}$, Haag duality and strong additivity give
+% \begin{equation}\label{eq:adjacent-geometry}
+%  \mathcal A(I_1)'\cap\mathcal A(I)=\mathcal A(I_2),
+%  \qquad
+%  \mathcal A(I_1)\vee\mathcal A(I_2)=\mathcal A(I).
+% \end{equation}
+% Thus $\mathcal N:=\mathcal A(I_1)\subset\mathcal M:=\mathcal A(I)$ is
+% conormal and $\mathcal N'\cap\mathcal M=\mathcal A(I_2)$.
+
+% \begin{theorem}\label{thm:adjacent-no-expectation}
+% In this adjacent-region configuration, no faithful normal conditional
+% expectation
+% \begin{equation}
+%  E:\mathcal A(I)\longrightarrow\mathcal A(I_1)
+% \end{equation}
+% exists.
+% \end{theorem}
+
+% \begin{proof}
+% If $E$ existed, Proposition~\ref{prop:conormal-factorization} and
+% \eqref{eq:adjacent-geometry} would give
+% \begin{equation}\label{eq:forbidden-adjacent-factorization}
+%  \mathcal A(I)\cong
+%  \mathcal A(I_1)\overline\otimes\mathcal A(I_2),
+%  \qquad a_1\otimes a_2\longmapsto a_1a_2.
+% \end{equation}
+% For commuting factors, spatiality of the multiplication map is equivalent to
+% the split property \cite{DoplicherLongo1984}.  Hence the adjacent algebras
+% $\mathcal A(I_1)$ and $\mathcal A(I_2)$ would form a split pair.
+
+% This is impossible for a nontrivial chiral conformal net.
+% Reference~\cite[Proposition~1.6.12]{GiorgettiThesis} proves explicitly that
+% local algebras of disjoint touching intervals never satisfy the split property
+% unless the net is trivial.  Its first proof reduces this to
+% \cite[Lemma~13]{Wiesbrock1993}, which shows that a standard inclusion of type
+% $\mathrm{III}_1$ factors with type $\mathrm{III}_1$ relative commutant cannot
+% be both half-sided modular and split.  Its second proof uses the canonical
+% intermediate type I factor of
+% \cite[Theorems~2.1 and 4.1]{DoplicherLongo1984} and geometric modular action.
+% Thus \eqref{eq:forbidden-adjacent-factorization} contradicts the
+% adjacent-region structure.
+% \end{proof}
+
+% The logical chain is
+% \begin{equation}
+% \begin{split}
+%  &\text{faithful normal expectation}+\text{conormality}
+%  \Longrightarrow
+%  \mathcal M\cong\mathcal N\overline\otimes
+%  (\mathcal N'\cap\mathcal M)\\
+%  &\Longrightarrow
+%  \text{$(\mathcal N,\mathcal N'\cap\mathcal M)$ is a split commuting pair}\\
+%  &\Longrightarrow
+%  \text{contradiction for adjacent AQFT regions}.
+% \end{split}
+% \end{equation}
+% The last implication is an AQFT input, not a type-classification argument.
+% Rehren describes the split property as maximal decoupling for intervals with
+% disjoint closures and strong additivity as maximal interaction for touching
+% intervals \cite{Rehren2015}.  The failure of split decoupling when chiral
+% intervals touch is also stated in \cite{LongoRehren2004}.
+
+\subsection{Geometry from ergodic modular $K$-systems}
+
+
+
+Let $(\mathcal N\subset\mathcal M,\Omega)$ be a proper half-sided modular
+inclusion and let $\omega(x)=\braket{\Omega|x\Omega}$.
+
+\begin{proposition}\label{prop:no-vacuum-expectation}
+There is no faithful normal conditional expectation
+$E:\mathcal M\to\mathcal N$ satisfying $\omega\circ E=\omega$.
+\end{proposition}
+
+\begin{proof}
+Takesaki's theorem would imply
+$\sigma_t^{\mathcal M,\Omega}(\mathcal N)=\mathcal N$ for all $t\in\mathbb R$.
+Writing $\mathcal N=T(1)\mathcal M T(-1)$, Borchers covariance gives
+\begin{equation}
+ \Delta_{\mathcal M}^{it}T(x)\Delta_{\mathcal M}^{-it}
+ =T(e^{-2\pi t}x),
+\end{equation}
+and hence
+\begin{equation}
+ \sigma_t^{\mathcal M,\Omega}(\mathcal N)
+ =T(e^{-2\pi t})\mathcal M T(-e^{-2\pi t}).
+\end{equation}
+Global invariance, together with the fact that $e^{-2\pi t}$ ranges through
+$(0,\infty)$, forces $T(x)\mathcal M T(-x)=\mathcal M$ for every $x$ and thus
+$\mathcal N=\mathcal M$, contradicting properness.
+\end{proof}
+
+This argument does not exclude an expectation preserving a different faithful
+normal state or weight.  The conormal adjacent-region argument above rules out
+all faithful normal expectations without requiring vacuum preservation.  For a
+standard inclusion which is neither split nor conormal, however, standardness
+alone does not currently yield a general no-expectation theorem.  The general
+criterion remains Takesaki's theorem: a faithful normal expectation exists
+precisely when there is a faithful normal semifinite weight on $\mathcal M$,
+semifinite on $\mathcal N$, whose modular automorphism group globally preserves
+$\mathcal N$ \cite{Takesaki1972}.
+
+Lechner and Scotford state that half-sided modular inclusions with unique
+vacuum do not admit a normal conditional expectation and separately emphasize
+that such inclusions are never split \cite[Section~2]{LechnerScotford2022}.
+The latter assertion is tied to the incompatibility between standard
+half-sided modular and split inclusions.  The former, when cited as an
+unrestricted no-expectation statement, must be distinguished from the
+vacuum-preserving proof above: one must identify an additional mechanism, such
+as conormal adjacent-region localization, that rules out expectations
+preserving other faithful states.
+
+
+
+
+
+
+
+
+
+
+%\section*{Coarse-Graining, Conditional Expectation, and Modular Invariance}
+
+% A useful way to compare classical ergodic theory with operator-algebraic dynamics is to formulate both in terms of algebras of observables. 
+
+
+
+% \NL{Araki-Woods lattice system} as an example of QECC: correspondence between the states of the relative commutant and the conditional algebra.
 
 
 
@@ -1307,19 +938,21 @@ It is the $z=i/2$ case. It is the canonical endomorphism. It is the Petz map in 
 
 When there is geometry, there is a net of inclusions (coarse-grainings). We call such inclusions {\it geometric inclusions}. In the special case of inclusion of wedges in vacuum QFT, and the inclusion of balls in vacuum CFT, the flow associated with a geometric inclusion acts geometrically. However, in more general states of QFTs, or for more general geometric inclusions, the flow is non-local and non-geometric. Hence, we refer to it as {\it characteristic flows}.
 
-\subsection{Characteristic operators for inclusion of wedges and balls}
+%\subsection{Characteristic operators for inclusion of wedges and balls}
 
 
 
- \NL{Add theorems for inclusion of balls and wedges}
+ %\NL{Add theorems for inclusion of balls and wedges}
 
 
-\subsection{Matrix elements of characteristic functions}
+\paragraph{Matrix elements of characteristic functions}
 
 List of results: 1. matrix element = function of proper distance, 2. poles only for zero proper distance, 3. non-zero proper distance in the strip = poles only on the bry, 4. two pairs of poles on the bry of the stripe (Wedge), 5. branch cut for general $\Delta$, 6. 4 pairs of poles on the bry (Ball)
 
 Quick mention about 1. the tower ends after the first step, 2. $J_AJ_B$ thing, 3. future light cone?
 \subsection{Inclusion of Wedges}
+\NL{Add the theorem for the explicit expression of the charactersitic function}
+
 Without loss of generality, We consider the matrix element of the characteristic function $f(z)=\bra{O(X)}\Delta_A^{1/2+iz}\Delta_B^{-iz}\ket{O(Y)}$ of a CFT in 1+1d with inclusion of wedges, where $O(X),O(Y)$ are point-like fields with $Y\in B \subset A\ni X$. The general properties of the characteristic function implies that the function $f(z)$ is analytic in the stripe Im$(z)\in (-1/4,1/4)$ and continuous and bounded in the closure. For self-adjoint $O(x), O(y)$, we also have $f(z) = \overline{f(\overline{z})}$ for $z$ in the stripe, and thus $f(z)\in\mathbb{R}$ for $z\in\mathbb{R}$.
 
 The conformal symmetry allows us to take $B = W(a>0) \subset A = W(0)$ without loss of generality, where $W(a)$ denotes the Rindler wedge with the vertex point $t=0,x=a$. For simplicity, we take $O$ to be a scalar primary field with conformal dimension $2h$. We may choose to normalize $f(z)$ with $\sqrt{\braket{\mO(X)|\Delta_A^{1/2}\mO(X)}\braket{\mO(Y)|\Delta_B^{1/2}\mO(Y)}}$. The modulus of the function is bounded by $1$ but strictly less than $1$ with this normalization, in general. We will omit the normalization factor unless it is important. For $X = (t_1,x_1)$ and $Y = (t_2,x_2+a)$ and real $z$, we have 
@@ -1365,7 +998,10 @@ We observe the following properties of the analytic continuation of the function
 
 Although we only consider the point-like field $O(X),O(Y)$ in this setup, some features remain if we consider the smeared field. The smearing function may remove the singularities, but it cannot remove the branch cut. The multi-valued nature remains even with smeared fields. Also, several features remain valid in QFT and in higher dimensions. In general QFT, the two-point function of two self-adjoint point-like fields is still a function of the proper distance $\Delta s^2$. This is because the theory has Lorentz symmetry, and the modular flows of wedges remain geometric in QFT. The two-point function has a singularity only if $\Delta s^2 = 0$ in general. The function can only achieve zero with infinite proper distance. The function is real if the two points are spacelike separated at some $z$ due to causality. With these general features of QFT, most of the above properties and the singularity structure remain the same in general QFT, except for the details about the singularities and potentially the branch cuts. 
 
-\subsection{Ball inside Wedge}
+\subsection{Inclusion of Ball inside Wedge}
+
+\NL{Add theorem for the characteristic function for balls in CFT}
+
 In this subsection, we consider the setup with ball-inside-wedge inclusion. There is a distinction compared to the case of a wedge inside a wedge. The wedge-inside-wedge inclusion has a common end point at infinity so that the inclusion is not split. The inclusion of a ball inside a ball is the same as the inclusion of a ball inside a wedge. There is a conformal transformation that maps the larger ball to a wedge. Without loss of generality, we consider the setup with a double cone $B$ included in the right Rindler wedge $A$ in 1+1d CFT. The modular flow of a double cone $B$ with the two tips $(t_c\pm r,x_c)$ is
 \begin{align}
     \Delta_B^{-is} O(t,x) \Delta_B^{is} = \gamma^{2h} O(t_s,x_s),
@@ -3300,7 +2936,7 @@ We thank Keiichiro Furuya, Mudassir Moosa, Shoy Ouseph, Laimei Nie,
 %Therefore, we will have to work in the approximation $\ep\ll 1$ and $1\gg 1$ but $\ep e^{2\pi t}\ll 1$. In the standard chaos bound of \cite{}, the gravitational constant $G_N$ or $\hbar$ plays the role of $\ep$, and the interpretation is that we are quantizing a classical theory corresponding to $G_N=0$ and $\hbar=0$. In contrast, our definition of chaos is genuinely quantum, and there is no clear classical limit.\NL{make a milder statement}
 
 
-\section{Subsystem flows in classical ergodic theory}
+\section{Subsystem flows in classical ergodic theory}\label{app:classical}
 
 %\subsection{Coarse-gainings and Classical net of subregion algebras}
 
@@ -6480,475 +6116,385 @@ affine group.
 \end{minipage}
 }
 \]
-\section{Conormality, splitness, and faithful normal conditional expectations}
-\label{sec:conormality-expectations}
 
-Let $\mathcal N\subset\mathcal M\subset B(\mathcal H)$ be an inclusion of
-$\sigma$-finite type $\mathrm{III}_1$ factors.  The inclusion is
-\emph{standard} with respect to $\Omega\in\mathcal H$ if $\Omega$ is cyclic
-and separating for
+
+ \section{Extras (old stuff)}
+
+
+\subsection{Quantum Ergodic Theory for Modular Flow}
+\label{subsec:quantum-ergodic}
+
+Section~2.2 identified the ergodic hierarchy---ergodicity, weak mixing, mixing,
+and the Kolmogorov property---as a sequence of conditions on how much information
+about a classical state remains accessible from a subalgebra after the dynamics has
+run. Each level was characterised in terms of the time-evolution of coarse-grained
+descriptions and the decay of correlations. Here we develop the quantum counterpart
+of this hierarchy by replacing the measure-preserving flow $\alpha_t$ with the modular
+flow $\sigma_t^\varphi$ of a faithful normal state, and by replacing the classical conditional
+expectation with its quantum analog. The central new feature, absent in the classical setting,
+is Takesaki's theorem: the existence of a \emph{state-preserving} conditional expectation
+is no longer guaranteed and becomes the primary discriminating condition in the hierarchy.
+
+The two standing assumptions throughout this section are those of algebraic quantum
+field theory:
+\begin{enumerate}[label=(\arabic*)]
+  \item all local algebras of observables are von Neumann algebras of type~$III$;
+  \item all algebras act on a common separable Hilbert space.
+\end{enumerate}
+These conditions are satisfied by the local algebras of any well-behaved relativistic
+quantum field theory and will play a decisive role in ruling out state-preserving
+conditional expectations for the inclusions that arise in QFT.
+
+% -------------------------------------------------------------------
+\paragraph{State-preserving conditional expectations as Quantum Error Correction codes.}
+Let $\mathcal{N}\subset\mathcal{M}$ be an inclusion of von Neumann factors acting on a
+Hilbert space $\mathcal{H}$, and let $\omega_\mathcal{M}$ be a faithful normal state on
+$\mathcal{M}$.  The \emph{relative commutant} $\mathcal{R}:= \relcomm{\mathcal{N}}{\mathcal{M}}$
+plays the role of the ``hidden variables'' that are discarded when one retains only
+$\mathcal{N}$.  The coarse-graining $\mathcal{M}\to\mathcal{N}$ is the quantum analog of
+the erasure of the complement $O^c$ in the subregion construction of Section~2.1.
+
+The connection with quantum error correction (QEC) is made precise as follows.  A normal
+conditional expectation $E:\mathcal{M}\to\mathcal{N}$ is a completely positive, unital,
+$\mathcal{N}$-bimodular map.  In the language of QEC, the channel is the \emph{erasure
+of the relative commutant} $\mathcal{R}$: one passes from $\mathcal{M}$ to $\mathcal{N}$
+by discarding the information stored in $\mathcal{R}$.  The \emph{code subspace} is
+defined by the range of the Jones projection $e_\mathcal{N}\mathcal{H}_\mathcal{M}$,
+where $e_\mathcal{N}$ is the orthogonal projection of the GNS Hilbert space
+$\mathcal{H}_\mathcal{M}$ onto $\overline{\mathcal{N}|\Omega\rangle}$.
+
+The QEC condition requires that the erasure of $\mathcal{R}$ \emph{introduces no entropy}:
 \begin{equation}
- \mathcal N,\qquad \mathcal M,\qquad
- \mathcal N^c:=\mathcal N'\cap\mathcal M.
+  S(\omega_\mathcal{M}\|\omega_\mathcal{M}\circ E) = \Delta S = 0.
+  \label{eq:QEC-entropy}
 \end{equation}
-It is \emph{split} if a type I factor $\mathcal F$ exists with
-$\mathcal N\subset\mathcal F\subset\mathcal M$, and \emph{conormal} if
+By the quantum data-processing inequality, this vanishing of relative entropy is equivalent
+to the exact recoverability of $\omega_\mathcal{M}$ from its image under $E$.  When~\eqref{eq:QEC-entropy}
+holds for every state in the code subspace, no information is irreversibly lost to
+$\mathcal{R}$---i.e., every state in the code subspace is unentangled between $\mathcal{N}$
+and $\mathcal{R}$.
+
+The algebraic condition for QEC is precisely the \emph{existence of a state-preserving
+conditional expectation}.  By Takesaki's theorem, a normal conditional expectation
+$E:\mathcal{M}\to\mathcal{N}$ preserving $\omega_\mathcal{M}$ exists if and only if
+$\mathcal{N}$ is invariant under the modular flow of $\mathcal{M}$:
 \begin{equation}
- \mathcal N\vee\mathcal N^c=\mathcal M.
+  \sigma_t^{\omega_\mathcal{M}}(\mathcal{N}) = \mathcal{N}
+  \quad\text{for all }t\in\mathbb{R}.
+  \label{eq:Takesaki-QEC}
 \end{equation}
-Throughout this section, a conditional expectation
-$E:\mathcal M\to\mathcal N$ is assumed to be \emph{faithful and normal},
-unless the contrary is explicitly stated.  Tomiyama's theorem gives
+Invariant subalgebras in this sense are the quantum analog of autonomous factor subsystems
+in the classical ergodic hierarchy (Section~2.2): the modular dynamics restricts to an
+automorphism of $\mathcal{N}$, and $\mathcal{N}$ has the interpretation of a
+\emph{superselection sector} of charges protected from erasure.
+
+When~\eqref{eq:Takesaki-QEC} holds, the modular operators of $\omega_\mathcal{M}$ and
+of its restriction $\omega_\mathcal{N}:=\omega_\mathcal{M}|_\mathcal{N}$ intertwine on
+the common domain: for every $n\in\mathcal{N}$,
 \begin{equation}
- E(n_1xn_2)=n_1E(x)n_2,
- \qquad n_1,n_2\in\mathcal N,\quad x\in\mathcal M
- \cite{Tomiyama1957,Tomiyama1959,Takesaki1972}.
+  \Delta_{\omega_\mathcal{M}}^{it}\, n\, \Delta_{\omega_\mathcal{M}}^{-it}
+  = \Delta_{\omega_\mathcal{N}}^{it}\, n\, \Delta_{\omega_\mathcal{N}}^{-it},
+  \label{eq:modular-intertwining}
 \end{equation}
+so the modular Hamiltonians of the two algebras agree on $\mathcal{N}$.  The object
+$J_\mathcal{M} J_\mathcal{N}$ then implements a canonical endomorphism carrying
+$\mathcal{M}$ into $\mathcal{N}$, and it coincides with the Petz recovery map for
+the erasure channel.
 
-\subsection{The split case}
+If the state $\omega_\mathcal{M}$ is tracial (maximally mixed), then~\eqref{eq:modular-intertwining}
+holds automatically for every subalgebra and every conditional expectation, yielding a
+unitarily correctable QEC code.  For a non-tracial state, the Petz map involves $\rho_\mathcal{M}$
+explicitly and acts as a \emph{mirror operator} that pushes excitations from $\mathcal{R}$
+back into $\mathcal{N}$; the code is more general than the unitary case.
 
-\begin{theorem}\label{thm:split-no-expectation}
-If $\mathcal N$ has a nonzero type III summand and
-$\mathcal N\subset\mathcal M$ is split, then no normal conditional expectation
-$E:\mathcal M\to\mathcal N$ exists.  Faithfulness and preservation of the
-distinguished vector state are not needed for this conclusion.
-\end{theorem}
+\medskip
 
-\begin{proof}
-Let $\mathcal N\subset\mathcal F\subset\mathcal M$ be an interpolating type I
-factor and suppose that $E:\mathcal M\to\mathcal N$ is normal.  Its restriction
+There is also a one-to-one correspondence between normal conditional expectations
+$E:\mathcal{M}\to\mathcal{N}$ and faithful normal states $\chi$ on the relative commutant
+$\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$:
 \begin{equation}
- E_{\mathcal F}:=E|_{\mathcal F}:\mathcal F\longrightarrow\mathcal N
+  E(n\, r) = \chi(r)\, n, \qquad n\in\mathcal{N},\; r\in\mathcal{R}.
+  \label{eq:CE-state-correspondence}
 \end{equation}
-is a normal norm-one projection with range $\mathcal N$.  Tomiyama's type
-theorem states that a normally expected von Neumann subalgebra of a type I von
-Neumann algebra is type I \cite{Tomiyama1959}\cite{Takesaki1972}. This contradicts
-the existence of a nonzero type III summand in $\mathcal N$.
-\end{proof}
+This is a direct quantum counterpart of the classical fact that conditional expectations
+onto a subalgebra are parametrised by states on the fiber (hidden variable) algebra.
+The \emph{Jones index} $[\mathcal{M}:\mathcal{N}]$ measures the size of $\mathcal{R}$:
+a finite index means $\mathcal{R}$ is a finite-dimensional matrix algebra, while infinite
+index (including the case of no normal conditional expectation at all) signals that $\mathcal{R}$
+is genuinely infinite-dimensional.
 
-Thus
+If the center $\mathcal{Z}(\mathcal{M})=\mathcal{M}\cap\mathcal{M}'$ is non-trivial,
+its elements have the interpretation of conserved classical charges: the center is an
+abelian subalgebra that trivially satisfies~\eqref{eq:Takesaki-QEC} and admits a
+state-preserving expectation.  This is classical error correction.  Quantum error
+correction proper requires $\mathcal{N}$ to be a factor.
+
+% -------------------------------------------------------------------
+\paragraph{Conditional expectations, unentanglement states, and mixing.}
+The existence of a state-preserving conditional expectation has a direct physical meaning
+in terms of entanglement between $\mathcal{N}$ and $\mathcal{R}$.  If $E:\mathcal{M}\to\mathcal{N}$
+does not preserve $\omega_\mathcal{M}$, then discarding $\mathcal{R}$ erases information
+about $\omega_\mathcal{M}$ irreversibly: the relative entropy $S(\omega_\mathcal{M}\|\omega_\mathcal{M}\circ E)$
+is strictly positive, signalling entanglement between $\mathcal{N}$ and $\mathcal{R}$ in
+the state $\omega_\mathcal{M}$.
+
+Conversely, an \emph{unentangled} (product) state
 \begin{equation}
- \boxed{\text{split inclusion with type III range}
- \Longrightarrow\text{no normal conditional expectation}.}
+  \omega_\mathcal{M} = \omega_\mathcal{N}\otimes\omega_\mathcal{R}
+  \label{eq:product-state}
 \end{equation}
-Standardness plays no role in this implication.
+exists if and only if there is a state-preserving conditional expectation, and in that case
+the expectation is given explicitly by~\eqref{eq:CE-state-correspondence} with
+$\chi=\omega_\mathcal{R}$.  This is the direct quantum analog of the classical statement
+in Section~2.4 that the reduced dynamics agrees with the full dynamics (equation~(2.45))
+if and only if the full state is a product state~(2.48).
 
-\subsection{Conormality and tensor-product factorization}
+In the geometric QFT setting, the relative commutant $\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$
+is associated with a spacetime region.  When this region is \emph{disjoint} from the
+region associated with $\mathcal{N}$ (with a spatial gap between them), locality provides
+a product state of the form~\eqref{eq:product-state}: the algebras of spatially separated
+regions are always unentangled in a product sense, and a state-preserving conditional
+expectation exists by additivity.  In this disjoint case there are no global charges
+(intertwiners between $\mathcal{N}$ and $\mathcal{R}$) and the standard additivity
+assumption is valid.
 
-Set $\mathcal C:=\mathcal N'\cap\mathcal M$.
+When the two regions \emph{touch} but do not overlap---the generic configuration in the
+inclusions $\mathcal{N}=\mathcal{A}(I_1)\subset\mathcal{M}=\mathcal{A}(I)$ for adjacent
+intervals---the product state~\eqref{eq:product-state} is not available as a common cyclic
+and separating vector for the inclusion, and strong additivity (rather than mere additivity)
+is what corresponds to the existence of the conditional expectation.
 
-\begin{lemma}\label{lem:expectation-slice}
-If $\mathcal N$ is a factor and $E:\mathcal M\to\mathcal N$ is a faithful
-normal conditional expectation, there is a faithful normal state $\chi$ on
-$\mathcal C$ such that
+The quantum analog of \emph{mixing} in the modular sense is the statement that the
+coarse-graining flow
 \begin{equation}
- E(c)=\chi(c)\mathbbm 1,
- \qquad E(nc)=\chi(c)n,
- \qquad n\in\mathcal N,\quad c\in\mathcal C.
+  U_t = \sigma_t^{\omega_\mathcal{M}}\circ(\sigma_t^{\omega_\mathcal{N}})^{-1}
+  \label{eq:coarse-graining-flow}
 \end{equation}
+does not preserve any non-trivial element of $\mathcal{N}$ for any $t\neq 0$.  This is
+the quantum counterpart of the mixing condition $C_{f,g}(t)\to 0$ in Section~2.2: just
+as mixing says that no coarse observable retains a memory of its initial value, modular
+mixing says that no observable in $\mathcal{N}$ is invariant under the relative flow.
+Equivalently, the quantum correlation function
+\begin{equation}
+  C_{a,b}^{\omega}(t) := \omega_\mathcal{M}\bigl(a^*\,\sigma_t^{\omega_\mathcal{M}}(b)\bigr)
+  - \omega_\mathcal{M}(a^*)\,\omega_\mathcal{M}(b),
+  \qquad a,b\in\mathcal{M},
+  \label{eq:quantum-correlation}
+\end{equation}
+is the quantum analog of the classical connected correlation~(2.22), and modular mixing
+is the statement that $C_{a,b}^\omega(t)\to 0$ as $t\to+\infty$ for all
+$a\in\mathcal{M}$, $b\in\mathcal{N}$.  In the absence of a state-preserving expectation,
+the relative flow~\eqref{eq:coarse-graining-flow} is genuinely non-trivial and generic
+trajectories of elements of $\mathcal{N}$ spread into all of $\mathcal{M}$,
+in direct parallel with the classical K-property~(2.28):
+\begin{equation}
+  \bigvee_{t\in\mathbb{R}}\sigma_t^{\omega_\mathcal{M}}(\mathcal{N}) = \mathcal{M}.
+  \label{eq:topological-transitivity}
+\end{equation}
+
+% -------------------------------------------------------------------
+\paragraph{Common cyclic and separating state and entanglement.}
+A vector $|\Omega\rangle\in\mathcal{H}$ is \emph{cyclic and separating} for a von Neumann
+algebra $\mathcal{A}$ if $\mathcal{A}|\Omega\rangle$ is dense in $\mathcal{H}$ (cyclicity)
+and $a|\Omega\rangle=0$ implies $a=0$ for $a\in\mathcal{A}$ (separating).  For an
+inclusion $\mathcal{B}\subset\mathcal{A}$, a vector that is simultaneously cyclic and
+separating for both algebras is called a \emph{common cyclic and separating vector}.
+
+The first question is whether such a vector exists at all.  For type~$III$ algebras,
+the answer is affirmative and robust, by the following two results.
+
+\begin{lemma}[Blackadar]\label{lem:typeIII-standard}
+Every type~$III$ von Neumann algebra acting on a separable Hilbert space is in
+standard form.
 \end{lemma}
 
-\begin{proof}
-For $n\in\mathcal N$ and $c\in\mathcal C$,
-\begin{equation}
- nE(c)=E(nc)=E(cn)=E(c)n.
-\end{equation}
-Thus $E(c)\in Z(\mathcal N)=\mathbb C\mathbbm 1$, so
-$E(c)=\chi(c)\mathbbm 1$ for a normal state $\chi$.  If $c\geq0$ and
-$\chi(c)=0$, faithfulness of $E$ implies $c=0$; hence $\chi$ is faithful.  The
-second identity is the bimodule property.
-\end{proof}
+\noindent Since both $\mathcal{A}$ and $\mathcal{B}$ are in standard form, their individual
+sets of cyclic and separating vectors, $\mathcal{C}_\mathcal{A}$ and $\mathcal{C}_\mathcal{B}$,
+are non-empty.  The non-trivial question is whether their intersection
+$\mathcal{C}_\mathcal{A}\cap\mathcal{C}_\mathcal{B}$ is non-empty and, if so, how large it is.
 
-For a faithful normal state $\varphi$ on $\mathcal N$, the state
-$\psi:=\varphi\circ E$ is faithful and normal and satisfies
-\begin{equation}
- \psi(nc)=\varphi(n)\chi(c).
-\end{equation}
+\begin{proposition}[Dixmier--Mar\'echal]\label{prop:dense-common}
+For two type~$III$ von Neumann algebras $\mathcal{A}$, $\mathcal{B}$ acting on a common
+separable Hilbert space $\mathcal{H}$, the set of common cyclic and separating vectors
+is a dense $G_\delta$ subset of $\mathcal{H}$.
+\end{proposition}
 
-\begin{proposition}\label{prop:conormal-factorization}
-Under the hypotheses of Lemma~\ref{lem:expectation-slice}, multiplication
-extends to a normal $*$-isomorphism
+\noindent The density of common cyclic and separating vectors has a strong implication for
+entanglement.  Fix any such vector $|\Omega\rangle\in\mathcal{C}_\mathcal{A}\cap\mathcal{C}_\mathcal{B}$
+and consider the inclusion $\mathcal{N}\subset\mathcal{M}$.  The Tomita operator satisfies
 \begin{equation}
- m:\mathcal N\overline\otimes\mathcal C
- \overset{\cong}{\longrightarrow}\mathcal N\vee\mathcal C,
- \qquad m(n\otimes c)=nc.
+  S_\mathcal{M}\,\mathcal{O}_\mathcal{N}|\Omega\rangle
+  = J_\mathcal{M}\Delta_\mathcal{M}^{1/2}\mathcal{O}_\mathcal{N}|\Omega\rangle
+  = \mathcal{O}_\mathcal{N}^*|\Omega\rangle
+  = J_\mathcal{N}\Delta_\mathcal{N}^{1/2}\mathcal{O}_\mathcal{N}|\Omega\rangle
+  = S_\mathcal{N}\,\mathcal{O}_\mathcal{N}|\Omega\rangle
+  \label{eq:Tomita-extension}
 \end{equation}
-If the inclusion is conormal, then
-\begin{equation}\label{eq:conormal-factorization}
- \boxed{\mathcal M\cong
- \mathcal N\overline\otimes(\mathcal N'\cap\mathcal M).}
+for every $\mathcal{O}_\mathcal{N}\in\mathcal{N}$.  Since $S_\mathcal{M}$ is an extension
+of $S_\mathcal{N}$, general operator theory gives the operator inequality on
+$\mathcal{H}$:
+\begin{equation}
+  \Delta_\mathcal{N} \geq \Delta_\mathcal{M}.
+  \label{eq:modular-inequality}
 \end{equation}
+Because $f(z)=z^\alpha$ is operator monotone for $0\leq\alpha\leq 1$, this extends to
+\begin{equation}
+  \Delta_\mathcal{N}^\alpha \geq \Delta_\mathcal{M}^\alpha, \qquad 0\leq\alpha\leq 1.
+  \label{eq:modular-inequality-alpha}
+\end{equation}
+In particular, $\mathcal{D}(\Delta_\mathcal{N}^\alpha)\subseteq\mathcal{D}(\Delta_\mathcal{M}^\alpha)$,
+so the operator $\Delta_\mathcal{M}^\alpha\Delta_\mathcal{N}^{-\alpha}$ is well-defined
+and closable for $0\leq\alpha\leq 1/2$, and its closure is bounded:
+\begin{equation}
+  \|\Delta_\mathcal{M}^\alpha\Delta_\mathcal{N}^{-\alpha}\|^2
+  = \|\Delta_\mathcal{N}^{-\alpha}\Delta_\mathcal{M}^{2\alpha}\Delta_\mathcal{N}^{-\alpha}\|
+  \leq 1.
+  \label{eq:characteristic-bounded}
+\end{equation}
+This boundedness, which uses $2\alpha\leq 1$, is the foundation for the characteristic
+function of the inclusion.
+
+The common cyclic and separating vector also determines the entanglement structure of
+the inclusion.  Suppose $|\Omega\rangle$ is such a vector for $\mathcal{N}\subset\mathcal{M}$.
+The Jones projection $e_\mathcal{N}$, which projects $\mathcal{H}$ onto
+$\overline{\mathcal{N}|\Omega\rangle}$, becomes the identity operator:
+$e_\mathcal{N}=\id$ on $\mathcal{H}$, because $|\Omega\rangle$ is cyclic for $\mathcal{N}$
+and hence $\mathcal{N}|\Omega\rangle$ is already dense.  The code subspace is therefore
+the entire Hilbert space $\mathcal{H}$.  In the QEC language, \emph{every} state in
+$\mathcal{H}$ has entanglement between $\mathcal{N}$ and $\mathcal{R}=\relcomm{\mathcal{N}}{\mathcal{M}}$;
+there is no unentangled state of the form~\eqref{eq:product-state}, and the Pimsner--Popa
+index is infinite: $[\mathcal{M}:\mathcal{N}]=\infty$.
+
+This is the precise quantum counterpart of the classical K-property.  In the classical
+setting, the Kolmogorov property~(2.28) says that the tail algebra
+$\bigcap_{t\geq 0}\alpha_t(\mathcal{B}_+)$ is trivial, meaning that no nonconstant
+observable is accessible arbitrarily far into the future.  Here, the analogue is that the
+Jones projection is the identity and the index is infinite: no sub-Hilbert-space can
+serve as a code subspace for the erasure of $\mathcal{R}$, because all states are
+universally entangled.
+
+% -------------------------------------------------------------------
+\paragraph{Unexpected inclusions and universal entanglement.}
+We now establish the key constraint that rules out state-preserving conditional expectations
+for inclusions of factors sharing a common cyclic and separating vector.
+
+\begin{proposition}\label{prop:common-css-no-invariance}
+Let $\mathcal{N}\subset\mathcal{M}$ be an inclusion of factors with a common cyclic and
+separating vector $|\Omega\rangle$.  If $\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})=\mathcal{N}$
+for all $t\in\mathbb{R}$, then $\mathcal{N}=\mathcal{M}$.
 \end{proposition}
 
 \begin{proof}
-Multiplication is a $*$-homomorphism on $\mathcal N\odot\mathcal C$ because
-the two algebras commute.  Moreover,
-\begin{equation}
- \psi\bigl(m(n\otimes c)\bigr)
- =(\varphi\otimes\chi)(n\otimes c).
-\end{equation}
-The GNS representation of the faithful normal product state
-$\varphi\otimes\chi$ is the spatial tensor-product representation.  Hence
-multiplication extends normally to $\mathcal N\overline\otimes\mathcal C$.
-Faithfulness of the product state gives injectivity, while surjectivity follows
-from the definition of $\mathcal N\vee\mathcal C$.  Conormality then yields
-\eqref{eq:conormal-factorization}; compare
-\cite{Faulkner2020,FaulknerSperanza2024}.
+By Takesaki's theorem, the modular invariance
+$\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})=\mathcal{N}$ implies the existence of a
+faithful normal conditional expectation $E:\mathcal{M}\to\mathcal{N}$ preserving
+$\omega_\mathcal{M}$.  The intertwining relation~\eqref{eq:modular-intertwining} then
+gives $\Delta_\mathcal{M}^{it}\,n\,\Delta_\mathcal{M}^{-it}=\Delta_\mathcal{N}^{it}\,n\,\Delta_\mathcal{N}^{-it}$
+for all $n\in\mathcal{N}$ and all $t\in\mathbb{R}$.  Combined with the fact that
+$|\Omega\rangle$ is cyclic for $\mathcal{N}$, the Tomita theory for the pair implies
+$\Delta_\mathcal{M}=\Delta_\mathcal{N}$ on $\mathcal{H}$, hence $S_\mathcal{M}=S_\mathcal{N}$
+and therefore $J_\mathcal{M}=J_\mathcal{N}$.  But $\mathcal{M}=J_\mathcal{M}\mathcal{M}'J_\mathcal{M}$
+and $\mathcal{N}=J_\mathcal{N}\mathcal{N}'J_\mathcal{N}$; since $|\Omega\rangle$ is also
+separating for $\mathcal{M}$ and $\mathcal{N}$, cyclicity for $\mathcal{N}$ and
+separating for $\mathcal{M}$ force $\mathcal{N}'=\mathcal{M}'$, giving $\mathcal{N}=\mathcal{M}$.
 \end{proof}
 
-There is no contradiction at this abstract level.  Tensor products of type
-$\mathrm{III}_1$ factors can again be type $\mathrm{III}_1$; for example,
-$R_\infty\overline\otimes R_\infty\cong R_\infty$.  The contradiction below
-is specifically geometric: it uses the realization of $\mathcal N$ and its
-relative commutant as local algebras of adjacent AQFT regions.
+\noindent Proposition~\ref{prop:common-css-no-invariance} states that for a \emph{proper}
+inclusion $\mathcal{N}\subsetneq\mathcal{M}$ of factors with a common cyclic and
+separating vector, there is \emph{no} faithful normal conditional expectation
+$E:\mathcal{M}\to\mathcal{N}$ that preserves the state $\omega_\mathcal{M}$.  In the
+QEC language: there are no exactly protected operators in the sense of quantum error
+correction.  This is the statement of \emph{universal entanglement} of the inclusion.
 
-\subsection{The AQFT obstruction for adjacent regions}
+The physical content of this result is reinforced by the topological transitivity
+property~\eqref{eq:topological-transitivity}: since a common cyclic and separating vector
+implies that the modular orbit $\bigvee_t\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})=\mathcal{M}$,
+there is no way to choose a state on $\mathcal{M}$ that keeps the information content
+of $\mathcal{N}$ private from the relative commutant $\mathcal{R}$.  In the language of
+infinite-dimensional quantum systems, the monogamy of entanglement breaks down: the
+algebras $\mathcal{N}$ and $\mathcal{R}$ can both be universally entangled with the full
+algebra $\mathcal{M}$, something impossible for finite-dimensional systems where maximal
+entanglement of one pair forces disentanglement from all others.
 
-Let $\mathcal A$ be a nontrivial local conformal net, and let $I_1,I_2$ be
-disjoint intervals whose closures meet at one endpoint.  If $I$ is the interior
-of $\overline{I_1}\cup\overline{I_2}$, Haag duality and strong additivity give
-\begin{equation}\label{eq:adjacent-geometry}
- \mathcal A(I_1)'\cap\mathcal A(I)=\mathcal A(I_2),
- \qquad
- \mathcal A(I_1)\vee\mathcal A(I_2)=\mathcal A(I).
-\end{equation}
-Thus $\mathcal N:=\mathcal A(I_1)\subset\mathcal M:=\mathcal A(I)$ is
-conormal and $\mathcal N'\cap\mathcal M=\mathcal A(I_2)$.
+The index of such an inclusion is infinite for a second independent reason: even if
+there \emph{exist} normal conditional expectations $E:\mathcal{M}\to\mathcal{N}$
+(not preserving $\omega_\mathcal{M}$), each of them introduces strictly positive entropy
+$S(\omega_\mathcal{M}\|\omega_\mathcal{M}\circ E)>0$, and the correspondence~\eqref{eq:CE-state-correspondence}
+implies that every state of $\mathcal{R}$ is entangled with $\mathcal{N}$ in
+$\omega_\mathcal{M}$.  In the language of~\cite{WittenPenington}, this is the
+$\infty$-algebra regime in which no subalgebra is exactly correctable.
 
-\begin{theorem}\label{thm:adjacent-no-expectation}
-In this adjacent-region configuration, no faithful normal conditional
-expectation
-\begin{equation}
- E:\mathcal A(I)\longrightarrow\mathcal A(I_1)
-\end{equation}
-exists.
+% -------------------------------------------------------------------
+\paragraph{Split inclusions and mixing.}
+
+The discussion above identifies the common-cyclic-and-separating condition as the
+quantum analog of the K-property: it rules out state-preserving conditional expectations
+and implies universal entanglement and topological transitivity.  The next step in the
+ergodic hierarchy is to identify the quantum analog of the mixing condition, which in the
+classical theory (Section~2.2) was the decay $C_{f,g}(t)\to 0$ as $t\to+\infty$.
+The relevant algebraic notion is that of a \emph{split inclusion}.
+
+\begin{definition}[Split inclusion]\label{def:split}
+An inclusion $\mathcal{N}\subset\mathcal{M}$ is \emph{split} if there exists a type~$I$
+factor $\mathcal{F}$ such that $\mathcal{N}\subset\mathcal{F}\subset\mathcal{M}$.
+\end{definition}
+
+\noindent Physically, a split inclusion is one for which the algebras of the two regions are
+\emph{maximally decoupled} in the sense of Doplicher and Longo~\cite{DopLongo1984}:
+an intermediate type~$I$ factor provides a ``buffer'' that absorbs the entanglement between
+$\mathcal{N}$ and its complement in $\mathcal{M}$.  This is the quantum counterpart of
+the classical product structure $(X,\Sigma,\mu)=(Y\times Z,\Sigma_Y\otimes\Sigma_Z,\mu_Y\otimes\mu_Z)$
+in Section~2.1: the split property asserts that the two algebras can be simultaneously
+represented on a tensor-product Hilbert space.  In QFT, split inclusions arise precisely
+for \emph{disjoint} regions (with a positive spatial gap between them), where the
+intermediate type~$I$ factor is associated with the gap and the correlation functions
+between the two regions decay exponentially with the gap width.  The corresponding
+$L^2$-nuclearity condition quantifies this decay.
+
+The split property is incompatible with a state-preserving conditional expectation when
+the algebras are type~$III$:
+
+\begin{theorem}[{Theorem~30 in~\cite{ChLaLe2026}}]\label{thm:split-no-CE}
+If $\mathcal{N}$ has a non-zero type~$III$ summand and $\mathcal{N}\subset\mathcal{M}$
+is split, then no normal conditional expectation $E:\mathcal{M}\to\mathcal{N}$ exists.
 \end{theorem}
 
-\begin{proof}
-If $E$ existed, Proposition~\ref{prop:conormal-factorization} and
-\eqref{eq:adjacent-geometry} would give
-\begin{equation}\label{eq:forbidden-adjacent-factorization}
- \mathcal A(I)\cong
- \mathcal A(I_1)\overline\otimes\mathcal A(I_2),
- \qquad a_1\otimes a_2\longmapsto a_1a_2.
-\end{equation}
-For commuting factors, spatiality of the multiplication map is equivalent to
-the split property \cite{DoplicherLongo1984}.  Hence the adjacent algebras
-$\mathcal A(I_1)$ and $\mathcal A(I_2)$ would form a split pair.
-
-This is impossible for a nontrivial chiral conformal net.
-Reference~\cite[Proposition~1.6.12]{GiorgettiThesis} proves explicitly that
-local algebras of disjoint touching intervals never satisfy the split property
-unless the net is trivial.  Its first proof reduces this to
-\cite[Lemma~13]{Wiesbrock1993}, which shows that a standard inclusion of type
-$\mathrm{III}_1$ factors with type $\mathrm{III}_1$ relative commutant cannot
-be both half-sided modular and split.  Its second proof uses the canonical
-intermediate type I factor of
-\cite[Theorems~2.1 and 4.1]{DoplicherLongo1984} and geometric modular action.
-Thus \eqref{eq:forbidden-adjacent-factorization} contradicts the
-adjacent-region structure.
+\begin{proof}[Proof sketch]
+Let $\mathcal{N}\subset\mathcal{F}\subset\mathcal{M}$ be the interpolating type~$I$
+factor, and suppose $E:\mathcal{M}\to\mathcal{N}$ is normal.  Its restriction
+$E|_\mathcal{F}:\mathcal{F}\to\mathcal{N}$ is a normal norm-one projection with range
+$\mathcal{N}$.  Tomiyama's theorem then implies that $\mathcal{N}$ must be type~$I$ as a
+normally expected subalgebra of the type~$I$ factor $\mathcal{F}$, contradicting the
+hypothesis that $\mathcal{N}$ has a non-zero type~$III$ summand.
 \end{proof}
 
-The logical chain is
+\noindent Hence the logical implication is:
 \begin{equation}
-\begin{split}
- &\text{faithful normal expectation}+\text{conormality}
- \Longrightarrow
- \mathcal M\cong\mathcal N\overline\otimes
- (\mathcal N'\cap\mathcal M)\\
- &\Longrightarrow
- \text{$(\mathcal N,\mathcal N'\cap\mathcal M)$ is a split commuting pair}\\
- &\Longrightarrow
- \text{contradiction for adjacent AQFT regions}.
-\end{split}
+  \text{split inclusion with type~}III\text{ range}
+  \;\Longrightarrow\;
+  \text{no normal conditional expectation.}
+  \label{eq:split-no-CE}
 \end{equation}
-The last implication is an AQFT input, not a type-classification argument.
-Rehren describes the split property as maximal decoupling for intervals with
-disjoint closures and strong additivity as maximal interaction for touching
-intervals \cite{Rehren2015}.  The failure of split decoupling when chiral
-intervals touch is also stated in \cite{LongoRehren2004}.
 
-\subsection{Proper half-sided modular inclusions and remaining cases}
+The comparison with the classical ergodic hierarchy is instructive.  In the classical
+theory, the K-property is strictly stronger than mixing: every K-system is mixing, but not
+conversely.  The quantum analog is:
 
-Let $(\mathcal N\subset\mathcal M,\Omega)$ be a proper half-sided modular
-inclusion and let $\omega(x)=\braket{\Omega|x\Omega}$.
+\begin{center}
+\begin{tabular}{lll}
+  \textit{Classical} & & \textit{Quantum} \\[4pt]
+  Ergodicity & $\longleftrightarrow$ & No $\omega_\mathcal{M}$-preserving expectation \\
+  Mixing & $\longleftrightarrow$ & Split inclusion (maximal decoupling) \\
+  K-property & $\longleftrightarrow$ & Common cyclic-separating vector (universal entanglement)
+\end{tabular}
+\end{center}
 
-\begin{proposition}\label{prop:no-vacuum-expectation}
-There is no faithful normal conditional expectation
-$E:\mathcal M\to\mathcal N$ satisfying $\omega\circ E=\omega$.
-\end{proposition}
+\medskip
+\noindent The classical K-property implied non-trivial one-sided inclusions
+$\alpha_t(\mathcal{B}_+)\subsetneq\mathcal{B}_+$ for $t>0$; the quantum analog is the
+\emph{half-sided modular inclusion} $\sigma_t^{\omega_\mathcal{M}}(\mathcal{N})\subsetneq\mathcal{N}$
+for $t>0$, which will be discussed further in Section~3.3.
 
-\begin{proof}
-Takesaki's theorem would imply
-$\sigma_t^{\mathcal M,\Omega}(\mathcal N)=\mathcal N$ for all $t\in\mathbb R$.
-Writing $\mathcal N=T(1)\mathcal M T(-1)$, Borchers covariance gives
-\begin{equation}
- \Delta_{\mathcal M}^{it}T(x)\Delta_{\mathcal M}^{-it}
- =T(e^{-2\pi t}x),
-\end{equation}
-and hence
-\begin{equation}
- \sigma_t^{\mathcal M,\Omega}(\mathcal N)
- =T(e^{-2\pi t})\mathcal M T(-e^{-2\pi t}).
-\end{equation}
-Global invariance, together with the fact that $e^{-2\pi t}$ ranges through
-$(0,\infty)$, forces $T(x)\mathcal M T(-x)=\mathcal M$ for every $x$ and thus
-$\mathcal N=\mathcal M$, contradicting properness.
-\end{proof}
-
-This argument does not exclude an expectation preserving a different faithful
-normal state or weight.  The conormal adjacent-region argument above rules out
-all faithful normal expectations without requiring vacuum preservation.  For a
-standard inclusion which is neither split nor conormal, however, standardness
-alone does not currently yield a general no-expectation theorem.  The general
-criterion remains Takesaki's theorem: a faithful normal expectation exists
-precisely when there is a faithful normal semifinite weight on $\mathcal M$,
-semifinite on $\mathcal N$, whose modular automorphism group globally preserves
-$\mathcal N$ \cite{Takesaki1972}.
-
-Lechner and Scotford state that half-sided modular inclusions with unique
-vacuum do not admit a normal conditional expectation and separately emphasize
-that such inclusions are never split \cite[Section~2]{LechnerScotford2022}.
-The latter assertion is tied to the incompatibility between standard
-half-sided modular and split inclusions.  The former, when cited as an
-unrestricted no-expectation statement, must be distinguished from the
-vacuum-preserving proof above: one must identify an additional mechanism, such
-as conormal adjacent-region localization, that rules out expectations
-preserving other faithful states.
-
-
-% \section{Extras (old stuff)}
-
-% \subsection{Two states and two algebras: IR regulated S-matrix}
-
-% Consider the S-matrix of some interacting QFT defined as
-% \begin{eqnarray}
-% S_{H,H_0}(t)=e^{i t H_0}e^{-2i t H}e^{it H_0}\ .
-% \end{eqnarray}
-% Consider the vacua $\ket{\Omega_0}$ and $\ket{\Omega_\lambda}$ of the Hamiltonians $H_0$ and $H$, respectively. Then, for the inclusion of wedges, we find
-% \begin{eqnarray}
-% S_{H_0,H,A,B}&&\equiv S_{H_0,A\subset B}(t) S_{H,A\subset B}(-2\tilde{t})S_{H_0,A\subset B}(t)\nn\\
-% &&=e^{i a H_0 \sinh(2\pi t)} e^{-2i a H \sinh(\pi t)}e^{i a H_0 \sinh(2\pi t)}\ .
-% \end{eqnarray}
-% We can write this as 
-% \begin{eqnarray}
-%     &&\Omega^\dagger(t)=S_{H_0}(t) S^\dagger_{H}(t)\nn\\
-%     &&S_{H_0,H,A\subset B}=\Omega^\dagger(t) \Omega(-t)\ .
-% \end{eqnarray}
-% \NL{This is similar to the work of Mizera-Hannesdottir on IR observables made out of alternating sequences of the in and out creation-annihilation operators.}
-
-
-% Note that these equations do not require small $a$ or small $ae^{2\pi t}$ to hold. Therefore, for all values of $a$ and $t$ we have the exact identity
-% \begin{eqnarray}
-% S_{H_0,H,A,B}(t)=S_{H,H_0}(a \sinh(2\pi t)) 
-% \end{eqnarray} 
-% Then, the large $t$ limit of both sides coincides, and we obtain a half-space approximation of the global S-matrix \NL{Any connections to the story of Gandalf Lechner?}.
-
-% Consider the inclusion of a ball-shaped region in a wedge $B_R\subset W$ such that they share one boundary point $x$. Our modular S-matrix in this case is
-% \begin{eqnarray}
-% S(t)=e^{i K_W t} e^{-2\pi K_B t} e^{i K_W t}\ .
-% \end{eqnarray}
-% In the vicinity of this common point $x$ the modular flow of the ball is well-approximated by a boost for short amounts of time. 
-
-
-% The S-matrix exists in theories in which the interaction falls off exponentially fast. However, in theories with long range interactions such as gauge theories or in conformal field theory this limit might not exist. In these cases, if we replace the inclusion of wedges with the inclusion of balls, we obtain an operator algebraic infrared regulator for the S-matrix!
-
-% \NL{As an example take the vacuum of CFT and a conformally deformed theory to the first order in $\lambda$.}
-
-
-
-
-
-% We showed that our local approximation of Hamiltonian in the vicinity of the entangling surface tends to the true global Hamiltonian of the system. 
-
-% Consider the S-matrix of some interacting QFT defined as
-% \begin{eqnarray}
-% S=\lim_{t\to \infty} e^{i t H_0}e^{-2i t H}e^{it H_0}\ .
-% \end{eqnarray}
-% where we take
-
-% \subsection{Modular chaos bound}
-
-% We consider the modular chaos bound condition studied in \cite{}. We define
-% \begin{eqnarray}
-%     f_\mO(u)&&=\frac{\bra{\mO}\Delta_A^{1/2+iu}\Delta_B^{-iu}\ket{\mO}}{\sqrt{\braket{a|\Delta_A^{1/2}a}\braket{b|\Delta_B^{1/2}b}}}\\
-%     &&=\frac{\bra{\Delta_A^{1/4}\mO} T_{B\subset A}(-i/4+u)\ket{\Delta_B^{1/4} \mO}}{\sqrt{\braket{\mO|\Delta_A^{1/2}\mO}\braket{\mO|\Delta_B^{1/2}\mO}}}\nn\\
-%     &&=1+i \mathcal{M}_{\mO}(u)
-% \end{eqnarray}
-% First, we find that 
-% \begin{eqnarray}
-%     1-\Im(\mathcal{M}_\mO(u))=\Re(f_\mO(u))\leq |f_\mO(u)|\leq 1
-% \end{eqnarray}
-% which implies that 
-% \begin{eqnarray}
-%     \Im\mathcal{M}_\mO(u)\geq 0\ .
-% \end{eqnarray}
-% Using the change of variables $E=ie^{-2\pi u}$ sends the function above to the upper half-plane. Therefore, we can view $\mM(E)$ as an analytic map from the upper half-plane $H$ to itself. Then, writing $E=v+iw$ the Schwarz-Pick lemma becomes
-% \begin{eqnarray}
-%     \frac{|w \p_w \mM(v+iw)|}{\Im \mM(v+iw)}\leq 1\ . 
-% \end{eqnarray}
-% Since we have $|\p_w \Im\mM(v+i\omega)|\leq |\p_w \mM(v+i\omega)|$ we find
-% \begin{eqnarray}
-%     |w\p_w \log \Im \mM(v+iw)| \stackrel{(1)}{\leq} \frac{|w \p_w \mM(v+iw)|}{\Im \mM(v+iw)} \stackrel{(2)}{\leq} 1\ .
-% \end{eqnarray}
-% This is the modular chaos bound. To saturate this bound, first we need to take the equality condition $(2)$ in the lemma above, which fixes $\mM(E)=\frac{a E+b}{c E+d}$ to be a $PSL(2,\mathbb{R})$ transformation. Next, we require the saturation of the first inequality $(1)$
-% \begin{eqnarray}
-%     \forall v+iw\in H:\qquad \p_w \Re \mM(v+iw)=0\ .
-% \end{eqnarray}
-% This is satisfied if and only if $c=0$, i.e.
-% \begin{eqnarray}
-%     \mM(E)=\frac{a E+b}{d}\ .
-% \end{eqnarray}
-% \KL{*****} However, this inequality is not tight, i.e. $|w\p_w \log \Im \mM(v+iw)| < 1$. It is like a supremum rather than a maximum.
-% \begin{lemma}
-%     Consider a function $\mM(E)$ that is analytic in the upper half-plane ($\Im E > 0$). If it can be written as $f(E) = 1+i\mM(E)$ for some function $f(E)$ that is bounded by 1 in the upper half-plane, then the modular chaos bound cannot be saturated. In other words,
-%     \begin{align}
-%         |w\p_w \log \Im \mM(v+iw)| < 1.
-%     \end{align}
-% \end{lemma}
-% We can write $\mM = -i(f-1)$. The image of $\mM$ is within the unit disk centered at $i$ in $\mathbb{C}$. Inequality $(2)$ is saturated if and only if the function is a M\"obius transformation with real coefficients. These M\"obius transformations are bijetive functions mapping from the upper half-plane to itself. The image of $\mM$ is by definition a strict subset of the upper half-plane, whereas the domain is the entire upper half-plane. The inequality can never exactly saturate. Instead, we can look for an asymptotic saturation under suitable limits. The modular chaos bound is proposed as the following\cite{}. Consider $\mM = i\varepsilon p e^{\lambda u} + O(\varepsilon^2)$ for some small $\varepsilon \ll 1$, $\varepsilon e^{\lambda u} \ll 1$, and $p>0$. The above inequality gives $\lambda \leq 2\pi$. This is the modular chaos bound. This chaos bound is only meaningful in a proper range of time scales. 
-
-% We now consider a $0+1$d GFF example.
-
-% \KL{======== 0+1d GFF ==================================}
-% \subsubsection{$0+1$D GFF Example}
-% \KL{=====================1. Checking $\Delta_1^{1/4}\Delta_2^{-is}\Delta_1^{-1/4} = e^{-2\pi s L_0}$ ===============}\\
-% We consider the following $0+1$D generalized free field theory on $\mathbb{R}$. There is a point-like primary field $\phi(t)$ with conformal dimension $h \geq 1$. The state $\omega$ is the vacuum state such that
-% \begin{align}
-%     \omega(\phi(t)\phi(t')) = \frac{e^{-i\pi h}}{2\pi(t-t'-i\epsilon)^{2h}}.
-% \end{align}
-% In the GNS construction, there is a cyclic and separating vector $\ket{\Omega}$ corresponding to the state. In terms of the mode expansion, we have
-% \begin{gather}
-%     \phi(t) = C\int_0^\infty \omega^{h-1/2} (e^{-i\omega t}a_\omega + e^{i\omega t}a_\omega^\dagger) d\omega,\\
-%     [a_\omega^\dagger,a_{\omega'}] = \delta(\omega-\omega'),\\
-%     a_\omega\ket{\Omega} = 0,
-% \end{gather}
-% where $C$ is a normalization factor. This factor is not important to the illustration, so we will drop it unless it is needed. It was studied in \cite{} that there is a time-interval algebra associated to any interval $I \subset \mathbb{R}$. And they computed and studied the modular flow of such algebra. For $h=1$, this algebra (and the state) is the same as the $U(1)$-current algebra. One can compactify the real line into a circle so that we have a conformal net on the circle through a conformal transformation. The net is (global) M\"obius covariant. By picking $I_1$, $I_2$ be the upper-half circle and right-half circle respectively, it is known that
-% \begin{align}
-%     \Delta_1^{1/4}\Delta_2^{-is}\Delta_1^{-1/4} = e^{-2\pi s L_0},
-% \end{align}
-% where $L_0$ is the generator of the rotation of the circle. The above argument cannot be directly applied to general $h\notin\mathbb{Z}_{\geq 1}$. For non-integer $h$, the real line cannot be compactified into a circle. The net is not M\"obius covariant. Instead, the previous conformal transformation will map the real line to the subset $(-\pi,\pi)$ of the universal cover of the circle, which is another real line. The action of the modular flow is in general non-local as well. It is interesting to understand how $\Delta_1^{1/4}\Delta_2^{is}\Delta_1^{-1/4}$ behaves in this setup.
-
-% We consider the matrix element $\braket{\phi(x)\Delta_1^{it}\Delta_2^{-is}\Delta_1^{-it}\phi(y)}$
-% \begin{align}
-%     \braket{\phi(x)\Delta_1^{it}\Delta_2^{-is}\Delta_1^{-it}\phi(y)} &= \braket{\phi(x)\Delta_1^{it}\Delta_2^{-is}\Delta_1^{-it}\phi(y)\Delta_1^{-it}\Delta_2^{is}\Delta_1^{it}},\\
-%     &= \braket{\phi(x) \sigma_1^{-t} \circ \sigma_2^s\circ\sigma_1^t(\phi(y)},
-% \end{align}
-% where $I_1 = (0,\infty)$ and $I_2 = (-1,1)$. The action of $\sigma_1^s$ and $\sigma_2^s$ are as follow:
-% \begin{gather}
-%     \sigma_1^s(\phi_\pm(x_0)) = e^{2\pi sh} \phi_\pm(e^{2\pi s}x_0), \\
-%     \sigma_2^s(\phi_\pm(x_0\mp i\epsilon)) = \left[\sinh(\pi s)(x_0\mp i\epsilon)+\cosh(\pi s)\right]^{-2h} \phi_\pm\left(\frac{\cosh(\pi s)(x_0\mp i\epsilon)+\sinh(\pi s)}{\sinh(\pi s) (x_0\mp i\epsilon) + \cosh(\pi s)}\right),    
-% \end{gather}
-% with 
-% \begin{align}
-%     \phi_+(t) &= C\int_0^\infty \omega^{h-1/2} e^{-i\omega t}a_\omega  d\omega,\\
-%     \phi_-(t) &= C\int_0^\infty \omega^{h-1/2} e^{i\omega t}a_\omega^\dagger d\omega.
-% \end{align}
-% With these expressions, we can evaluate 
-% \begin{gather}
-%     \braket{\phi(x)\Delta_1^{it}\Delta_2^{-is}\Delta_1^{-it}\phi(y)} = \left[\sinh(\pi s)e^{2\pi t}(y\mp i\epsilon)+\cosh(\pi s)\right]^{-2h} \frac{e^{-i\pi h}}{2\pi(x-y_{s,t}-i\epsilon)^{2h}},\\
-%     y_{s,t} = \frac{\cosh(\pi s)y+e^{-2\pi t}\sinh(\pi s)}{\sinh(\pi s) e^{2\pi t}y + \cosh(\pi s)}.
-% \end{gather}
-% Considering the analytic continuation with $t\to -i/4$, $s\to is$ for a some range of $s$, we have
-% \begin{gather}
-%     \braket{\phi(x)\Delta_1^{1/4}\Delta_2^{s}\Delta_1^{-1/4}\phi(y)} = \left[\sin(\pi s)(y\mp i\epsilon)+\cos(\pi s)\right]^{-2h} \frac{e^{-i\pi h}}{2\pi(x-y_{is,-i/4}-i\epsilon)^{2h}},\\
-%     y_{is,-i/4} = \frac{\cos(\pi s) y-\sin(\pi s)}{\sin(\pi s)y + \cos(\pi s)}.
-% \end{gather}
-% Thus,
-% \begin{gather}
-%     \braket{\phi(x)\Delta_1^{1/4}\Delta_2^{s}\Delta_1^{-1/4}\phi(y)} = \braket{\phi(x) \alpha^s(\phi(y))},
-% \end{gather}
-% where $\alpha^s$ is the $PSL(2,\mathbb{R)}$ transformation corresponds to  
-% \begin{align}
-% \begin{pmatrix}
-%     \cos(\pi s) &-\sin(\pi s) \\
-%     \sin(\pi s) & \cos(\pi s)
-% \end{pmatrix} \in PSL(2,\mathbb{R)}.
-% \end{align}
-% It is the time evolution on the decompactified circle. The analytic continuation is valid for $Im(s) \in(-1,1)$. We can therefore write $\Delta_1^{1/4}\Delta_2^{-is}\Delta_1^{-1/4} = e^{-2\pi s \tilde{L}_0}$, with $\tilde{L}_0$ the generator of the global time evolution on the decompactified circle.
-
-% \KL{=======================2. The Modular Chaos bound in GFF ============}\\
-% \KL{Not typed yet.}
-
-
-
-
-% 2) mention characteristic function as a regulator, connection to the double cone, and modular quasi-normal modes
-
-% Nuclearity cuts off the effective size of the Hilbert space the local algebra can access. This allows for the definition of Ruelle resonances where we do either $e^{-\epsilon P} \Delta e^{\epsilon P}$ or equivalently $K+i \epsilon H$.
-
-% Fully non-perturbatively, we can study our characteristic function using the analytic function $\Im(u)\in (-1/2,0)$
-% \begin{eqnarray}
-%     f_\mO(u)&&=\frac{\bra{\mO}\Delta_A^{1/2+iu}\Delta_B^{-iu}\ket{\mO}}{\sqrt{\braket{a|\Delta_A^{1/2}a}\braket{b|\Delta_B^{1/2}b}}}\\
-%     &&=\frac{\bra{\Delta_A^{1/4}\mO} T_{B\subset A}(-i/4+u)\ket{\Delta_B^{1/4} \mO}}{\sqrt{\braket{\mO|\Delta_A^{1/2}\mO}\braket{\mO|\Delta_B^{1/2}\mO}}}\nn\\
-%     &&=1+i \mathcal{M}_{\mO}(u)
-% \end{eqnarray}
-% First, we find that 
-% \begin{eqnarray}
-%     1-\Im(\mathcal{M}_\mO(u))=\Re(f_\mO(u))\leq |f_\mO(u)|\leq 1
-% \end{eqnarray}
-% which implies that 
-% \begin{eqnarray}
-%     \Im\mathcal{M}_\mO(u)\geq 0\ .
-% \end{eqnarray}
-% Using the change of variables $E=ie^{-2\pi u}$ sends the function above to the upper half-plane. Therefore, we can view $\mM(E)$ as an analytic map from the upper half-plane $H$ to itself. Then, writing $E=v+iw$ the Schwarz-Pick lemma becomes
-% \begin{eqnarray}
-%     \frac{|w \p_w \mM(v+iw)|}{\Im \mM(v+iw)}\leq 1\ . 
-% \end{eqnarray}
-% Since we have $|\p_w \Im\mM(v+i\omega)|\leq |\p_w \mM(v+i\omega)|$ we find
-% \begin{eqnarray}
-%     |w\p_w \log \Im \mM(v+iw)|\leq 1\ .
-% \end{eqnarray}
-% This is the modular chaos bound. To saturate this bound, first we need to take the equality condition in the lemma above, which fixes $\mM(E)=\frac{a E+b}{c E+d}$ to be a $PSL(2,\mathbb{R})$ transformation. Next, we need to require that 
-% \begin{eqnarray}
-%     \forall v+iw\in H:\qquad \p_w \Re \mM(v+iw)=0\ .
-% \end{eqnarray}
-% This is satisfied if and only if 
-% \begin{eqnarray}
-%     \mM(E)=\frac{a E+b}{d}\ .
-% \end{eqnarray}
-
-% In a CFT, we can compute the correlator above for the inclusion of balls $B(t+s)\subset B(t)$ and a conformal primary $\mO$. Then,
-% \begin{eqnarray}
-%     f_\mO(u)=\frac{\bra{\Delta_{B(t)}^{1/4}\mO} T_{t,s}(-i/4+u)\ket{\Delta_{B(t+s)}^{1/4} \mO}}{\sqrt{\braket{\mO|\Delta_{B(t)}^{1/2}\mO}\braket{\mO|\Delta_{B(t+s)}^{1/2}\mO}}}
-% \end{eqnarray}
-
-
-% it is expected that the expectation value of this Hamiltonian in all true global eigenstates remains bounded, which translates to the statement that there exists no vector $\ket{\Psi}\in \mathcal{H}$ such that 
-% \begin{eqnarray}
-%     T_{t,s}(z)\ket{\Psi}=0\ .
-% \end{eqnarray}
-
-
-% Work out the example of $U_A U_B'\ket{\Omega}$ and view the relative modular operators as perturbations of the state. The spectrum of the Hamiltonian is unchanged, and the eigenvectors are little changed at very high energies because $U_AU_{B'}$ have no energy.
-
-% Work out the case of Generalized Free Fields
-
-
-% \subsection{Discussion}
-
-% %\subsection{Underlying Operator Algebraic Structure}
-
-% %$L^2$-nuclearity implies split property which implies hyperfiniteness. Can this be used to set a constraint on the spectral density $\rho(\omega)$ based on the hyperfiniteness of the bulk algebra?
-
-% \subsubsection{ANEC operator}
-% If we consider the case $s$ is small in the Rindler wedge in QFT, we find that our operator of interest is 
-% \begin{eqnarray}
-%     &&e^{-\pi J_{01}}\lb  \int dx^+ T_{++}(x^+,0)-\int dx^- T_{--}(0,x^-)\rb e^{\pi J_{01}}\nn\\\
-%     &&=\int dx^+ T_{++}(-x^+,0)-\int dx^- T_{--}(0,-tx^-)
-% \end{eqnarray}
-% is this like an operator integrated over a time-like curve? I think the answer is no!
-
-% \subsubsection{Late time measures of quantum chaos}
-% Local Quantum Chaos
-% Modular spectral form factor, decay ramp, and plateau?
-
-% Comment on the boundary dual of apparent horizons, simple (coarse-grained) entropy.
-
-% In the vicinity of the entangling surface, the operator of insert is, indeed, Hamiltonian which suggests that if we compute the spectrum of $K+i\epsilon H$ it should give us the quasi-normal modes \cite{maldacenapaper}.
-
-
-% We postpone a numerical exploration of our proposal for critical lattice models to upcoming work.
 
 
 \bibliographystyle{unsrt}
