@@ -1,0 +1,1183 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{jheppub}
+\usepackage{amsmath,amssymb,mathtools,amsthm}
+\usepackage{graphicx,subcaption,tikz-cd,braket,bm,bbm}
+\usepackage{array,booktabs}
+\usepackage{natbib}
+\setcitestyle{numbers,square,sort&compress}
+\setcounter{secnumdepth}{2}
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newcommand{\nn}{\nonumber}
+\newcommand{\id}{\mathbb I}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\mA}{\mathcal A}
+\newcommand{\mB}{\mathcal B}
+\newcommand{\mO}{\mathcal O}
+\newcommand{\mH}{\mathcal H}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\Dom}{\operatorname{Dom}}
+
+\title{Subsystem Flows in QFT}
+\author{Yidong Chen$^1$,}
+\author{Nima Lashkari$^2$,}
+\author{Kwing Lam Leung$^2$}
+\affiliation{$^1$Department of Mathematics, University of Illinois at Urbana-Champaign, Illinois, IL 61801, USA}
+\affiliation{$^2$Department of Physics and Astronomy, Purdue University, West Lafayette, IN 47907, USA}
+\emailAdd{yidongc2@illinois.edu}
+\emailAdd{nima@purdue.edu}
+\emailAdd{leung60@purdue.edu}
+
+\abstract{An inclusion of observable algebras with a common cyclic and separating
+vacuum defines a subsystem flow by composing their modular evolutions. We study
+this characteristic operator for nested spacetime regions in relativistic quantum
+field theory. For parallel wedges, its action is a translation whose displacement
+depends on modular time. In two-dimensional CFTs we compute matrix elements for
+wedge and double-cone inclusions and determine their complex singularities; a
+massive free scalar gives a nonconformal example with logarithmic null singularities.
+The universal analytic strip controls normalized matrix elements and gives a
+modular growth bound, approached by small geometric deformations in a controlled
+limit. We then derive the first-order correction to double-cone subsystem flows
+in a regulated conformal perturbation theory, including the vacuum variation.
+Finally, we establish a localized, time-averaged approximation of large double-cone
+flows by wedge flows and distinguish it from strong convergence on each fixed
+vector. These results give complementary geometric, perturbative, and
+nonperturbative descriptions of subsystem flows.}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+Modular theory assigns a distinguished evolution to a state and an algebra of
+observables. In the vacuum of a relativistic QFT, wedge modular flow is a Lorentz
+boost under the Bisognano--Wichmann hypothesis \cite{bisognanowichmann}. For a
+double cone in a CFT, conformal symmetry gives a geometric modular flow
+\cite{BrunettiGuidoLongo1993}. General subregions do not have such a known
+spacetime action. Comparing the modular evolutions of nested regions provides a
+way to study how subsystem dynamics departs from the geometric examples.
+
+For an inclusion $\mathcal A(B)\subset\mathcal A(A)$, with vacuum modular
+operators $\Delta_B$ and $\Delta_A$, we use the characteristic operator
+\begin{equation}
+ D_{B\subset A}(z)=\Delta_A^{-iz}\Delta_B^{iz}.
+ \label{eq:intro-characteristic}
+\end{equation}
+For real $z$, this first reverses the intrinsic modular evolution of $B$ and
+then applies the physical modular evolution of $A$. Its adjoint action transports
+the retained algebra along the outer modular flow. Borchers's characterization
+of inclusions gives a bounded analytic continuation to
+$0<\operatorname{Im}z<1/2$ \cite{revolutionizing}. The operator is generally a
+cocycle, and its infinitesimal modular generator does not determine the full
+finite-time flow.
+
+This paper develops three complementary descriptions. First, when both modular
+flows are geometric, their composition can be computed exactly. A spacelike
+displacement between parallel wedges gives a translation involving both energy
+and momentum. Its first derivative is proportional to the physical Hamiltonian,
+while the finite displacement traces a timelike curve. In two-dimensional CFTs,
+the corresponding two-point matrix elements have explicit null-separation
+singularities. We compare them with the massive free-scalar result and with the
+fractional linear flow of an inner double cone. This separates the universal
+geometric operator from the theory-dependent analytic behavior of its matrix
+elements.
+
+Second, we perturb a two-dimensional CFT by a relevant scalar operator. The
+logarithmic variation of the reduced state expresses the leading modular correction
+as an integral along the unperturbed modular orbit
+\cite{BalakrishnanParrikar2020}. We identify the local contribution and the
+nonlocal kernel, and include the changes of the bra and ket vacuum when computing
+a characteristic matrix element. The result is a regulated first-order formula;
+its continuum interpretation depends on contact terms and infrared control.
+
+Third, we obtain a nonperturbative large-region approximation. Fredenhagen's
+estimate controls modular evolution when a localized observable remains inside
+the smaller region for a long interval of outer modular time \cite{fredenhagen}.
+For double cones exhausting a wedge, this gives a uniform bound on specified
+localized vectors after time averaging and a spectral cutoff. Separately, modular
+convergence gives the uncut limit on every fixed vector. Applying this convergence
+to both regions yields a joint large-double-cone limit of the characteristic flow.
+
+The universal strip also constrains the growth of normalized matrix elements,
+as in modular chaos \cite{deBoerLamprou2020}. Our geometric examples approach the
+growth bound when a small displacement is exponentially amplified while its
+effect remains perturbative. This behavior does not by itself establish a
+many-body scrambling rate.
+
+The broader relation between subsystem flow, error correction, and many-body
+ergodicity is developed in the companion manuscript
+\emph{Subsystem flow, error correction and many-body ergodicity}. We give the
+modular setup needed here in Section~\ref{sec:qft-setup}, so that the QFT
+calculations and approximation results can be read independently.
+Section~\ref{sec:geometric-subregion-flows} treats the geometric examples and
+their analytic matrix elements. Section~\ref{section:conformalperturbation}
+derives the conformal perturbation, and Section~\ref{section:approx} establishes
+the nonperturbative bounds. The appendices give the increasing-region geometry,
+the modular convergence argument, and the distributional kernel identities.
+
+\section{Modular setup and characteristic flows}\label{sec:qft-setup}
+
+\subsection{Vacuum modular dynamics}
+
+Let $\mathcal O\mapsto\mathcal A(\mathcal O)$ be an isotonic local net in a vacuum
+Hilbert space $\mathcal H$. We assume that the normalized vacuum $\Omega$ is cyclic
+and separating for the wedge and double-cone algebras used below. The closure of
+the antilinear map $S_C a\Omega=a^*\Omega$, $a\in\mathcal A(C)$, has polar
+decomposition $S_C=J_C\Delta_C^{1/2}$. The modular automorphism group is
+\begin{equation}
+ \sigma_C^t(a)=\Delta_C^{it}a\Delta_C^{-it},\qquad K_C=-\log\Delta_C.
+ \label{eq:modular-flow}
+\end{equation}
+We call $\beta_C^t=\sigma_C^{-t}=\operatorname{Ad}\Delta_C^{-it}$ the physical
+modular flow. This convention gives the upper-strip KMS condition and fixes the
+orientation of the boosts below \cite{Takesaki1970,revolutionizing}.
+The full $K_C$ acts on the vacuum Hilbert space and annihilates $\Omega$.
+When a regulated density matrix is used, its one-sided modular Hamiltonian
+$k_C=-\log\rho_C$ has the same adjoint action on $\mathcal A(C)$, but is a
+different operator.
+
+For $B\subset A$, the common vacuum puts both modular operators on $\mathcal H$.
+The Tomita map of $A$ extends that of $B$, giving
+$\Delta_A\leq\Delta_B$ as closed quadratic forms. The characteristic-function
+theorem gives the following continuation \cite{revolutionizing}.
+
+\begin{proposition}[Characteristic strip]\label{prop:characteristic-strip}
+The real-time operator \eqref{eq:intro-characteristic} extends analytically to
+$0<\operatorname{Im}z<1/2$, with $\|D_{B\subset A}(z)\|\leq1$ on the closed strip.
+Its values on both boundary lines are unitary and strongly continuous, and
+$D(i/2)=J_AJ_B$. The vacuum is fixed: $D(z)\Omega=\Omega$.
+\end{proposition}
+
+\subsection{Transport and infinitesimal comparison}
+
+For $b\in\mathcal A(B)$ and real $t$,
+\begin{equation}
+ \operatorname{Ad}D_{B\subset A}(t)(b)
+ =\sigma_A^{-t}\bigl(\sigma_B^t(b)\bigr),\qquad
+ \operatorname{Ad}D_{B\subset A}(t)(\mathcal A(B))
+ =\sigma_A^{-t}(\mathcal A(B)).
+ \label{eq:qft-algebra-transport}
+\end{equation}
+Thus the inner evolution removes motion already intrinsic to the subsystem,
+while the outer evolution follows its embedding in the larger algebra.
+No conditional expectation is assumed. In particular, $D(t)$ need not be an
+element of either local algebra. It satisfies
+\begin{equation}
+ D(t+s)=\Delta_A^{-it}D(s)\Delta_A^{it}D(t).
+ \label{eq:qft-cocycle}
+\end{equation}
+On vectors in the common operator domain of $K_A$ and $K_B$,
+\begin{equation}
+ -i\left.\partial_tD(t)\psi\right|_{t=0}=(K_A-K_B)\psi.
+ \label{eq:qft-infinitesimal}
+\end{equation}
+This compares generators at the origin. The finite-time product retains their
+ordering, so replacing it by $e^{it(K_A-K_B)}$ requires an additional argument.
+Our geometric examples determine the finite-time action directly.
+
+\subsection{Normalized matrix elements}
+
+For vectors $|O_j\rangle=O_j\Omega$ with finite quarter-modular norms, define
+\begin{align}
+ F(z)&=\langle O_1|\Delta_A^{1/2}D_{B\subset A}(-z)|O_2\rangle,\nonumber\\
+ N&=\|\Delta_A^{1/4}O_1\Omega\|\,
+      \|\Delta_B^{1/4}O_2\Omega\|>0,\qquad f(z)=F(z)/N.
+ \label{eq:qft-matrix-element}
+\end{align}
+The continuation is understood through the bounded expression
+\begin{equation}
+ f(z)=\frac{\langle\Delta_A^{1/4}O_1\Omega|
+ D(i/4-z)|\Delta_B^{1/4}O_2\Omega\rangle}{N}.
+ \label{eq:qft-centered-strip}
+\end{equation}
+Cauchy--Schwarz and Proposition~\ref{prop:characteristic-strip} give
+$|f(z)|\leq1$ for $|\operatorname{Im}z|\leq1/4$. This centered strip is universal
+under the stated domain assumptions. A larger zero-free continuation, when it
+occurs for explicit point-field correlators, is a property of those correlators.
+The bare vacuum expectation $\langle\Omega|D(z)|\Omega\rangle=1$ contains no
+nontrivial information about the inclusion; the excited insertions provide the
+matrix elements studied here.
+
+\section{Geometric subregion flows: wedges in QFT and balls in CFT}
+\label{sec:geometric-subregion-flows}
+
+The Bisognano--Wichmann property identifies vacuum wedge modular flow with a
+Lorentz boost. In a CFT, conformal covariance gives the corresponding geometric
+flow for a double cone. Composing the outer and inner flows therefore gives an
+explicit spacetime action. We first determine this action and then study its
+matrix elements. The operator formula is fixed by symmetry, whereas its matrix
+elements depend on the vacuum correlation functions.
+
+Our explicit two-point calculations are in $1+1$ dimensions. Point-like fields
+are understood as limits of regulated or smeared insertions, localized strictly
+inside the regions. Their quarter-modular norms are finite in the examples below,
+as follows from the geometrically continued two-point functions. The general
+strip bound remains the one in Section~\ref{sec:qft-setup}.
+
+\subsection{Inclusion of Wedges}
+\label{subsec:wedge-inclusion}
+
+For a spacelike displacement between parallel wedges, Poincar\'e covariance allows us to take $B=W(a)\subset A=W(0)$, with $a>0$ and
+\[
+ W(a)=\{(t,x):x-a>|t|\}.
+\]
+We choose translation generators so that $U(b^0,b^1)=\exp[i(b^0P_0+b^1P_1)]$ acts on fields by $(t,x)\mapsto(t+b^0,x+b^1)$.
+
+\begin{theorem}[Characteristic operator of a wedge inclusion]
+\label{thm:wedge-characteristic}
+In a vacuum relativistic QFT with the Bisognano--Wichmann property, the characteristic operator is
+\begin{equation}
+ D_{W(a)\subset W(0)}(z)=\Delta_{W(0)}^{-iz}\Delta_{W(a)}^{iz}
+ =\exp\!\left\{ia\left[\sinh(2\pi z)P_0
+       +\bigl(\cosh(2\pi z)-1\bigr)P_1\right]\right\},
+ \qquad z\in\mathbb R.
+ \label{eq:wedge-characteristic}
+\end{equation}
+\end{theorem}
+\begin{proof}
+It follows from the Bisognano--Wichmann property that the flow $\operatorname{Ad}\Delta_{W(0)}^{-iz}$ is a boost of rapidity $2\pi z$ \cite{bisognanowichmann}; $\operatorname{Ad}\Delta_{W(0)}^{iz}$ reverses this boost. The boost about $(0,a)$ is obtained by conjugating the boost about the origin by $U(0,a)$. Their composition cancels the boost and leaves the translation $(a\sinh(2\pi z),a[\cosh(2\pi z)-1])$.
+\end{proof}
+For small $z$, to the first order we have $K_{W(0)}-K_{W(a)}=2\pi aP_0$ which is proportional to the Hamiltonian $P_0$; however, at order $z^2$ and higher the characteristic flow 
+ also involves translations in space $P_1$. Its translation displacement traces a timelike curve;
+in general it is not a one-parameter translation group generated by a fixed Hamiltonian.
+
+\paragraph{Matrix element in 2d CFT:}
+
+For an explicit matrix element, take a self-adjoint scalar primary with weights $(h,h)$ and scaling dimension $2h>0$ in a $1+1$ dimensional CFT. With $X=(t_1,x_1)\in W(0)$ and $Y=(t_2,x_2+a)\in W(a)$, the reflected and modularly transformed insertions are spacelike separated for real $z$. Their two-point function gives
+\begin{align}
+ F(z)&=\frac{C}{[\Delta s^2(z)]^{2h}},\qquad C>0
+\label{eq:wedge-matrix-element}
+\end{align}
+where $\Delta s^2$ is the squared proper distance:
+\begin{align}
+\Delta s^2&=-\Delta t^2+\Delta x^2
+ =\bigl(u_++ae^{-2\pi z}\bigr)\bigl(u_-+ae^{2\pi z}\bigr),
+ \qquad u_\pm=x_1+x_2\pm(t_1+t_2)>0\nn\\
+ \Delta t&=t_1+t_2-a\sinh(2\pi z),\qquad
+ \Delta x=x_1+x_2+a\cosh(2\pi z),
+ \label{eq:wedge-separation}
+\end{align}
+The separation is spacelike on the real $z$ axis, so no $i\epsilon$ prescription is needed there. The complex continuation is fixed by the analytic logarithm of $\Delta s^2$ that is real there.
+
+\begin{lemma}[Wedge-inside-wedge matrix elements in CFT]
+\label{lem:wedge-matrix-element}
+For the scalar-primary insertions above in the CFT vacuum, $F$ is analytic and has no zeros in $|\operatorname{Im}z|<1/2$, and satisfies $F(\bar z)=\overline{F(z)}$. Its finite singularities occur at
+\begin{equation}
+ z=-\frac{1}{2\pi}\log\frac{u_+}{a}+i\left(n+\frac12\right),
+ \qquad
+ z=\frac{1}{2\pi}\log\frac{u_-}{a}+i\left(n+\frac12\right),
+ \qquad n\in\mathbb Z.
+ \label{eq:wedge-singularities}
+\end{equation}
+For real modular time, $F(z)$ decays as $e^{-4\pi h|z|}$ as $|z|\to\infty$.
+\end{lemma}
+\begin{proof}
+The two factors in \eqref{eq:wedge-separation} vanish only at \eqref{eq:wedge-singularities}. Their product therefore has a holomorphic logarithm in the open strip. Positivity on the real axis fixes its branch and gives the reflection relation. The large-$|z|$ behavior follows directly from the same factorization.
+\end{proof}
+
+These singularities correspond to null separation of the transformed insertions. At a zero of $\Delta s^2$ of multiplicity $m$, the local behavior is $F(z)\sim c(z-z_0)^{-2hm}$. It is a pole when $2hm$ is an integer and a branch point otherwise. A counterclockwise circuit multiplies $F$ by $e^{-4\pi ihm}$. The two locations in \eqref{eq:wedge-singularities} coincide when $u_+u_-=a^2$, giving $m=2$. For example, if $t_1+t_2=0$ and $x_1+x_2=a$, then
+\[
+ \Delta s^2=4a^2\cosh^2(\pi z),\qquad
+ F(z)=\frac{C}{(2a)^{4h}}\cosh^{-4h}(\pi z).
+\]
+Thus $2h=3/2$ gives third-order poles despite the noninteger scaling dimension.
+
+On $\operatorname{Im}z=\pm1/2$, the continued function is real between the two distinct singularities. In that case, cuts extending horizontally outward from them can be chosen to give an $i$-periodic continuation on the resulting cut domain. Periodicity must include this branch prescription: the denominator is always $i$-periodic, whereas its fractional power need not be. The coincident example with $2h=3/2$ is instead antiperiodic, $F(z+i)=-F(z)$. The phase of $\Delta s^2$ and the coincidence of its zeros are illustrated in Figure~\ref{fig:deltaS2_z}.
+
+\begin{figure}[tp]
+ \centering
+ \begin{subfigure}{.31\textwidth}
+  \includegraphics[width=\linewidth]{images/delta_s2_plot_ordered.pdf}
+ \end{subfigure}\hfill
+ \begin{subfigure}{.31\textwidth}
+  \includegraphics[width=\linewidth]{images/delta_s2_plot_coincide.pdf}
+ \end{subfigure}\hfill
+ \begin{subfigure}{.31\textwidth}
+  \includegraphics[width=\linewidth]{images/delta_s2_plot_reversed.pdf}
+ \end{subfigure}
+ \caption{The phase of $\Delta s^2$ in the complex modular-time plane. The panels
+ show $u_+u_->a^2$ (left), $u_+u_-=a^2$ (middle), and $u_+u_-<a^2$ (right), with
+ $u_\pm=x_1+x_2\pm(t_1+t_2)$. We take $a=1$, $x_1=0.1$, $t_1=t_2=0$, and
+ respectively $x_2=3$, $x_2=0.9$, and $x_2=1/3$. The middle panel has double zeros
+ of $\Delta s^2$; for $2h=3/2$ these produce third-order poles of $F$.}
+ \label{fig:deltaS2_z}
+\end{figure}
+
+\paragraph{Massive free fields.}
+The geometric operator \eqref{eq:wedge-characteristic} remains valid beyond CFT.
+Its matrix elements, however, depend on the vacuum two-point function. The larger
+zero-free strip of Lemma~\ref{lem:wedge-matrix-element} is a property of the
+specified point-field correlators. Smearing can introduce zeros through
+cancellations, and Lorentz covariance alone does not imply a zero-free complex
+continuation. A massive free scalar supplies an explicit nonconformal example.
+
+\begin{lemma}[Massive free-boson wedge matrix elements]
+\label{lem:massive-free-wedge-matrix-element}
+Let $\phi_m$ be a canonically normalized real free scalar field of mass $m>0$ in the $1+1$ dimensional Minkowski vacuum. For the same wedge inclusion and interior points $X,Y$ as in Lemma~\ref{lem:wedge-matrix-element}, set $H(z)=\Delta s^2(z)$ as in \eqref{eq:wedge-separation} and $\rho(z)=\sqrt{H(z)}$, with the branch positive on the real axis. Then
+\begin{align}
+ F_m(z)&=\langle\phi_m(X)|\Delta_A^{1/2}D_{B\subset A}(-z)|\phi_m(Y)\rangle
+ \nonumber\\
+ &=\frac{1}{2\pi}K_0\bigl(m\rho(z)\bigr),
+ \label{eq:massive-free-wedge-matrix-element}
+\end{align}
+where $K_0$ is the modified Bessel function of the second kind. The function $F_m$ is analytic and has no zeros in $|\operatorname{Im}z|<1/2$, satisfies $F_m(\bar z)=\overline{F_m(z)}$, and is positive on the real axis.
+
+Its finite branch singularities occur only at the null-separation points \eqref{eq:wedge-singularities}. They are logarithmic, including when the two locations coincide. On a fixed local branch, as $H(z)\to0$,
+\begin{equation}
+ F_m(z)=-\frac{1}{4\pi}\log\frac{m^2H(z)}{4}
+          -\frac{\gamma_{\mathrm E}}{2\pi}
+          +O\!\left(m^2H(z)\log[m^2H(z)]\right),
+ \label{eq:massive-free-wedge-null-singularity}
+\end{equation}
+where $\gamma_{\mathrm E}$ is Euler's constant. Thus a zero of $H$ of multiplicity $k$ gives the leading singularity $-k\log(z-z_0)/(4\pi)$, rather than a pole.
+
+For real modular time and fixed $m>0$,
+\begin{equation}
+ F_m(t)=\frac{e^{-m\rho(t)}}{\sqrt{8\pi m\rho(t)}}
+           \left[1+O\!\left((m\rho(t))^{-1}\right)\right],
+ \qquad |t|\to\infty,
+ \label{eq:massive-free-wedge-decay}
+\end{equation}
+with $\rho(t)\sim\sqrt{a u_\pm}\,e^{\pi|t|}$ as $t\to\pm\infty$, respectively. Hence $F_m$ decays faster than any exponential in $|t|$. Its quarter-modular normalization $N_m$ is finite and positive, and $f_m=F_m/N_m$ satisfies $|f_m(z)|\leq1$ for $|\operatorname{Im}z|\leq1/4$.
+\end{lemma}
+\begin{proof}
+At spacelike separation $\rho>0$, the vacuum mode integral gives
+\[
+ G_m(\rho)=\int_{-\infty}^{\infty}
+       \frac{dp}{4\pi\sqrt{p^2+m^2}}\,e^{ip\rho}
+       =\frac{1}{2\pi}K_0(m\rho).
+\]
+The geometric wedge flows give the same separation $H$ as before. For $0<\operatorname{Im}z<1/2$, the two factors in \eqref{eq:wedge-separation} lie in the lower and upper half-planes, respectively. Their arguments sum to a value in $(-\pi,\pi)$, so $H(z)\notin(-\infty,0]$. Reflection and positivity on the real axis give the same conclusion throughout the open strip. Consequently $\operatorname{Re}\rho(z)>0$. The principal $K_0$ is analytic and has no zeros in this half-plane \cite[Section~10.42]{NISTDLMF}, proving the analytic and reflection statements. Its small- and large-argument expansions give \eqref{eq:massive-free-wedge-null-singularity} and \eqref{eq:massive-free-wedge-decay} \cite[Sections~10.31 and~10.40]{NISTDLMF}; the growth of $\rho(t)$ follows from \eqref{eq:wedge-separation}.
+
+Finally, reflecting each insertion in its own wedge gives
+\begin{equation}
+ N_m=\frac{1}{2\pi}\sqrt{
+ K_0\!\left(2m\sqrt{x_1^2-t_1^2}\right)
+ K_0\!\left(2m\sqrt{x_2^2-t_2^2}\right)} >0.
+ \label{eq:massive-free-wedge-normalization}
+\end{equation}
+Both arguments are strictly positive. The normalized strip bound then follows from the contraction property of $D_{B\subset A}(i/4-z)$, as in \eqref{eq:normalized-characteristic}.
+\end{proof}
+
+The mass changes the long-distance decay, while the null singularity retains the logarithmic short-distance behavior of the elementary scalar in two dimensions. The factor $e^{-m\rho}$ expresses the suppression of correlations beyond the Compton wavelength; wedge modular flow makes $\rho$ grow exponentially in real modular time. These statements concern the elementary field, rather than arbitrary composite or smeared observables. Continuing around a null singularity changes the Bessel branch, so periodicity beyond the strip requires a branch prescription, as in the CFT example.
+
+\paragraph{Interacting scalar two-point functions.}
+The same geometric separation also organizes a K\"all\'en--Lehmann
+representation. For a scalar field with a positive spectral measure $d\nu(\mu^2)$
+and a mass gap $m_0>0$, the spacelike two-point function in two dimensions gives
+\begin{equation}
+ F(z)=\frac{1}{2\pi}\int_{m_0^2}^{\infty}d\nu(\mu^2)\,
+ K_0\bigl(\mu\rho(z)\bigr).
+ \label{eq:interacting-wedge-spectral}
+\end{equation}
+Pole residues and continuum weights are both included in $d\nu$.
+For a tempered spectral measure, $\operatorname{Re}\rho(z)>0$ gives locally
+uniform convergence on the open strip and hence an analytic continuation there.
+The spectral integral is positive on the real axis; this positivity alone does
+not establish absence of complex zeros. Massless theories require a separate
+infrared prescription when the elementary scalar two-point function is singular.
+
+\subsection{Inclusion of Ball inside Wedge}
+\label{subsec:ball-inside-wedge}
+
+In a $1+1$ dimensional CFT, a vacuum-preserving conformal transformation maps an outer double cone to a wedge and its inner double cone to another double cone \cite{BrunettiGuidoLongo1993}. This relates ball-inside-ball inclusions to ball-inside-wedge inclusions; concentric double cones form a special case. Under the usual split property, strict containment of the inner closure gives a split inclusion. Spacelike wedge inclusions are non-split in conformal theories because they share endpoints at conformal infinity. This last statement does not extend to arbitrary massive QFTs \cite{Tanimoto2014}.
+
+\begin{theorem}[Characteristic operator of concentric double cones]
+\label{thm:concentric-characteristic}
+Let $B_{u+s}\subset B_u$, with $s>0$, be concentric double cones centered at the origin, of radii $r=e^{-2\pi(u+s)}$ and $R=e^{-2\pi u}$. The geometric action of $D_{B_{u+s}\subset B_u}(z)=\Delta_{B_u}^{-iz}\Delta_{B_{u+s}}^{iz}$ on each null coordinate $\ell_\pm=t\pm x$ is the fractional linear transformation represented by
+\begin{equation}
+ M_R(z)M_r(-z),\qquad
+ M_R(z)=
+ \begin{pmatrix}
+  \cosh(\pi z)&R\sinh(\pi z)\\
+  R^{-1}\sinh(\pi z)&\cosh(\pi z)
+ \end{pmatrix}.
+ \label{eq:concentric-characteristic}
+\end{equation}
+The primary-field transformation includes its conformal Jacobian. The unitary lift to the conformal covering group is fixed by the product of the modular groups and continuity from $z=0$.
+\end{theorem}
+\begin{proof}
+The vacuum modular flow of a double cone acts on $\ell_\pm$ as $(c\ell_\pm+R b)/(b\ell_\pm/R+c)$, with $c=\cosh(\pi z)$ and $b=\sinh(\pi z)$. Composing the outer flow with the reversed inner flow gives \eqref{eq:concentric-characteristic}.
+\end{proof}
+
+The matrix product avoids choosing a global logarithm of the conformal transformation. Its infinitesimal generator is $i(K_{B_u}-K_{B_{u+s}})$, as required by the modular-operator product.
+
+We now take $A=W(0)$ and a double cone $B$ with tips $(t_c\pm r,x_c)$, strictly contained in the wedge:
+\[
+ x_c-|t_c|>r.
+\]
+For a scalar primary of dimension $2h$, its modular flow is
+\begin{align}
+ \Delta_B^{-is}O(t,x)\Delta_B^{is}
+ &=\gamma^{2h}O(t_s,x_s),
+ \label{eq:ball-modular-flow}\\
+ t_s&=\gamma\left[(t-t_c)\cosh(2\pi s)
+       +\frac{r^2-d^2}{2r}\sinh(2\pi s)\right]+t_c,
+ \label{eq:ball-time}\\
+ x_s&=\gamma(x-x_c)+x_c,
+ \label{eq:ball-space}\\
+ \gamma&=\frac{2r^2}{r^2+d^2+(r^2-d^2)\cosh(2\pi s)
+                       +2r(t-t_c)\sinh(2\pi s)},
+ \label{eq:ball-conformal-factor}\\
+ d^2&=-(t-t_c)^2+(x-x_c)^2.
+ \label{eq:ball-distance}
+\end{align}
+For $(t,x)\in B$ and real $s$, $\gamma>0$ and the transformed point remains in $B$. Poles of this coordinate transformation in complex modular time can represent passage through conformal infinity rather than a singularity of the correlator.
+
+Take $X=(t_1,x_1)\in A$ and $Y=(t_2+t_c,x_2+x_c)\in B$, so that $x_1>|t_1|$ and $|t_2|+|x_2|<r$. Set
+\begin{equation}
+ d^2=x_2^2-t_2^2,\qquad D=r^2-d^2+2rt_2,\qquad
+ p_\pm=\frac{r^2+d^2\pm2rx_2}{D}>0,
+ \label{eq:ball-parameters}
+\end{equation}
+with $p_+p_-=(r^2-d^2-2rt_2)/D$. Writing $q=e^{2\pi z}$, the conformal factor and separations are
+\begin{align}
+ \gamma&=\frac{4r^2q}{D(q+p_+)(q+p_-)},
+ \label{eq:ball-gamma-factorized}\\
+ \Delta x+\Delta t&=-(x_1+t_1)q-(x_c+t_c)
+                       -r\frac{q-p_-}{q+p_-},
+ \label{eq:ball-separation-plus}\\
+ \Delta x-\Delta t&=-(x_1-t_1)q^{-1}-(x_c-t_c)
+                       +r\frac{q-p_+}{q+p_+},
+ \label{eq:ball-separation-minus}\\
+ F(z)&=C\left(\frac{\gamma}{\Delta s^2}\right)^{2h},
+ \qquad \Delta s^2=(\Delta x+\Delta t)(\Delta x-\Delta t).
+ \label{eq:ball-matrix-element}
+\end{align}
+At $z=0$, these expressions give the separation of the wedge-reflected $X$ and the original $Y$. The complex branch is fixed by continuation from real $z$, where $\gamma/\Delta s^2>0$.
+
+To display the cancellation of coordinate poles, define $\xi_\pm=x_1\pm t_1$, $c_\pm=x_c\pm t_c$, and
+\begin{align}
+ P_+(q)&=\xi_+q^2+(c_++r+\xi_+p_-)q+(c_+-r)p_-,
+ \label{eq:ball-polynomial-plus}\\
+ P_-(q)&=(c_--r)q^2+[\xi_-+(c_-+r)p_+]q+\xi_-p_+.
+ \label{eq:ball-polynomial-minus}
+\end{align}
+Then
+\begin{equation}
+ \frac{\Delta s^2}{\gamma}
+ =\frac{D\,P_+(q)P_-(q)}{4r^2q^2},\qquad
+ F(z)=C\left[\frac{4r^2q^2}{D\,P_+(q)P_-(q)}\right]^{2h}.
+ \label{eq:ball-invariant-denominator}
+\end{equation}
+The factors $q+p_\pm$ have canceled. A coordinate pole is therefore harmless unless the remaining invariant denominator also vanishes.
+
+\begin{lemma}[Ball-inside-wedge matrix elements]
+\label{lem:ball-matrix-element}
+Assume strict containment and insertions in the interiors of the regions, as above. Then $F$ is analytic and has no zeros in $|\operatorname{Im}z|<1/2$, and satisfies $F(\bar z)=\overline{F(z)}$. Its finite singularities are determined by the roots of $P_+P_-$. Each quadratic has two distinct negative real roots, giving generically four locations on each line $\operatorname{Im}z=n+1/2$. The local singularity at a root of multiplicity $m$ is a pole when $2hm$ is an integer and a branch point otherwise. For real modular time, $F(z)$ decays as $e^{-8\pi h|z|}$.
+\end{lemma}
+\begin{proof}
+All coefficients in \eqref{eq:ball-polynomial-plus}--\eqref{eq:ball-polynomial-minus} are positive. Their discriminants are
+\[
+ [\xi_+p_--(c_++r)]^2+8r\xi_+p_->0,
+ \qquad
+ [\xi_--(c_-+r)p_+]^2+8r\xi_-p_+>0.
+\]
+Thus both roots of each quadratic are real and negative. Roots of the different quadratics may coincide. Equation~\eqref{eq:ball-invariant-denominator} gives the remaining statements, including the absence of finite zeros and the decay at $q\to0,\infty$.
+\end{proof}
+
+The extra singularities compared with the wedge case arise from the fractional linear modular flow of the inner double cone. Their interpretation is again null separation, now in the conformal compactification. Continuation beyond the strip must keep track of the logarithmic branch and root multiplicities. In a general QFT, double-cone modular flow need not be geometric, so this explicit argument does not apply. This motivates the conformal perturbation theory of the next section.
+
+\subsection{Modular Chaos Bound}
+\label{subsec:modular-chaos-bound}
+
+We use the normalization of Section~\ref{sec:qft-setup} and consider the strip bound underlying modular chaos \cite{deBoerLamprou2020}:
+\begin{align}
+ f(z)&=\frac{\langle O_1|\Delta_A^{1/2+iz}\Delta_B^{-iz}|O_2\rangle}{N}
+ \nonumber\\
+ &=\frac{\langle\Delta_A^{1/4}O_1|
+          D_{B\subset A}(i/4-z)|\Delta_B^{1/4}O_2\rangle}{N}
+ =1+i\mathcal M(z).
+ \label{eq:normalized-characteristic}
+\end{align}
+Here $|\Delta_A^{1/4}O_1\rangle$ denotes $\Delta_A^{1/4}|O_1\rangle$, and similarly for $B$. The contraction property of $D_{B\subset A}$ gives $|f(z)|\leq1$ for $|\operatorname{Im}z|\leq1/4$, with analytic interior and continuous boundary values. Hence
+\begin{equation}
+ \operatorname{Im}\mathcal M(z)=1-\operatorname{Re}f(z)\geq0.
+ \label{eq:positive-imaginary-part}
+\end{equation}
+The map $E=ie^{-2\pi z}$ sends this strip conformally to the upper half-plane. For $E=v+iw$, Schwarz--Pick gives, whenever $\operatorname{Im}\mathcal M>0$,
+\begin{equation}
+ \left|w\partial_w\log\operatorname{Im}\mathcal M(E)\right|
+ \leq\frac{w|\partial_w\mathcal M(E)|}{\operatorname{Im}\mathcal M(E)}
+ \leq1.
+ \label{eq:exact-modular-chaos-bound}
+\end{equation}
+
+\begin{lemma}[Strictness of the normalized bound]
+\label{lem:strict-modular-chaos-bound}
+If $f=1+i\mathcal M$ is analytic and bounded by one on the upper half-plane, and $f\not\equiv1$, then $\operatorname{Im}\mathcal M>0$ and
+\begin{equation}
+ \left|w\partial_w\log\operatorname{Im}\mathcal M(v+iw)\right|<1
+ \qquad(w>0).
+ \label{eq:strict-modular-chaos-bound}
+\end{equation}
+The constant one is nevertheless sharp.
+\end{lemma}
+\begin{proof}
+The image of $\mathcal M=-i(f-1)$ lies in the closed disk of radius one centered at $i$. The only point of this disk on the real axis is zero; attaining it in the interior would force $f\equiv1$. Equality in the second Schwarz--Pick inequality in \eqref{eq:exact-modular-chaos-bound} would require a nonconstant automorphism of the upper half-plane, whose image cannot lie in this disk. Constant functions give a zero derivative. Sharpness follows, for example, from $f(E)=E/(E+i\eta)$, $\eta>0$: on $E=iw$, the left side is $w/(w+\eta)$, which approaches one as $\eta/w\to0$.
+\end{proof}
+
+On the real modular-time axis, $E=iw$ with $w=e^{-2\pi t}$, so the bound reads
+\[
+ \left|\partial_t\log[1-\operatorname{Re}f(t)]\right|<2\pi.
+\]
+For the real scalar-primary correlators above, a stronger form follows by applying Schwarz--Pick directly to the disk-valued function $f$:
+\begin{equation}
+ |\partial_t f(t)|\leq\pi[1-|f(t)|^2],\qquad
+ \left|\partial_t\log[1-f(t)]\right|\leq\pi[1+f(t)]<2\pi.
+ \label{eq:real-axis-modular-chaos-bound}
+\end{equation}
+Exact saturation is thus excluded for a finite nonzero deficit. A rate of $2\pi$ can be approached when the inclusion is weakly deformed and the amplified deformation remains small.
+
+\paragraph{Small geometric deformations.}
+For the wedge inclusion, choose identical insertions $X=Y=(0,x)$ with $x>a>0$. Equation~\eqref{eq:wedge-matrix-element}, with the quarter-modular normalization, gives
+\begin{equation}
+ f_a(t)=\left[
+ \frac{4x(x-a)}{(2x-a)^2+a^2+2a(2x-a)\cosh(2\pi t)}
+ \right]^{2h}.
+ \label{eq:normalized-small-wedge}
+\end{equation}
+For concentric double cones with both insertions at their common center, \eqref{eq:concentric-characteristic} similarly gives
+\begin{equation}
+ f_\kappa(t)=\left[
+ \frac{\kappa}{[1+(1-\kappa)\sinh^2(\pi t)]^2}
+ \right]^{2h},\qquad \kappa=\frac rR<1.
+ \label{eq:normalized-small-cones}
+\end{equation}
+In both cases, setting $\epsilon=a/x$ or $\epsilon=1-\kappa$, respectively, gives at fixed $t$
+\begin{equation}
+ f(t)=1-2h\epsilon\cosh(2\pi t)+O(\epsilon^2).
+ \label{eq:small-deformation-expansion}
+\end{equation}
+In the joint limit $t\to+\infty$, $\epsilon\to0$ with $\epsilon e^{2\pi t}\to0$, this becomes
+\begin{equation}
+ 1-f(t)=h\epsilon e^{2\pi t}
+ +O\!\left(\epsilon e^{-2\pi t}+\epsilon^2e^{4\pi t}\right).
+ \label{eq:asymptotic-saturation}
+\end{equation}
+The exact expressions show that $\partial_t\log[1-f(t)]\to2\pi$ in this regime. An analogous statement holds for large negative modular time.
+
+The physical mechanism is the exponential amplification of a small geometric displacement by boost or conformal modular flow. These examples approach the modular-chaos bound in a controlled limit, rather than saturating it at finite deformation. This amplification alone does not establish many-body scrambling or the K-system property. In particular, the spacelike wedge displacement and strict concentric double-cone inclusion considered here are not half-sided modular inclusions; null-shifted wedges or suitable shared-endpoint intervals supply that structure.
+
+\section{Subregion flows in conformal perturbation theory}\label{section:conformalperturbation}
+
+Wedge modular flow remains geometric in the vacuum of a relativistic QFT with the Bisognano--Wichmann property. For a ball, this geometric action generally fails away from a conformal fixed point. We compute its leading correction by perturbing a CFT with a Hermitian scalar primary $O_0$ of dimension $\Delta$. We work in $1+1$ dimensions and use
+\begin{equation}
+ \mathcal{L}_\lambda=\mathcal{L}_{\mathrm{CFT}}-\lambda O_0,
+ \qquad S_{E,\lambda}=S_{E,0}+\lambda\int d^2x_E\,O_0(x_E).
+ \label{eq:cpt-deformation}
+\end{equation}
+The Euclidean sign fixes the signs of both the modular-Hamiltonian and vacuum corrections below. We use a common regulated description of the theories, with a fixed identification of the external operators. We assume that the regulated density matrices are faithful and their first variations exist. Continuum formulas are conditional on a renormalized distributional extension of the ordered correlators and contact terms; its existence and infrared limit depend on the theory. The expansion is in regulated correlation functions at fixed modular time; it need not be uniform at large time or in the infinite-volume limit. We use $3/2<\Delta<2$ for the pointwise kernel formulas below; the joint geometric integral has the weaker condition $\Delta>1$, as explained after Lemma~\ref{lem:cpt-ball-flow}.
+
+\subsection{Perturbation of ball modular flow}
+
+Let $I=(-1,1)$ at $t=0$ and let $B$ be its causal development. In a regulated description, write $k_{B,\lambda}=-\log\rho_{B,\lambda}$ for the one-sided modular Hamiltonian. Its adjoint action on $\mathcal A(B)$ agrees with that of the full generator $K_{B,\lambda}=-\log\Delta_{B,\lambda}$. We distinguish these generators because only the full modular operator acts on the vacuum Hilbert space with $\Delta_{B,\lambda}|\Omega_\lambda\rangle=|\Omega_\lambda\rangle$.
+
+The first-order logarithmic variation is \cite{BalakrishnanParrikar2020}
+\begin{align}
+ \delta k_B&=\int_{-\infty+i\theta}^{\infty+i\theta}
+ \frac{2\pi\,du}{4\sinh^2(\pi u)}
+ e^{iu k_{B,0}}\rho_{B,0}^{-1}\delta\rho_B e^{-iu k_{B,0}},
+ \qquad 0<\theta<1,\nonumber\\
+ \rho_{B,0}^{-1}\delta\rho_B
+ &=-\lambda\int_{-1}^1dX\int_0^1d\tau\,
+ J(\tau,X)\Omega^\Delta(-i\tau,X)
+ e^{\tau k_{B,0}}O_0(0,X)e^{-\tau k_{B,0}}.
+ \label{eq:cpt-density-variation}
+\end{align}
+Here and below we suppress scalar terms from density-matrix normalization: they drop out of the adjoint flow. The contour and endpoint prescriptions are part of the distributional definition of the kernel.
+
+For real $u$, define $\beta_C^u=\operatorname{Ad}\Delta_{C,0}^{-iu}$, so $\beta_C^u=\sigma_C^{-u}$ with the convention \eqref{eq:modular-flow}. For an insertion at $(0,X)$ in the unit ball,
+\begin{gather}
+ \beta_B^u(O_0(0,X))=\Omega^{-\Delta}(u,X)O_0(t_u,x_u),\nonumber\\
+ t_u=\frac{(1-X^2)\sinh(2\pi u)}{2\Omega(u,X)},
+ \qquad x_u=\frac{X}{\Omega(u,X)},\nonumber\\
+ \Omega(u,X)=1+(1-X^2)\sinh^2(\pi u).
+ \label{eq:cpt-ball-flow}
+\end{gather}
+The positive Euclidean Jacobian is
+\begin{equation}
+ J(\tau,X)=\left|\det\frac{\partial(t_E,x_E)}{\partial(\tau,X)}\right|
+ =\frac{\pi(1-X^2)}{\Omega^2(-i\tau,X)},
+ \qquad \Omega(-i\tau,X)=1-(1-X^2)\sin^2(\pi\tau).
+ \label{eq:cpt-euclidean-jacobian}
+\end{equation}
+Thus $J$ is a Euclidean measure factor, rather than the Lorentzian determinant evaluated at complex time. Choosing $\theta=\tau$ in each insertion removes the Euclidean evolution from the operator and gives
+\begin{align}
+ \delta k_B&=\pi\lambda\int_{-1}^1dX\int_{\mathbb R}du\,
+ h(u,X)\beta_B^u(O_0(0,X)),\label{eq:deltaK}\\
+ h(u,X)&=-\frac{\pi(1-X^2)}{2}\int_0^1d\tau\,
+ \frac{\Omega^{\Delta-2}(-i\tau,X)}{\sinh^2(\pi(u+i\tau))}.
+ \label{eq:cpt-h-kernel}
+\end{align}
+
+The kernel contains a local term. With the same endpoint prescription,
+\begin{equation}
+ -\frac{\pi}{2}\int_0^1\frac{d\tau}{\sinh^2(\pi(u+i\tau))}=\delta(u),
+ \label{eq:cpt-delta-kernel}
+\end{equation}
+as an identity of distributions in $u$, not a pointwise identity. Accordingly,
+\begin{align}
+ h(u,X)&=(1-X^2)\bigl[\delta(u)+h_{\mathrm{reg}}(u,X)\bigr],\nonumber\\
+ h_{\mathrm{reg}}(u,X)&=-\frac{\pi}{2}\int_0^1d\tau\,
+ \frac{\Omega^{\Delta-2}(-i\tau,X)-1}{\sinh^2(\pi(u+i\tau))}.
+ \label{eq:cpt-regular-kernel}
+\end{align}
+The local contribution is $\pi\lambda\int_{-1}^1dX(1-X^2)O_0(0,X)$; the remaining term spreads the perturbation along the unperturbed modular orbit. At $\Delta=2$ this nonlocal kernel vanishes formally at first order. A dimension-two operator need not be exactly marginal, so this observation alone does not imply that the deformed theory is another CFT.
+
+Write $k_{B,\lambda}=k_{B,0}+\lambda k_B^{(1)}+O(\lambda^2)$ and introduce the interaction-picture flow
+\begin{equation}
+ u_{s,\lambda}=e^{-is k_{B,0}}e^{is k_{B,\lambda}}
+ =1+\lambda u_s^{(1)}+O(\lambda^2),
+ \qquad u_s^{(1)}=i\int_0^s dw\,\beta_B^{-w}(k_B^{(1)}).
+ \label{eq:cpt-interaction-flow}
+\end{equation}
+Duhamel's formula and a shift of the real modular integration variable give the following result.
+\begin{lemma}[Perturbed modular flow of the unit ball]
+\label{lem:cpt-ball-flow}
+For the regulated perturbation \eqref{eq:cpt-deformation}, and real $s$,
+\begin{align}
+ u_{s,\lambda}&=1+i\pi\lambda\int_{-1}^1dX\int_{\mathbb R}du\,
+ (1-X^2)Q(u,X;s)\Omega^{-\Delta}(u,X)O_0(t_u,x_u)
+ +O(\lambda^2),\label{eq:cpt-flow-correction}\\
+ Q(u,X;s)&=Q_{\mathrm{loc}}(u;s)+Q_{\mathrm{nonloc}}(u,X;s),\nonumber\\
+ Q_{\mathrm{loc}}(u;s)&=\int_0^s dw\,\delta(u+w),\nonumber\\
+ Q_{\mathrm{nonloc}}(u,X;s)&=-\frac{\pi}{2}\int_0^s dw\int_0^1d\tau\,
+ \frac{\Omega^{\Delta-2}(-i\tau,X)-1}{\sinh^2(\pi(u+w+i\tau))}.
+ \label{eq:cpt-Q-kernel}
+\end{align}
+For $s>0$, $Q_{\mathrm{loc}}=\mathbf 1_{(-s,0)}$; for $s<0$, it is $-\mathbf 1_{(0,-s)}$. For $3/2<\Delta<2$, integrating over $w$ yields
+\begin{align}
+ Q_{\mathrm{nonloc}}(u,X;s)
+ &=\frac12\int_0^1d\tau\,[\Omega^{\Delta-2}(-i\tau,X)-1]\nonumber\\
+ &\quad\times\bigl[\coth(\pi(u+s+i\tau))-\coth(\pi(u+i\tau))\bigr].
+ \label{eq:cpt-Q-coth}
+\end{align}
+The integrals retain their distributional prescription at the endpoints. The remainder is understood in regulated correlation functions at fixed $s$.
+\end{lemma}
+
+The subtraction in \eqref{eq:cpt-regular-kernel} removes the endpoint singularity associated with the local term. A separate issue occurs at $X=0$, $\tau=1/2$, where the Euclidean map reaches infinity and $\Omega$ vanishes. Locally,
+\[
+ \Omega(-i\tau,X)\simeq X^2+\pi^2(\tau-1/2)^2.
+\]
+The joint $(X,\tau)$ integral of $\Omega^{\Delta-2}$ is locally integrable for $\Delta>1$, whereas the $\tau$ integral at fixed $X=0$ requires $\Delta>3/2$. We use the latter range for the pointwise kernel formulas. These conditions do not replace the contact-term prescriptions needed when the kernel is inserted in a correlation function. For a ball of radius $r$, the expansion parameter is the dimensionless coupling $\lambda r^{2-\Delta}$.
+
+\paragraph{Almost-marginal relevant operators.}
+Let $\epsilon=2-\Delta>0$ be small. The leading nonlocal correction can be evaluated explicitly:
+\begin{align}
+ \Omega^{-\epsilon}(-i\tau,X)-1
+ &=-\epsilon\log\Omega(-i\tau,X)+O(\epsilon^2),\nonumber\\
+ -\log\Omega(-i\tau,X)&=\sum_{n\in\mathbb Z}a_n^{(1)}(X)e^{2\pi in\tau},\nonumber\\
+ a_0^{(1)}(X)&=-2\log\frac{1+|X|}{2},\nonumber\\
+ a_{n\ne0}^{(1)}(X)&=\frac1{|n|}
+ \left(-\frac{1-|X|}{1+|X|}\right)^{|n|}.
+ \label{eq:cpt-near-marginal-Fourier}
+\end{align}
+At $X=0$ the Fourier expansion is interpreted in the integrable sense. The expansion in $\epsilon$ is not pointwise uniform near $\Omega=0$, but its logarithmic coefficients are integrable. For $0\leq\epsilon\leq\epsilon_0<1/2$, an integrable bound by $\Omega^{-\epsilon_0}\log^2\Omega$ controls the remainder in the $\tau$ integral, including $X=0$.
+
+For real $v$, set
+\begin{equation}
+ L(v,X)=\log\left(\frac{1+|X|+(1-|X|)e^{-2\pi|v|}}{2}\right).
+\end{equation}
+Expanding $\coth$ on either side of $v=0$ and pairing its Fourier modes with \eqref{eq:cpt-near-marginal-Fourier} gives
+\begin{align}
+ &\int_0^1d\tau\,[\Omega^{-\epsilon}(-i\tau,X)-1]
+ \coth(\pi(v+i\tau))\nonumber\\
+ &\qquad=-2\epsilon\operatorname{sgn}(v)L(v,X)+O(\epsilon^2),\nonumber\\
+ Q_{\mathrm{nonloc}}(u,X;s)
+ &=-\epsilon\operatorname{sgn}(u+s)L(u+s,X)\nonumber\\
+ &\quad+\epsilon\operatorname{sgn}(u)L(u,X)+O(\epsilon^2).
+ \label{eq:cpt-near-marginal-Q}
+\end{align}
+This single expression covers all three real-time intervals and vanishes at $s=0$. In particular, the middle interval contains the product of the two logarithm arguments, each with its factor of $1/2$. The local term is unchanged. These real-time expressions, which contain absolute values and sign functions, are not formulas for direct substitution of complex $s$.
+
+\subsection{First-order correction to the characteristic matrix element}
+
+Let $B$ be the unit double cone and let $A$ be the right wedge with endpoint $(0,-x_w)$, with $x_w>1$. This guarantees $B\subset A$. Take fixed Hermitian scalar insertions $O_1(x)$ and $O_2(y)$ with $x\in A$, $y\in B$, understood as regulated or smeared fields. In the common perturbative description, write
+\begin{align}
+ F_\lambda(z)&=\langle O_1|\Delta_{A,\lambda}^{1/2}
+ D_{B\subset A,\lambda}(-z)|O_2\rangle_\lambda\nonumber\\
+ &=\langle O_1|\Delta_{A,\lambda}^{1/2+iz}
+ \Delta_{B,\lambda}^{-iz}|O_2\rangle_\lambda
+ =F_0(z)+\lambda F^{(1)}(z)+O(\lambda^2).
+ \label{eq:cpt-characteristic-expansion}
+\end{align}
+Here $D_{B\subset A,\lambda}(z)=\Delta_{A,\lambda}^{-iz}\Delta_{B,\lambda}^{iz}$, and $F_\lambda$ is the unnormalized matrix element. Even when both regions are wedges, only the spacetime action remains the same as in the CFT: the vacuum correlation function generally changes with $\lambda$.
+
+For real $t$, wedge modular conjugation sends $O_1(x)$ to its reflected operator $O_1(x_J)$, with any internal conjugation included. Since the wedge flow is geometric, Tomita's relation gives
+\begin{equation}
+ F_\lambda(t)=\langle\Omega_\lambda|
+ \beta_A^t(O_1(x_J))\,
+ \beta_B^t\bigl(u_{t,\lambda}O_2(y)u_{t,\lambda}^\dagger\bigr)
+ |\Omega_\lambda\rangle.
+ \label{eq:cpt-real-characteristic}
+\end{equation}
+We fix the perturbative identification so that the displayed wedge action and reflected external operator have no explicit coupling variation. Any additional external-operator counterterms must be included if a different identification is used.
+
+Choose normalized vacua with $\langle\Omega_0|\Omega^{(1)}\rangle=0$. The Euclidean preparation in \eqref{eq:cpt-deformation} gives
+\begin{align}
+ |\Omega_\lambda\rangle&=|\Omega_0\rangle+\lambda|\Omega^{(1)}\rangle+O(\lambda^2),\nonumber\\
+ |\Omega^{(1)}\rangle&=-\int_{\mathbb R}dX\int_{-\infty}^0d\tau\,
+ O_{0,c}(-i\tau,X)|\Omega_0\rangle,
+ \qquad O_{0,c}=O_0-\langle O_0\rangle_0.
+ \label{eq:cpt-vacuum-variation}
+\end{align}
+This is a regulated preparation formula; an infinite-volume derivative need not exist as a Hilbert-space vector. The vacuum subtraction accounts for normalization.
+
+Set $G_{12}(t)=\beta_A^t(O_1(x_J))\beta_B^t(O_2(y))$. There are three first-order contributions:
+\begin{align}
+ F^{(1)}(t)&=F^{(1)}_{\mathrm{flow}}(t)
+ +F^{(1)}_{\mathrm{bra}}(t)+F^{(1)}_{\mathrm{ket}}(t),\nonumber\\
+ F^{(1)}_{\mathrm{flow}}(t)
+ &=\langle\Omega_0|\beta_A^t(O_1(x_J))
+ \beta_B^t([u_t^{(1)},O_2(y)])|\Omega_0\rangle,\nonumber\\
+ F^{(1)}_{\mathrm{bra}}(t)&=\langle\Omega^{(1)}|G_{12}(t)|\Omega_0\rangle,\nonumber\\
+ F^{(1)}_{\mathrm{ket}}(t)&=\langle\Omega_0|G_{12}(t)|\Omega^{(1)}\rangle.
+ \label{eq:cpt-three-corrections}
+\end{align}
+Using invariance of the CFT vacuum under the full unperturbed modular flow, the flow term becomes
+\begin{align}
+ F^{(1)}_{\mathrm{flow}}(t)
+ &=i\pi\int_{-1}^1dX\int_{\mathbb R}du\,
+ (1-X^2)Q(u,X;t)\Omega^{-\Delta}(u,X)\nonumber\\
+ &\quad\times\langle\Omega_0|
+ (\beta_B^{-t}\circ\beta_A^t)(O_1(x_J))
+ [O_0(t_u,x_u),O_2(y)]|\Omega_0\rangle.
+ \label{eq:cpt-flow-three-point}
+\end{align}
+All three terms reduce to ordered CFT three-point functions, together with the required subtractions and contact terms. For scalar primaries their separated-point form is fixed up to CFT data:
+\begin{equation}
+ \langle O_1(x_1)O_2(x_2)O_3(x_3)\rangle_0
+ =\frac{C_{123}}
+ {(x_{12}^2)^{(\Delta_1+\Delta_2-\Delta_3)/2}
+  (x_{23}^2)^{(\Delta_2+\Delta_3-\Delta_1)/2}
+  (x_{31}^2)^{(\Delta_3+\Delta_1-\Delta_2)/2}}.
+ \label{eq:cpt-scalar-three-point}
+\end{equation}
+For the displayed Lorentzian ordering,
+\begin{equation}
+ x_{ij}^2=-(t_i-t_j-i(\epsilon_i-\epsilon_j))^2+(x_i-x_j)^2,
+ \qquad \epsilon_1>\epsilon_2>\epsilon_3\to0^+.
+\end{equation}
+The two terms in the commutator have their respective ordering prescriptions. Conformal Jacobians follow from the modular transformations in \eqref{eq:cpt-three-corrections} and \eqref{eq:cpt-flow-three-point}. The dimensions and $C_{123}$, as well as possible contact terms, depend on the CFT; the integrated correction is therefore not theory-independent.
+
+Microcausality restricts \eqref{eq:cpt-flow-three-point} to insertions $O_0$ that are causally related to $O_2$. Moving $O_2$ toward the entangling surface can reduce this region, suggesting a local boost approximation. Its volume alone does not bound the correction, since the kernel and correlator can become singular in the same limit. Section~\ref{section:approx} gives a separate nonperturbative estimate with specified localization and topology.
+
+Finally, normalize as in the preceding section:
+\begin{equation}
+ f_\lambda=\frac{F_\lambda}{N_\lambda},
+ \qquad f^{(1)}=\frac{F^{(1)}}{N_0}-\frac{F_0N^{(1)}}{N_0^2},
+ \qquad N^{(1)}=\left.\partial_\lambda N_\lambda\right|_{\lambda=0}.
+ \label{eq:cpt-normalized-correction}
+\end{equation}
+For each coupling, finite quarter-modular norms ensure that the exact $f_\lambda$ is analytic and bounded by one on the centered strip. Analyticity of its perturbative coefficient additionally requires differentiation locally uniformly in that strip. Null singularities of individual three-point integrands do not by themselves establish singularities of the integrated answer: contour pinches, ordering prescriptions, and renormalization must be analyzed. Smearing controls the external fields, but does not automatically remove every contact divergence. We therefore obtain the real-time first-order formula above without claiming an additional complex singularity classification.
+
+\section{Nonperturbative bounds on subregion flow of balls in QFT}\label{section:approx}
+
+We now compare subregion flows of large double cones with those of wedges. The physical idea is that a fixed local observable remains inside the large double cone for an increasingly long interval of wedge modular time. Fredenhagen's estimate \cite{fredenhagen} turns this geometric fact into a bound on time-averaged modular evolution. We first state a uniform estimate on localized vectors, then distinguish it from strong convergence on each fixed vector for an increasing exhaustion of a wedge.
+
+Work in a vacuum representation of a Poincar\'e-covariant local net, and assume the Bisognano--Wichmann property in addition to isotony and locality. The vacuum is cyclic and separating for the double-cone and wedge algebras used below. Wedge algebras are generated by their bounded subregions. These assumptions make both geometric wedge flow and modular convergence available; geometric modular action does not follow from the Haag--Kastler axioms alone.
+
+Let
+\begin{equation}
+ W_0=\{x:|x_0|<x_1\},\qquad
+ W_r=\{x:|x_0|<x_1-r\},\qquad r>0.
+\end{equation}
+If $T_r$ implements translation by $r$ along $x_1$, covariance and vacuum invariance give
+\begin{equation}
+ \mathcal A(W_r)=\operatorname{Ad}_{T_r}\mathcal A(W_0),
+ \qquad \Delta_{W_r}^{it}=T_r\Delta_{W_0}^{it}T_r^*.
+\end{equation}
+Write $B_{c,R}$ for the double cone whose $x_0=0$ section is the ball of radius $R$ centered at $(c,0,\ldots,0)$, with $c\geq R>0$. We use
+\begin{equation}
+ B_R:=B_{R,R},\qquad B_R^r:=T_r(B_R),\qquad
+ B_{e^{\pm2\pi s}R}:=B_{e^{\pm2\pi s}R,e^{\pm2\pi s}R}.
+ \label{eq:approx-ball-notation}
+\end{equation}
+Thus a dilation changes both the center and radius. The shrinking cones approach the wedge vertex, while the increasing family $B_{e^{2\pi s}R}$ exhausts $W_0$. A shrinking ball with its center fixed at $R$ would describe a different geometry.
+
+\subsection{Fredenhagen's estimate and an increasing-ball version}
+
+For a local operator $A$, abbreviate
+\begin{equation}
+ q(A)=\bigl(\|A\Omega\|^2+\|A^*\Omega\|^2\bigr)^{1/2}.
+\end{equation}
+Fredenhagen's approximation takes the following form \cite{fredenhagen}.
+\begin{theorem}
+For $f\in L^1(\mathbb R)$ and $s>0$, there is $c_f(s)\geq0$, with $c_f(s)\to0$ as $s\to\infty$, such that
+\begin{equation}
+ \left\|\int_{\mathbb R}dt\,f(t)
+ (\Delta_{B_R}^{-it}-\Delta_{W_0}^{-it})A\Omega\right\|^2
+ \leq c_f(s)q(A)^2,
+ \qquad A\in\mathcal A(B_{e^{-2\pi s}R}).
+\end{equation}
+\end{theorem}
+This is a Hilbert-space norm estimate for a modular-time average, not an operator-norm estimate or a pointwise-in-time bound. Shrinking the support toward the wedge vertex lengthens the interval during which its boosted images remain in $B_R$.
+
+The input to this estimate is the following resolvent bound.
+\begin{proposition}
+Let $\mathcal B\subset\mathcal A$ have a common cyclic and separating vector $\Omega$. If $O\in\mathcal B$ and
+\[
+ \Delta_\mathcal A^{it}O\Delta_\mathcal A^{-it}\in\mathcal B
+ \quad\text{for all }|t|<t_0,
+\]
+then
+\begin{equation}
+ \left\|\bigl[(1+\Delta_\mathcal A)^{-1}
+ -(1+\Delta_\mathcal B)^{-1}\bigr]O\Omega\right\|
+ \leq\eta(t_0)q(O),
+ \qquad \eta(t_0)=\frac2\pi\operatorname{arctanh}(e^{-\pi t_0}).
+ \label{eq:approx-resolvent}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Equip $\operatorname{Dom}S_\mathcal A$ with the Tomita graph norm and let $I$ be its inclusion into $\mathcal H$. The subspace $\operatorname{Dom}S_\mathcal B$ is closed in this graph norm; denote its orthogonal projection by $P_\mathcal B$. The graph-projection identity is
+\[
+ (1+\Delta_\mathcal A)^{-1}-(1+\Delta_\mathcal B)^{-1}
+ =I(1-P_\mathcal B)I^*.
+\]
+In the Mellin representation of the resolvent, the orbit assumption removes the part with $|t|<t_0$. The remaining modular orbit has graph norm $q(O)$, and $\|I\|\leq1$, giving
+\[
+ \left\|I(1-P_\mathcal B)I^*O\Omega\right\|
+ \leq\frac12\int_{|t|\geq t_0}\frac{dt}{|\sinh(\pi t)|}\,q(O)
+ =\eta(t_0)q(O).
+\]
+This is the resolvent argument of Fredenhagen; the graph identity and Mellin representation are also given in \cite[Section~3]{Hollands2019Edge}.
+\end{proof}
+
+For the remainder of the section the support stays fixed, while the containing ball grows.
+\begin{corollary}
+For $O\in\mathcal A(B_R)$,
+\begin{equation}
+ \left\|\bigl[(1+\Delta_{B_{e^{2\pi s}R}})^{-1}
+ -(1+\Delta_{W_0})^{-1}\bigr]O\Omega\right\|
+ \leq\eta(s)q(O).
+ \label{eq:approx-growing-resolvent}
+\end{equation}
+\end{corollary}
+\begin{proof}
+The wedge boost sends $B_R$ into $B_{e^{2\pi s}R}$ for $|t|<s$; the geometric inclusion is verified in Appendix~\ref{app:exhaustion}. Isotony gives the orbit condition in \eqref{eq:approx-resolvent}, with $\mathcal A=\mathcal A(W_0)$ and $\mathcal B=\mathcal A(B_{e^{2\pi s}R})$.
+\end{proof}
+
+Applying the same time-averaging argument to this orbit condition gives the required version of Fredenhagen's theorem.
+\begin{theorem}\label{theorem:modifiedfredenhagen}
+For $f\in L^1(\mathbb R)$ and $A\in\mathcal A(B_R)$, there is $c_f(s)\geq0$, tending to zero as $s\to\infty$, such that
+\begin{equation}
+ \left\|\int_{\mathbb R}dt\,f(t)
+ (\Delta_{B_{e^{2\pi s}R}}^{-it}-\Delta_{W_0}^{-it})A\Omega\right\|^2
+ \leq c_f(s)q(A)^2.
+ \label{eq:approx-growing-flow}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The proof of the time-averaged estimate uses the modular orbit condition and its resolvent bound. These hold here by the preceding corollary, and $\eta(s)\to0$. Approximation of $f$ in $L^1$ extends the estimate from smooth test functions to all $L^1$ smearings \cite{fredenhagen}.
+\end{proof}
+Increasing the ambient region suppresses the error for fixed localized vectors and fixed time smearing. This expresses a local boost approximation without assuming a conformal symmetry of the QFT.
+
+\subsection{A double cone inside a wedge}\label{subsection:coneinsidewedge}
+
+Set $B_s^r=B_{e^{2\pi s}R}^r$ and compare
+\begin{equation}
+ D_{B_s^r\subset W_0}(t)=\Delta_{W_0}^{-it}\Delta_{B_s^r}^{it},
+ \qquad D_{W_r\subset W_0}(t)=\Delta_{W_0}^{-it}\Delta_{W_r}^{it}.
+\end{equation}
+The characteristic operator is a contraction analytic on $0<\operatorname{Im}z<1/2$, with strongly continuous unitary boundary values. Its wedge limit is explicitly geometric, as in Section~\ref{sec:geometric-subregion-flows}.
+
+To obtain a uniform localized bound after multiplication by the outer wedge flow, introduce the spectral family of $L=\log\Delta_{W_0}=-K_{W_0}$:
+\begin{equation}
+ \Delta_{W_0}^{it}=\int_{\mathbb R}e^{i\mu t}\,dE(\mu),
+ \qquad E(\mu)=\mathbf1_{(-\infty,\mu]}(L),
+ \qquad F(\mu_0)=E(\mu_0)-E(-\mu_0).
+ \label{eq:approx-spectral-cutoff}
+\end{equation}
+Thus $F(\mu_0)$ projects onto $(-\mu_0,\mu_0]$. The spectrum of $L$ is not restricted to nonnegative values.
+
+\begin{theorem}\label{theorem:mainresult}
+Let $f,tf\in L^1(\mathbb R)$, $\mu_0>0$, and $A\in\mathcal A(B_R^r)$. Then
+\begin{equation}
+ \left\|F(\mu_0)\int_{\mathbb R}dt\,f(t)
+ [D_{B_s^r\subset W_0}(t)-D_{W_r\subset W_0}(t)]A\Omega\right\|^2
+ \leq b_f(\mu_0,s)q(A)^2,
+ \label{eq:approx-characteristic-bound}
+\end{equation}
+where $b_f(\mu_0,s)\to0$ for each fixed $f$ and $\mu_0$ as $s\to\infty$. The assumptions include Schwartz functions and compactly supported bounded functions.
+\end{theorem}
+
+\begin{lemma}\label{lemma:extensionfredenhagen}
+For $g\in L^1(\mathbb R)$ and $A\in\mathcal A(B_R^r)$,
+\begin{equation}
+ \left\|\int_{\mathbb R}dt\,g(t)
+ (\Delta_{B_s^r}^{it}-\Delta_{W_r}^{it})A\Omega\right\|^2
+ \leq\widetilde c_g(s)q(A)^2,
+ \qquad \widetilde c_g(s)\longrightarrow0.
+ \label{eq:approx-translated-flow}
+\end{equation}
+The constants can be chosen so that $\widetilde c_g(s)^{1/2}\leq2\|g\|_1$ and their convergence is uniform on compact subsets of $L^1(\mathbb R)$.
+\end{lemma}
+\begin{proof}
+Translate $A$ back to $\mathcal A(B_R)$ and use
+\[
+ \Delta_{B_s^r}^{it}=T_r\Delta_{B_{e^{2\pi s}R}}^{it}T_r^*,
+ \qquad T_r\Omega=\Omega.
+\]
+Translation preserves both terms in $q(A)$. Replacing $t$ by $-t$ in \eqref{eq:approx-growing-flow} supplies the positive-exponent estimate, with the reflected smearing $g(-t)$.
+
+Choose $\widetilde c_g(s)^{1/2}$ to be the optimal bound on the ratio of the norm in \eqref{eq:approx-translated-flow} to $q(A)$. Unitarity gives, for these bounds $a_s(g)$,
+\[
+ a_s(g)\leq2\|g\|_1,
+ \qquad |a_s(g)-a_s(h)|\leq2\|g-h\|_1.
+\]
+Pointwise convergence and a finite $L^1$ cover of a compact family then give uniform convergence on that family.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{theorem:mainresult}]
+Write $V_s(t)=\Delta_{B_s^r}^{it}-\Delta_{W_r}^{it}$ and $f_\mu(t)=e^{-i\mu t}f(t)$. Spectral integration by parts, including both endpoint terms, gives
+\begin{equation}
+ F(\mu_0)e^{-itL}
+ =e^{-i\mu_0t}E(\mu_0)-e^{i\mu_0t}E(-\mu_0)
+ +it\int_{-\mu_0}^{\mu_0}d\mu\,e^{-i\mu t}E(\mu).
+ \label{eq:approx-spectral-parts}
+\end{equation}
+Since $\|V_s(t)\|\leq2$ and $f,tf\in L^1$, the resulting ordinary $t$ and $\mu$ integrals are absolutely bounded in norm. Fubini's theorem therefore applies without a formal interchange of two noncommuting spectral measures. Using \eqref{eq:approx-translated-flow},
+\begin{align}
+ &\left\|F(\mu_0)\int_{\mathbb R}dt\,f(t)e^{-itL}V_s(t)A\Omega\right\|
+ \leq B_f(\mu_0,s)q(A),\nonumber\\
+ B_f(\mu_0,s)
+ &=\widetilde c_{f_{\mu_0}}(s)^{1/2}
+ +\widetilde c_{f_{-\mu_0}}(s)^{1/2}
+ +\int_{-\mu_0}^{\mu_0}d\mu\,\widetilde c_{tf_\mu}(s)^{1/2}.
+ \label{eq:approx-bound-amplitude}
+\end{align}
+The families $\{f_\mu\}$ and $\{tf_\mu\}$ with $|\mu|\leq\mu_0$ are compact in $L^1$, by continuity in $\mu$. The lemma implies $B_f\to0$, and the squared-norm constant in \eqref{eq:approx-characteristic-bound} is $b_f=B_f^2$.
+\end{proof}
+
+For the qualitative limit on a fixed vector, a spectral cutoff is unnecessary. Indeed, the increasing algebras satisfy
+\begin{equation}
+ \bigvee_{s>0}\mathcal A(B_s^r)=\mathcal A(W_r).
+\end{equation}
+The modular convergence theorem for increasing algebras with a common cyclic and separating vector gives $\Delta_{B_s^r}^{it}\to\Delta_{W_r}^{it}$ strongly \cite{revolutionizing,takesaki2}; we recall the fixed-vacuum argument in Appendix~\ref{app:exhaustion}. Consequently, for every $\psi\in\mathcal H$ and $f\in L^1(\mathbb R)$,
+\begin{equation}
+ \lim_{s\to\infty}\left\|\int_{\mathbb R}dt\,f(t)
+ [D_{B_s^r\subset W_0}(t)-D_{W_r\subset W_0}(t)]\psi\right\|=0.
+ \label{eq:approx-uncut-wedge-limit}
+\end{equation}
+Unitarity supplies the dominating bound $2|f(t)|\|\psi\|$. This strong limit gives no rate uniform over all vectors; the preceding theorem supplies uniform control on the specified localized vectors after the spectral cutoff. Its constants need not give an explicit decay rate; the two statements differ in their uniformity and allowed vectors.
+
+\subsection{A double cone inside a double cone}\label{subsection:coneinsidecone}
+
+Let $B_{s,u}=B_{e^{2\pi(s+u)}R}$ and retain $B_s^r=B_{e^{2\pi s}R}^r$. The inclusion diagram is
+\begin{equation}
+ \begin{tikzcd}[column sep=huge,row sep=large]
+ B_s^r\arrow[r,"\subset"]\arrow[d,"\subset"]
+ &B_{s,u}\arrow[d,"\subset"]\\
+ W_r\arrow[r,"\subset"]&W_0.
+ \end{tikzcd}
+\end{equation}
+For these balls, strict containment is ensured by
+\begin{equation}
+ e^{2\pi(s+u)}R>e^{2\pi s}R+\frac r2.
+ \label{eq:approx-ball-containment}
+\end{equation}
+This follows by comparing the center separation with the difference of radii. The stronger condition with $r$ in place of $r/2$ also suffices.
+
+We compare
+\begin{equation}
+ D_{B_s^r\subset B_{s,u}}(t)=\Delta_{B_{s,u}}^{-it}\Delta_{B_s^r}^{it}
+ \quad\text{with}\quad D_{W_r\subset W_0}(t).
+\end{equation}
+
+\begin{theorem}\label{theorem:ballinsideball}
+Under the assumptions of this section, for every $\psi\in\mathcal H$ and
+$f\in L^1(\mathbb R)$,
+\begin{equation}
+ \lim_{\substack{s\to\infty,\ s+u\to\infty\\ B_s^r\subset B_{s,u}}}
+ \left\|\int_{\mathbb R}dt\,f(t)
+ [D_{B_s^r\subset B_{s,u}}(t)-D_{W_r\subset W_0}(t)]\psi\right\|=0.
+ \label{eq:approx-ball-ball-limit}
+\end{equation}
+Thus both radii tend to infinity while the inclusion is maintained. In particular,
+the iterated limit $u\to\infty$ followed by $s\to\infty$ holds.
+\end{theorem}
+\begin{proof}
+Split the difference as
+\begin{align}
+ D_{B_s^r\subset B_{s,u}}(t)-D_{W_r\subset W_0}(t)
+ &=(\Delta_{B_{s,u}}^{-it}-\Delta_{W_0}^{-it})\Delta_{W_r}^{it}\nonumber\\
+ &\quad+\Delta_{B_{s,u}}^{-it}
+ (\Delta_{B_s^r}^{it}-\Delta_{W_r}^{it}).
+\end{align}
+As their radii increase, the two families exhaust $W_0$ and $W_r$, respectively.
+Modular strong convergence applies to the fixed vector $\Delta_{W_r}^{it}\psi$
+in the first term and to $\psi$ in the second. The prefactor in the second term
+is unitary. The norm of the total difference is bounded by $2\|\psi\|$,
+so $2|f(t)|\|\psi\|$ gives an integrable bound for dominated convergence.
+\end{proof}
+This states the large-ball approximation on each fixed vector, without an
+operator-norm limit or a rate uniform over the Hilbert-space unit ball.
+
+\section{Discussion}\label{sec:discussion}
+
+Subsystem flows compare intrinsic and ambient modular dynamics without requiring
+a geometric modular Hamiltonian for the smaller region. The vacuum wedge result
+makes this comparison explicit: composing two boosts gives a translation whose
+time and spatial displacements depend on modular time. In CFT, the same reasoning
+uses conformal transformations of double cones. The analytic matrix elements
+then reflect both the geometric motion and the vacuum correlations of the theory.
+The CFT power singularities and the massive free-scalar logarithms illustrate
+why a universal operator strip does not fix the singularities of every correlator.
+
+Conformal perturbation theory and the large-region bounds give complementary
+extensions beyond exact geometric examples. The perturbation identifies the
+leading local and nonlocal terms at fixed modular time, together with the vacuum
+variation. The nonperturbative argument gives a localized time-averaged estimate
+and a separate strong limit as double cones exhaust wedges. Neither result
+supplies an operator-norm approximation on the full Hilbert-space unit ball.
+Obtaining an explicit rate for broader classes of states, and controlling the
+complex-time continuation of renormalized perturbative coefficients, remain
+separate problems.
+
+An additional direction is to use the imaginary modular displacement as a spectral
+filter. Under $L^2$-nuclearity, $T=D(i/4)$ is trace-class
+\cite{buchholz2007nuclearity}, so a vacuum-subtracted form factor can be defined by
+\begin{equation}
+ \mathcal K_{AB}(t)=\left|
+ \frac{\operatorname{Tr}[T^\dagger D(t+i/4)]-1}
+ {\operatorname{Tr}[T^\dagger T]-1}
+ \right|^2,
+ \label{eq:outlook-form-factor}
+\end{equation}
+when the denominator is positive. The subtraction removes the common normalized
+vacuum contribution. The identity
+$D(t+i/4)=e^{itK_A}T e^{-itK_B}$ makes the numerator a Hilbert--Schmidt
+autocorrelation of the excited part of $T$, and hence a probe of relative modular
+frequencies. This is a proposed diagnostic; no ramp, plateau, or universal
+spectral-statistics claim is needed for the results of this paper. Analytic
+boundedness alone does not ensure trace convergence, and checking the summability
+condition for the QFT inclusions under study is part of this future analysis.
+
+The characteristic operator therefore provides a common object for comparing
+exact spacetime motion, perturbative nonlocality, and controlled large-region
+limits. Its interpretation depends on the inclusion and on the matrix elements
+being probed, while the modular strip supplies a common analytic constraint.
+
+\section*{Acknowledgements}
+We thank Roberto Longo, Karl-Hermann Neeb, and Shoy Ouseph for discussions.
+
+\appendix
+\section{Increasing double cones and modular convergence}\label{app:exhaustion}
+
+\subsection{The geometric orbit condition}
+
+Let $B_R$ have tips $(\pm R,R,0,\ldots,0)$ and define null coordinates
+$u=x_1+x_0$, $v=x_1-x_0$. A point is in $B_R$ precisely when it lies to the
+future of the past tip and the past of the future tip. Equivalently,
+\begin{equation}
+ u>0,\quad v>0,\qquad
+ |x_\perp|^2<v(2R-u),\qquad
+ |x_\perp|^2<u(2R-v).
+ \label{eq:app-cone-null}
+\end{equation}
+A boost of rapidity $\lambda$ sends $u$ to $e^\lambda u$ and $v$ to
+$e^{-\lambda}v$. If $R'>Re^{|\lambda|}$, then
+\begin{align}
+ v'(2R'-u')&=v(2R'e^{-\lambda}-u)>v(2R-u),\nonumber\\
+ u'(2R'-v')&=u(2R'e^{\lambda}-v)>u(2R-v).
+\end{align}
+The transverse coordinates are unchanged, so the boosted cone is contained in
+$B_{R'}$. Taking $R'=e^{2\pi s}R$ gives the orbit condition for $|t|<s$ used
+in Section~\ref{section:approx}. No dilation symmetry of the QFT is assumed:
+the radii describe a family of regions, while the evolution is the wedge boost.
+
+The family $B_R$ increases with $R$ and exhausts $W_0$. Indeed, each fixed point
+with $u,v>0$ satisfies \eqref{eq:app-cone-null} once $R$ is sufficiently large.
+Every bounded subregion with compact closure inside the wedge is eventually
+contained in a member of this family. Translation gives the corresponding
+exhaustion of $W_r$ by $B_R^r$.
+
+\subsection{Fixed-vacuum modular convergence}
+
+We recall the increasing-algebra argument underlying the strong limits in the
+main text \cite{revolutionizing,takesaki2}. Let $\mathcal M_n$ be increasing,
+$\bigvee_n\mathcal M_n=\mathcal M$, and let $\Omega$ be cyclic and separating
+for every algebra involved. The Tomita operators satisfy $S_n\subset S_{n+1}
+\subset S$. Kaplansky density supplies strong-$*$ approximants from the union
+of the smaller algebras. Thus for $a\in\mathcal M$, both $a_n\Omega\to a\Omega$
+and $a_n^*\Omega\to a^*\Omega$, so $\bigcup_n\operatorname{Dom}S_n$ is a graph
+core for $S$.
+
+Give $\operatorname{Dom}S$ its graph Hilbert norm and let $I$ denote its inclusion
+into $\mathcal H$. Let $P_n$ be the graph-orthogonal projection onto
+$\operatorname{Dom}S_n$. The graph core property gives $P_n\to1$ strongly, and
+\begin{equation}
+ (1+\Delta_n)^{-1}=IP_nI^*\longrightarrow II^*=(1+\Delta)^{-1}.
+ \label{eq:app-modular-resolvent-limit}
+\end{equation}
+Hence $\Delta_n\to\Delta$ in the strong resolvent sense. Since the modular
+operators have no kernel, functional calculus for their logarithms gives
+\begin{equation}
+ \Delta_n^{it}\psi\longrightarrow\Delta^{it}\psi,
+ \qquad \psi\in\mathcal H,
+ \label{eq:app-modular-unitary-limit}
+\end{equation}
+uniformly for $t$ in compact real intervals. Applied to the translated cones,
+the limiting algebra is $\mathcal A(W_r)$ by the wedge-generation assumption.
+Products of the convergent unitaries converge strongly on each fixed vector,
+and the bound $2|f(t)|\|\psi\|$ permits the time integrals in
+\eqref{eq:approx-uncut-wedge-limit} and \eqref{eq:approx-ball-ball-limit}.
+The argument uses a fixed vacuum and an increasing family of algebras; it makes
+no claim about arbitrary choices of representing vectors for varying states.
+
+\section{Distributional kernels in conformal perturbation theory}\label{app:cpt-kernels}
+
+\subsection{The local term}
+
+The delta function in \eqref{eq:cpt-delta-kernel} comes from the endpoints of the
+imaginary-time integral. With $\varepsilon>0$,
+\begin{equation}
+ -\frac{\pi}{2}\int_\varepsilon^{1-\varepsilon}
+ \frac{d\tau}{\sinh^2\pi(u+i\tau)}
+ =-\frac{i}{2}\bigl[\coth\pi(u-i\varepsilon)
+                    -\coth\pi(u+i\varepsilon)\bigr].
+\end{equation}
+Near $u=0$, $\coth\pi u$ has singular part $1/(\pi u)$. The boundary-value
+identity $1/(u-i0)-1/(u+i0)=2\pi i\delta(u)$ therefore gives the delta function
+as $\varepsilon\to0$. Away from $u=0$ the endpoint difference vanishes.
+This fixes the local contribution and its sign. Contact terms in a correlator
+require the compatible ordered distributional prescription stated in
+Section~\ref{section:conformalperturbation}.
+
+\subsection{The almost-marginal Fourier coefficients}
+
+Let $x=|X|$ and $q_X=(1-x)/(1+x)$. The Euclidean conformal factor has the
+factorization
+\begin{equation}
+ \Omega(-i\tau,X)=\cos^2\pi\tau+X^2\sin^2\pi\tau
+ =\frac{(1+x)^2}{4}
+ (1+q_Xe^{2\pi i\tau})(1+q_Xe^{-2\pi i\tau}).
+\end{equation}
+For $0<x\leq1$, expanding the two logarithms gives the coefficients in
+\eqref{eq:cpt-near-marginal-Fourier}. At $x=0$, the same formula is understood
+in the integrable sense, since the logarithmic singularity at $\tau=1/2$ is
+integrable. For $v>0$,
+\begin{equation}
+ \coth\pi(v+i\tau)=1+2\sum_{n\geq1}e^{-2\pi nv}e^{-2\pi in\tau}.
+\end{equation}
+Pairing these modes with $-\log\Omega$ gives
+\begin{equation}
+ \int_0^1d\tau\,[-\log\Omega(-i\tau,X)]\coth\pi(v+i\tau)
+ =-2\log\frac{1+x+(1-x)e^{-2\pi v}}{2}.
+\end{equation}
+The analogous expansion for $v<0$ reverses the sign and replaces $v$ by $|v|$.
+This yields \eqref{eq:cpt-near-marginal-Q}; at $v=0$ the symmetric endpoint
+prescription fixes the boundary value. The integrable remainder estimate in
+the main text controls the expansion for $0\leq\epsilon\leq\epsilon_0<1/2$.
+
+\bibliographystyle{unsrt}
+\bibliography{modularscattering}
+\end{document}
